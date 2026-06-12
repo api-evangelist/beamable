@@ -1,0 +1,129 @@
+specificationVersion: "0.1"
+id: beamable-plans-pricing
+name: Beamable Plans and Pricing
+description: >
+  Beamable offers subscription-based pricing tiers for game studios ranging from
+  a free trial to enterprise plans, priced primarily on monthly API calls, monthly
+  active users (MAU), and the number of microservices allowed. All standard plans
+  include unlimited developer seats with no long-term contracts required.
+url: https://beamable.com/pricing
+created: "2026-06-12"
+modified: "2026-06-12"
+plans:
+  - name: Free Trial
+    description: >
+      Full-access 90-day free trial of the Beamable platform with no credit card
+      required. Includes access to the LiveOps portal, Unity/Unreal/Web SDKs,
+      C# microservices, and self-service support.
+    price: 0
+    priceCurrency: USD
+    billingPeriod: monthly
+    features:
+      - Full LiveOps portal access
+      - Unity, Unreal, and Web SDKs
+      - C# server-side microservices
+      - Self-service support
+      - 90-day trial duration
+    limits:
+      apiCalls: null
+      mau: null
+      microservices: null
+      developerSeats: unlimited
+  - name: Developer
+    description: >
+      Entry-level paid plan for indie developers and small studios shipping their
+      first live game. Includes 12.5 million API calls per month and supports up
+      to 1,000 monthly active users across 3 microservices.
+    price: 125
+    priceCurrency: USD
+    billingPeriod: monthly
+    features:
+      - Unlimited developer seats
+      - LiveOps portal access
+      - Unity, Unreal, and Web SDKs
+      - Self-service support
+      - No long-term contract required
+    limits:
+      apiCalls: 12500000
+      mau: 1000
+      microservices: 3
+      developerSeats: unlimited
+    overages:
+      additionalApiCalls: "$100 per 10M API calls"
+      additionalMicroservices: "$20/month each"
+      bandwidthPerCall: "10KB per API call"
+  - name: Studio
+    description: >
+      Mid-tier plan for growing studios managing live games with larger player
+      populations. Includes 59.5 million API calls per month and supports up to
+      30,000 monthly active users across 10 microservices.
+    price: 595
+    priceCurrency: USD
+    billingPeriod: monthly
+    features:
+      - Unlimited developer seats
+      - LiveOps portal access
+      - Unity, Unreal, and Web SDKs
+      - Priority support access
+      - No long-term contract required
+    limits:
+      apiCalls: 59500000
+      mau: 30000
+      microservices: 10
+      developerSeats: unlimited
+    overages:
+      additionalApiCalls: "$100 per 10M API calls"
+      additionalMicroservices: "$20/month each"
+      bandwidthPerCall: "10KB per API call"
+  - name: Pro
+    description: >
+      Professional plan for established studios operating high-traffic live games.
+      Includes 189.5 million API calls per month and supports up to 100,000
+      monthly active users across 25 microservices.
+    price: 1895
+    priceCurrency: USD
+    billingPeriod: monthly
+    features:
+      - Unlimited developer seats
+      - LiveOps portal access
+      - Unity, Unreal, and Web SDKs
+      - Enhanced support
+      - No long-term contract required
+    limits:
+      apiCalls: 189500000
+      mau: 100000
+      microservices: 25
+      developerSeats: unlimited
+    overages:
+      additionalApiCalls: "$100 per 10M API calls"
+      additionalMicroservices: "$20/month each"
+      bandwidthPerCall: "10KB per API call"
+  - name: Enterprise
+    description: >
+      Custom enterprise plan for large studios and publishers with high-volume
+      traffic and complex operational requirements. Includes 350 million or more
+      API calls per month, unlimited monthly active users, and 75 or more
+      microservices. Reserve pricing, API call rollover, and volume discounts
+      are available for games exceeding 200 million monthly API calls.
+    price: 3500
+    priceCurrency: USD
+    billingPeriod: monthly
+    priceNote: "Starting at $3,500/month; custom pricing based on usage"
+    features:
+      - Unlimited developer seats
+      - Unlimited MAU
+      - Custom reporting access
+      - Dedicated support
+      - SLA guarantees
+      - Reserve pricing available
+      - API call rollover
+      - Volume discounts for 200M+ API calls/month
+    limits:
+      apiCalls: 350000000
+      mau: unlimited
+      microservices: 75
+      developerSeats: unlimited
+    overages:
+      additionalApiCalls: "$10 per 1M API calls at scale"
+      additionalMicroservices: "$20/month each"
+      bandwidthPerCall: "10KB per API call"

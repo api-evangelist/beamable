@@ -1,0 +1,189 @@
+specificationVersion: "1.0"
+id: beamable-finops
+name: Beamable FinOps Framework
+description: >
+  FinOps cost management profile for Beamable game backend services, aligned
+  with the FinOps Foundation FOCUS specification. Beamable uses a consumption-
+  based billing model where the primary cost drivers are monthly API call volume,
+  monthly active users (MAU), and the number of deployed microservices. Storage
+  and bandwidth are not charged separately. Cost optimization levers include
+  plan right-sizing, API call efficiency, microservice consolidation, and
+  reserve pricing for high-volume games.
+url: https://beamable.com/pricing
+created: "2026-06-12"
+modified: "2026-06-12"
+provider: Beamable
+currency: USD
+billingModel: subscription-plus-consumption
+focusVersion: "1.0"
+costCategories:
+  - id: subscription-base
+    name: Subscription Base Fee
+    description: >
+      Fixed monthly subscription fee for the selected plan tier. Covers the
+      included API call quota, MAU capacity, and microservice slots. Billed
+      monthly with no long-term contract required for standard plans.
+    chargePeriod: monthly
+    chargeType: recurring
+    tiers:
+      - plan: Developer
+        unitPrice: 125
+        unit: month
+        includedApiCalls: 12500000
+        includedMAU: 1000
+        includedMicroservices: 3
+      - plan: Studio
+        unitPrice: 595
+        unit: month
+        includedApiCalls: 59500000
+        includedMAU: 30000
+        includedMicroservices: 10
+      - plan: Pro
+        unitPrice: 1895
+        unit: month
+        includedApiCalls: 189500000
+        includedMAU: 100000
+        includedMicroservices: 25
+      - plan: Enterprise
+        unitPrice: 3500
+        unit: month
+        priceNote: "Starting price; custom negotiated"
+        includedApiCalls: 350000000
+        includedMAU: unlimited
+        includedMicroservices: 75
+
+  - id: api-call-overage
+    name: API Call Overage
+    description: >
+      Variable charge for API calls exceeding the monthly plan quota. Standard
+      overage rate is $100 per 10 million additional calls. Enterprise-tier
+      and high-volume games (200M+ calls/month) qualify for reduced rates of
+      $10 per 1 million calls with reserve pricing and rollover options.
+    chargePeriod: monthly
+    chargeType: consumption
+    pricingModel: tiered-overage
+    tiers:
+      - name: Standard Overage
+        unitPrice: 100
+        unit: per 10M API calls
+        applicablePlans:
+          - Developer
+          - Studio
+          - Pro
+      - name: Enterprise Scale Overage
+        unitPrice: 10
+        unit: per 1M API calls
+        applicablePlans:
+          - Enterprise
+        minimumVolume: 200000000
+        notes: "Reserve pricing and API call rollover available"
+
+  - id: microservice-addon
+    name: Additional Microservice Slots
+    description: >
+      On-demand add-on for teams requiring more deployed microservices than
+      their base plan includes. Each additional microservice slot is billed
+      at $20 per month regardless of plan tier.
+    chargePeriod: monthly
+    chargeType: consumption
+    unitPrice: 20
+    unit: per microservice per month
+    applicablePlans:
+      - Developer
+      - Studio
+      - Pro
+      - Enterprise
+
+  - id: reporting-addon
+    name: Custom Reporting Add-On
+    description: >
+      Optional custom reporting and analytics access available at the Reporting
+      tier ($300/month) or higher. Enables advanced player analytics, audience
+      segmentation, and A/B testing dashboard access beyond standard metrics.
+    chargePeriod: monthly
+    chargeType: addon
+    unitPrice: 300
+    unit: month
+    applicablePlans:
+      - Enterprise
+
+costOptimization:
+  - name: Right-Size Plan Selection
+    description: >
+      Select the plan tier that most closely matches expected monthly API call
+      volume and MAU. Upgrading to the next tier is more cost-effective than
+      paying per-call overages once consistent overage usage exceeds the
+      incremental plan cost.
+    category: plan-selection
+    impact: high
+
+  - name: API Call Efficiency
+    description: >
+      Reduce API call volume by batching requests where possible, caching
+      frequently accessed data client-side, and using Beamable's content
+      management system for static data rather than runtime API calls.
+      Each call has a 10KB bandwidth limit, so efficient payloads reduce
+      both call count and latency.
+    category: consumption-reduction
+    impact: high
+
+  - name: Microservice Consolidation
+    description: >
+      Consolidate related game logic into fewer microservices to avoid
+      additional $20/month per-slot charges. Evaluate whether standalone
+      services can share a microservice host without sacrificing maintainability.
+    category: resource-optimization
+    impact: medium
+
+  - name: Reserve Pricing for High-Volume Games
+    description: >
+      Games consuming more than 200 million API calls per month should
+      negotiate Enterprise reserve pricing to reduce the effective per-call
+      cost from $10 per 10M (standard) to $10 per 1M (enterprise scale),
+      and to take advantage of API call rollover to smooth monthly variance.
+    category: commitment-discounts
+    impact: high
+    threshold: 200000000
+    unit: api-calls-per-month
+
+  - name: Monitor MAU Growth
+    description: >
+      Track monthly active user counts relative to plan MAU limits. MAU
+      approaching the plan ceiling signals time to upgrade; significant
+      headroom indicates potential for right-sizing to a lower tier.
+    category: monitoring
+    impact: medium
+
+  - name: Eliminate Storage and Bandwidth Overages
+    description: >
+      Beamable does not charge separately for storage or bandwidth, making
+      these non-factors in FinOps analysis. Focus cost management efforts
+      on API call volume and microservice count instead.
+    category: cost-avoidance
+    impact: low
+    notes: "No storage or bandwidth charges on any Beamable plan"
+
+allocation:
+  - dimension: plan-tier
+    description: Allocate costs by subscription plan tier across studio projects
+  - dimension: api-call-volume
+    description: Attribute overage costs to specific game titles or services generating excess calls
+  - dimension: microservice-count
+    description: Assign add-on microservice costs to the teams or features consuming them
+  - dimension: mau
+    description: >
+      Track MAU consumption per game to project tier upgrade timing and
+      forecast infrastructure cost scaling
+
+forecasting:
+  notes: >
+    Beamable costs scale primarily with game player engagement (MAU) and backend
+    activity (API calls). Budget models should account for launch spikes,
+    seasonal events (live ops), and viral growth scenarios that can rapidly
+    drive API call volume beyond plan quotas. Reserve pricing negotiations
+    should begin when monthly API call forecasts consistently exceed 150M calls.
+  keyDrivers:
+    - Monthly Active Users (MAU)
+    - Monthly API Call Volume
+    - Number of Deployed Microservices
+    - Live Event Frequency (drives burst API traffic)

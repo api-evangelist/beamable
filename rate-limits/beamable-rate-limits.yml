@@ -1,0 +1,148 @@
+specificationVersion: "0.1"
+id: beamable-rate-limits
+name: Beamable Rate Limits
+description: >
+  Beamable applies usage-based rate limits tied to subscription plan tiers rather
+  than per-second throttling. Monthly API call quotas are the primary constraint,
+  with each call subject to a 10KB bandwidth limit per request. Overage billing
+  applies when monthly quotas are exceeded. Microservice concurrency and MAU caps
+  are also enforced per plan. No storage or bandwidth overage fees are charged.
+url: https://beamable.com/pricing
+created: "2026-06-12"
+modified: "2026-06-12"
+rateLimits:
+  - name: Monthly API Call Quota - Developer
+    description: >
+      Developer plan allows up to 12.5 million API calls per calendar month.
+      Calls exceeding this limit are billed as overage at $100 per 10 million
+      additional calls.
+    plan: Developer
+    scope: monthly
+    limit: 12500000
+    unit: api-calls
+    period: month
+    overageRate: "$100 per 10M additional API calls"
+  - name: Monthly API Call Quota - Studio
+    description: >
+      Studio plan allows up to 59.5 million API calls per calendar month.
+      Calls exceeding this limit are billed as overage at $100 per 10 million
+      additional calls.
+    plan: Studio
+    scope: monthly
+    limit: 59500000
+    unit: api-calls
+    period: month
+    overageRate: "$100 per 10M additional API calls"
+  - name: Monthly API Call Quota - Pro
+    description: >
+      Pro plan allows up to 189.5 million API calls per calendar month.
+      Calls exceeding this limit are billed as overage at $100 per 10 million
+      additional calls.
+    plan: Pro
+    scope: monthly
+    limit: 189500000
+    unit: api-calls
+    period: month
+    overageRate: "$100 per 10M additional API calls"
+  - name: Monthly API Call Quota - Enterprise
+    description: >
+      Enterprise plan includes 350 million or more API calls per month with
+      custom overage rates. Games exceeding 200 million calls per month are
+      eligible for reserve pricing and rollover at $10 per 1 million calls.
+    plan: Enterprise
+    scope: monthly
+    limit: 350000000
+    unit: api-calls
+    period: month
+    overageRate: "$10 per 1M additional API calls (at scale)"
+  - name: API Call Bandwidth Limit
+    description: >
+      Each individual API call is subject to a maximum payload size of 10KB.
+      This applies across all plans and both request and response bodies.
+    plan: All Plans
+    scope: per-request
+    limit: 10
+    unit: KB
+    period: per-call
+  - name: MAU Limit - Developer
+    description: >
+      Developer plan supports up to 1,000 monthly active users (MAU). MAU is
+      defined as a unique player who makes at least one authenticated API call
+      within the billing month.
+    plan: Developer
+    scope: monthly
+    limit: 1000
+    unit: monthly-active-users
+    period: month
+  - name: MAU Limit - Studio
+    description: >
+      Studio plan supports up to 30,000 monthly active users (MAU).
+    plan: Studio
+    scope: monthly
+    limit: 30000
+    unit: monthly-active-users
+    period: month
+  - name: MAU Limit - Pro
+    description: >
+      Pro plan supports up to 100,000 monthly active users (MAU).
+    plan: Pro
+    scope: monthly
+    limit: 100000
+    unit: monthly-active-users
+    period: month
+  - name: MAU Limit - Enterprise
+    description: >
+      Enterprise plan supports unlimited monthly active users (MAU) with
+      custom volume pricing.
+    plan: Enterprise
+    scope: monthly
+    limit: unlimited
+    unit: monthly-active-users
+    period: month
+  - name: Microservice Limit - Developer
+    description: >
+      Developer plan supports up to 3 deployed microservices. Additional
+      microservices can be purchased at $20 per microservice per month.
+    plan: Developer
+    scope: account
+    limit: 3
+    unit: microservices
+    overageRate: "$20 per additional microservice per month"
+  - name: Microservice Limit - Studio
+    description: >
+      Studio plan supports up to 10 deployed microservices. Additional
+      microservices can be purchased at $20 per microservice per month.
+    plan: Studio
+    scope: account
+    limit: 10
+    unit: microservices
+    overageRate: "$20 per additional microservice per month"
+  - name: Microservice Limit - Pro
+    description: >
+      Pro plan supports up to 25 deployed microservices. Additional
+      microservices can be purchased at $20 per microservice per month.
+    plan: Pro
+    scope: account
+    limit: 25
+    unit: microservices
+    overageRate: "$20 per additional microservice per month"
+  - name: Microservice Limit - Enterprise
+    description: >
+      Enterprise plan supports 75 or more deployed microservices with custom
+      pricing for additional capacity.
+    plan: Enterprise
+    scope: account
+    limit: 75
+    unit: microservices
+    overageRate: "Custom pricing"
+  - name: Platform Uptime SLA
+    description: >
+      Beamable targets 99.9% platform availability backed by AWS infrastructure.
+      Scheduled maintenance is announced at least 24 hours in advance via
+      Discord and social media channels.
+    plan: All Plans
+    scope: platform
+    target: "99.9%"
+    unit: uptime
+    period: monthly
+    statusPage: https://beamable.github.io/status/
