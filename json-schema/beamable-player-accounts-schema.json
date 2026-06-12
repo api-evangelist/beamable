@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://beamable.com/api/schemas/player-accounts",
+  "title": "Beamable Player Accounts Schemas",
+  "description": "JSON Schema definitions for Beamable player authentication and account management",
+  "definitions": {
+    "TokenResponse": {
+      "properties": {
+        "access_token": {
+          "type": "string"
+        },
+        "expires_in": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "refresh_token": {
+          "type": "string"
+        },
+        "scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "token_type": {
+          "type": "string"
+        },
+        "challenge_token": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "title": "Token Response",
+      "type": "object",
+      "required": [
+        "expires_in",
+        "token_type"
+      ]
+    },
+    "GetTokenRequest": {
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "title": "Get Token Request",
+      "type": "object",
+      "required": [
+        "token"
+      ]
+    },
+    "ListTokenResponseItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "device": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "token",
+        "platform",
+        "device",
+        "created"
+      ]
+    }
+  }
+}

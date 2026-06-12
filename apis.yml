@@ -48,6 +48,8 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.beamable.com/docs/beamable-overview
+      - type: OpenAPI
+        url: openapi/beamable-player-accounts-openapi.yml
   - aid: beamable:game-economy
     name: Beamable Game Economy API
     description: >
@@ -85,6 +87,8 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.beamable.com/docs/beamable-overview
+      - type: OpenAPI
+        url: openapi/beamable-leaderboards-openapi.yml
   - aid: beamable:live-events
     name: Beamable Live Events API
     description: >
@@ -102,6 +106,8 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.beamable.com/docs/beamable-overview
+      - type: OpenAPI
+        url: openapi/beamable-live-events-openapi.yml
   - aid: beamable:microservices
     name: Beamable Microservices API
     description: >
@@ -121,6 +127,8 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.beamable.com/docs/beamable-overview
+      - type: OpenAPI
+        url: openapi/beamable-microservices-openapi.yml
 common:
   - type: Website
     url: https://beamable.com/
@@ -138,6 +146,14 @@ common:
     url: https://beamable.github.io/status/
   - type: X
     url: https://twitter.com/Beamable
+  - type: BlogRSS
+    url: https://beamable.com/feed/
+  - type: BlogPosts
+    url: blogs/blogs.json
+  - type: Vocabulary
+    url: vocabulary/beamable-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/beamable-context.jsonld
   - type: Plans
     url: plans/beamable-plans-pricing.yml
   - type: RateLimits

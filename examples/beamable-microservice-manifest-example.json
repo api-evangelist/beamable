@@ -1,0 +1,39 @@
+{
+  "title": "Beamable Microservice Manifest Query Example",
+  "description": "Example request and response for retrieving the current deployed microservice manifest for a Beamable realm.",
+  "api": "beamable:microservices",
+  "endpoint": "GET /basic/beamo/manifest/current",
+  "request": {
+    "headers": {
+      "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "X-DE-GAMEID": "YOUR_CID.YOUR_PID"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "manifest-v3",
+      "created": 1700000000,
+      "comments": "Deployed via Beamable CLI",
+      "manifest": [
+        {
+          "serviceName": "MyMatchmakingService",
+          "imageId": "beamable/my-matchmaking:1.2.0",
+          "enabled": true,
+          "templateId": "small",
+          "components": [],
+          "dependencies": []
+        },
+        {
+          "serviceName": "MyLeaderboardService",
+          "imageId": "beamable/my-leaderboard:1.0.4",
+          "enabled": true,
+          "templateId": "small",
+          "components": [],
+          "dependencies": []
+        }
+      ]
+    }
+  },
+  "notes": "Returns the currently deployed manifest for all custom microservices in the realm. The templateId controls the compute size allocated to each service."
+}

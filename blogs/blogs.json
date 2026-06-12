@@ -1,0 +1,69 @@
+{
+  "name": "Beamable Blog",
+  "description": "Official Beamable blog covering game backend development, SDK releases, LiveOps, and platform updates.",
+  "url": "https://beamable.com/category/blog",
+  "rss": "https://beamable.com/feed/",
+  "fetched": "2026-06-12",
+  "posts": [
+    {
+      "title": "Mobile Monetization: the Old Playbook is Caving",
+      "url": "https://beamable.com/blog/mobile-monetization-the-old-playbook-is-caving",
+      "description": "Mobile gaming is an $82 billion market that grew less than inflation last year. The broader mobile economy surged 10% while Gaming managed 1.3%. In real purchasing-power terms, that's not growth.",
+      "published": "2026-03-05"
+    },
+    {
+      "title": "Beamable at GDC 2026: Pulling back the Curtain",
+      "url": "https://beamable.com/blog/beamable-at-gdc-2026-pulling-back-the-curtain",
+      "description": "Beamable is heading to San Francisco as part of the Skillz family following the February acquisition. The combined teams are developing a comprehensive solution for game developers.",
+      "published": "2026-02-24"
+    },
+    {
+      "title": "Unity SDK 5.0: Stability and Unity 6.3 LTS",
+      "url": "https://beamable.com/blog/unity-sdk-5-0-stability-and-unity-6-3-lts",
+      "description": "Version 5.0 emphasizes stability and support, including Dotnet 10 compatibility, Unity 6.3 engine support, and Beamable CLI 7.0, plus bug fixes and quality improvements.",
+      "published": "2026-02-19"
+    },
+    {
+      "title": "Beamable at D.I.C.E. 2026",
+      "url": "https://beamable.com/blog/beamable-at-d-i-c-e-2026",
+      "description": "Following Skillz's acquisition of Beamable's technology, leadership will attend D.I.C.E. 2026 to discuss game development and present their backend toolkit for implementing meta-game features.",
+      "published": "2026-02-06"
+    },
+    {
+      "title": "Beamable's Technology Acquired by Skillz in Strategic Acquisition",
+      "url": "https://beamable.com/blog/beamables-technology-acquired-by-skillz-in-strategic-acquisition",
+      "description": "Beamable's technology has been acquired by Skillz, the leading skill-based competition platform in mobile games and the first mobile esports company listed on the NYSE.",
+      "published": "2026-02-04"
+    },
+    {
+      "title": "Best Backend for Cross-Platform Development: Why Studios Choose Beamable",
+      "url": "https://beamable.com/blog/best-backend-for-cross-platform-development-why-studios-choose-beamable",
+      "description": "Beamable enables studios to connect players across mobile, PC, and console through one unified backend, managing identity, data, and live-ops in a single system.",
+      "published": "2025-11-21"
+    },
+    {
+      "title": "Hello, Beamable Venus",
+      "url": "https://beamable.com/blog/hello-beamable-venus",
+      "description": "Beamable Venus is the next flagship release, marking a significant step in delivering developer-focused game tooling with major improvements across microservices and capabilities.",
+      "published": "2025-11-19"
+    },
+    {
+      "title": "Best Backend for Multiplayer Games: Why Developers Build Faster with Beamable",
+      "url": "https://beamable.com/blog/best-backend-for-multiplayer-games-why-developers-build-faster-with-beamable",
+      "description": "Beamable powers real-time, social, and competitive multiplayer experiences without requiring developers to manage servers or infrastructure, simplifying backend development.",
+      "published": "2025-11-14"
+    },
+    {
+      "title": "The Next Era of Beamable Is Coming: Introducing Beamable Venus",
+      "url": "https://beamable.com/blog/the-next-era-of-beamable-is-coming-introducing-beamable-venus",
+      "description": "Beamable Venus, arriving later in November 2025, includes upgrades for building, launching, and scaling live games faster across Unity, Unreal, and Web platforms.",
+      "published": "2025-11-12"
+    },
+    {
+      "title": "Best Backend for Web3 Games: Why Developers Choose Beamable",
+      "url": "https://beamable.com/blog/best-backend-for-web3-games-why-developers-choose-beamable",
+      "description": "Beamable enables developers to integrate blockchain features including digital ownership and authentication while maintaining the simplicity of a modern game backend.",
+      "published": "2025-11-07"
+    }
+  ]
+}

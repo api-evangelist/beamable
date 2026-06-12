@@ -1,0 +1,211 @@
+vocabulary:
+  name: Beamable API Vocabulary
+  description: >
+    Common terms, concepts, and properties used across the Beamable game backend platform APIs.
+    Covers player identity, microservices, realm management, and live events domains.
+  version: "1.0"
+  created: "2026-06-12"
+  source: https://docs.beamable.com/docs/beamable-overview
+
+terms:
+  - term: cid
+    label: Customer ID
+    type: string
+    description: >
+      Unique identifier for a Beamable customer account (game studio or developer organization).
+    domain: Identity
+
+  - term: pid
+    label: Project ID
+    type: string
+    description: >
+      Unique identifier for a Beamable project (a specific game or environment such as dev/staging/prod).
+    domain: Realm Management
+
+  - term: gamerTag
+    label: Gamer Tag
+    type: integer
+    description: >
+      Numeric identifier for a player within a Beamable realm. Used to reference player accounts
+      in game economy, leaderboard, and event endpoints.
+    domain: Player Accounts
+
+  - term: accountId
+    label: Account ID
+    type: integer
+    description: >
+      Internal identifier for a Beamable player account. Used in authentication and account
+      management operations.
+    domain: Player Accounts
+
+  - term: token
+    label: Access Token
+    type: string
+    description: >
+      Bearer token issued by Beamable auth endpoints. Used to authenticate API requests on behalf
+      of a player or server context.
+    domain: Authentication
+
+  - term: refresh_token
+    label: Refresh Token
+    type: string
+    description: >
+      Long-lived token used to obtain a new access token without re-authenticating.
+    domain: Authentication
+
+  - term: scope
+    label: OAuth Scope
+    type: string
+    description: >
+      Permission scope associated with an access token, controlling which API endpoints can be
+      called with that token.
+    domain: Authentication
+
+  - term: third_party
+    label: Third Party Provider
+    type: string
+    description: >
+      External identity provider used for federated authentication (e.g., facebook, google, apple, steam).
+    domain: Authentication
+
+  - term: platform
+    label: Platform
+    type: string
+    description: >
+      Game platform identifier (e.g., unity, unreal, web) associated with the SDK or client context.
+    domain: Player Accounts
+
+  - term: device_id
+    label: Device ID
+    type: string
+    description: >
+      Unique identifier for the player's device, used for guest account creation and device-based
+      frictionless login.
+    domain: Player Accounts
+
+  - term: manifest
+    label: Microservice Manifest
+    type: object
+    description: >
+      Deployment manifest describing a set of Beamable microservices and their configuration,
+      used to deploy or query the current state of custom backend services.
+    domain: Microservices
+
+  - term: routingKey
+    label: Routing Key
+    type: string
+    description: >
+      Identifier used to route requests to specific microservice instances or federated service
+      implementations.
+    domain: Microservices
+
+  - term: serviceName
+    label: Service Name
+    type: string
+    description: >
+      Name of a Beamable custom microservice or built-in backend service.
+    domain: Microservices
+
+  - term: federation
+    label: Federation
+    type: object
+    description: >
+      Configuration for federated identity or inventory providers, allowing third-party systems
+      to plug into Beamable player accounts or item management.
+    domain: Microservices
+
+  - term: imageId
+    label: Image ID
+    type: string
+    description: >
+      Docker image identifier for a Beamable microservice container deployment.
+    domain: Microservices
+
+  - term: realmSecret
+    label: Realm Secret
+    type: string
+    description: >
+      Secret credential associated with a Beamable realm, used for server-side signed requests.
+    domain: Realm Management
+
+  - term: alias
+    label: Realm Alias
+    type: string
+    description: >
+      Human-readable alias for a Beamable customer or project, used in API routing and portal
+      identification.
+    domain: Realm Management
+
+  - term: projectName
+    label: Project Name
+    type: string
+    description: >
+      Display name for a Beamable game project or environment (realm).
+    domain: Realm Management
+
+  - term: objectId
+    label: Object ID
+    type: string
+    description: >
+      Player-scoped object identifier used in object-style Beamable endpoints that operate on
+      per-player data (e.g., event-players/{objectId}).
+    domain: Live Events
+
+  - term: eventId
+    label: Event ID
+    type: string
+    description: >
+      Unique identifier for a Beamable live event definition.
+    domain: Live Events
+
+  - term: score
+    label: Event Score
+    type: number
+    description: >
+      Numeric score submitted by a player for a live event or leaderboard entry.
+    domain: Live Events
+
+  - term: contentId
+    label: Content ID
+    type: string
+    description: >
+      Unique identifier for a Beamable content object (item, currency, store entry, or event
+      definition) managed through the content management system.
+    domain: Game Economy
+
+  - term: currency
+    label: Currency
+    type: string
+    description: >
+      Virtual currency type identifier used in game economy transactions (e.g., coins, gems).
+    domain: Game Economy
+
+  - term: entitlement
+    label: Entitlement
+    type: object
+    description: >
+      Reward or grant that a player is eligible to claim, often associated with completing
+      event milestones or purchase verification.
+    domain: Live Events
+
+  - term: pageSize
+    label: Page Size
+    type: integer
+    description: >
+      Number of results to return per page in paginated API responses.
+    domain: Common
+
+  - term: page
+    label: Page
+    type: integer
+    description: >
+      Zero-based page index for paginated API responses.
+    domain: Common
+
+  - term: context
+    label: Request Context
+    type: object
+    description: >
+      Contextual metadata attached to API requests, including realm identifiers and caller
+      information for multi-realm deployments.
+    domain: Common

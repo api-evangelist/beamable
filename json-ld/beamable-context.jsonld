@@ -1,0 +1,139 @@
+{
+  "@context": {
+    "@vocab": "https://beamable.com/api/vocab#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "beamable": "https://beamable.com/api/vocab#",
+
+    "CustomerID": "beamable:CustomerID",
+    "ProjectID": "beamable:ProjectID",
+    "GamerTag": "beamable:GamerTag",
+    "AccountID": "beamable:AccountID",
+
+    "cid": {
+      "@id": "beamable:cid",
+      "@type": "xsd:string"
+    },
+    "pid": {
+      "@id": "beamable:pid",
+      "@type": "xsd:string"
+    },
+    "gamerTag": {
+      "@id": "beamable:gamerTag",
+      "@type": "xsd:integer"
+    },
+    "accountId": {
+      "@id": "beamable:accountId",
+      "@type": "xsd:integer"
+    },
+
+    "token": {
+      "@id": "beamable:accessToken",
+      "@type": "xsd:string"
+    },
+    "refresh_token": {
+      "@id": "beamable:refreshToken",
+      "@type": "xsd:string"
+    },
+    "scope": {
+      "@id": "beamable:tokenScope",
+      "@type": "xsd:string"
+    },
+    "third_party": {
+      "@id": "beamable:identityProvider",
+      "@type": "xsd:string"
+    },
+    "device_id": {
+      "@id": "beamable:deviceId",
+      "@type": "xsd:string"
+    },
+    "platform": {
+      "@id": "beamable:platform",
+      "@type": "xsd:string"
+    },
+    "username": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+
+    "manifest": {
+      "@id": "beamable:serviceManifest",
+      "@type": "@id"
+    },
+    "serviceName": {
+      "@id": "beamable:serviceName",
+      "@type": "xsd:string"
+    },
+    "routingKey": {
+      "@id": "beamable:routingKey",
+      "@type": "xsd:string"
+    },
+    "imageId": {
+      "@id": "beamable:imageId",
+      "@type": "xsd:string"
+    },
+    "federation": {
+      "@id": "beamable:federation",
+      "@type": "@id"
+    },
+
+    "alias": {
+      "@id": "beamable:realmAlias",
+      "@type": "xsd:string"
+    },
+    "projectName": {
+      "@id": "beamable:projectName",
+      "@type": "xsd:string"
+    },
+    "realmSecret": {
+      "@id": "beamable:realmSecret",
+      "@type": "xsd:string"
+    },
+
+    "objectId": {
+      "@id": "beamable:objectId",
+      "@type": "xsd:string"
+    },
+    "eventId": {
+      "@id": "beamable:eventId",
+      "@type": "xsd:string"
+    },
+    "score": {
+      "@id": "beamable:eventScore",
+      "@type": "xsd:decimal"
+    },
+    "entitlement": {
+      "@id": "beamable:entitlement",
+      "@type": "@id"
+    },
+
+    "contentId": {
+      "@id": "beamable:contentId",
+      "@type": "xsd:string"
+    },
+    "currency": {
+      "@id": "beamable:virtualCurrency",
+      "@type": "xsd:string"
+    },
+
+    "pageSize": {
+      "@id": "schema:pageSize",
+      "@type": "xsd:integer"
+    },
+    "page": {
+      "@id": "schema:pagination",
+      "@type": "xsd:integer"
+    },
+    "context": {
+      "@id": "beamable:requestContext",
+      "@type": "@id"
+    },
+
+    "PlayerAccount": "beamable:PlayerAccount",
+    "Microservice": "beamable:Microservice",
+    "Realm": "beamable:Realm",
+    "LiveEvent": "beamable:LiveEvent",
+    "GameEconomy": "beamable:GameEconomy",
+    "AccessToken": "beamable:AccessToken"
+  }
+}

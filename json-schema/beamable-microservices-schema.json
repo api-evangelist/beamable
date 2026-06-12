@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://beamable.com/api/schemas/microservices",
+  "title": "Beamable Microservices Schemas",
+  "description": "JSON Schema definitions for Beamable microservice deployment and management",
+  "definitions": {
+    "GetManifestsResponse": {
+      "properties": {
+        "manifests": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ManifestView"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "title": "Get Manifests Response",
+      "type": "object",
+      "required": [
+        "manifests"
+      ]
+    },
+    "SupportedFederation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/FederationType"
+        },
+        "nameSpace": {
+          "type": "string"
+        },
+        "settings": {
+          "$ref": "#/components/schemas/OptionalJsonNodeWrapper"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "CommonResponse": {
+      "properties": {
+        "result": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "title": "Common Response",
+      "type": "object",
+      "required": [
+        "result",
+        "data"
+      ]
+    }
+  }
+}

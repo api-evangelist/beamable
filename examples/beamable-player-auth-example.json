@@ -1,0 +1,30 @@
+{
+  "title": "Beamable Player Authentication Example",
+  "description": "Example request and response for obtaining a player access token via the Beamable auth API.",
+  "api": "beamable:player-accounts",
+  "endpoint": "POST /basic/auth/token",
+  "request": {
+    "headers": {
+      "Content-Type": "application/json",
+      "X-DE-GAMEID": "YOUR_CID.YOUR_PID"
+    },
+    "body": {
+      "grant_type": "guest",
+      "device_id": "device-abc123",
+      "client_id": "YOUR_CID"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "token_type": "Bearer",
+      "expires_in": 3600,
+      "refresh_token": "rt_abc123def456",
+      "scope": "offline_access",
+      "gamerTag": 1234567890,
+      "account_id": 1234567890
+    }
+  },
+  "notes": "Guest login creates a new anonymous player account. The returned gamerTag is the player's persistent identifier within the realm."
+}
