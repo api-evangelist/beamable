@@ -1,0 +1,805 @@
+"""
+Beamable GraphQL Schema
+Game backend platform for LiveOps — player identity, economy, leaderboards,
+live events, cloud save, groups, and microservices.
+"""
+
+# ─── Scalars ──────────────────────────────────────────────────────────────────
+
+scalar DateTime
+scalar JSON
+scalar Long
+
+# ─── Enums ────────────────────────────────────────────────────────────────────
+
+enum PlayerStatusType {
+  ACTIVE
+  BANNED
+  SUSPENDED
+  INACTIVE
+}
+
+enum CurrencyType {
+  SOFT
+  HARD
+  PREMIUM
+}
+
+enum ContentStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum TournamentStageStatus {
+  PENDING
+  ACTIVE
+  COMPLETED
+  CANCELLED
+}
+
+enum GroupMemberRole {
+  LEADER
+  OFFICER
+  MEMBER
+}
+
+enum MailStatus {
+  UNREAD
+  READ
+  DELETED
+}
+
+enum PromotionStatus {
+  SCHEDULED
+  ACTIVE
+  EXPIRED
+}
+
+enum EventStatus {
+  UPCOMING
+  ACTIVE
+  ENDED
+}
+
+enum AuthProvider {
+  GUEST
+  EMAIL
+  FACEBOOK
+  GOOGLE
+  APPLE
+  STEAM
+  CUSTOM
+}
+
+# ─── Player Domain ─────────────────────────────────────────────────────────────
+
+"""A registered player in the Beamable platform."""
+type Player {
+  id: ID!
+  alias: String
+  details: PlayerDetails
+  status: PlayerStatus
+  inventory: PlayerInventory
+  stats: Stats
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""Extended profile information for a player."""
+type PlayerDetails {
+  playerId: ID!
+  displayName: String
+  email: String
+  country: String
+  language: String
+  avatarUrl: String
+  externalIds: [String]
+  authProvider: AuthProvider
+  lastLoginAt: DateTime
+  customData: JSON
+}
+
+"""Runtime status flags for a player account."""
+type PlayerStatus {
+  playerId: ID!
+  statusType: PlayerStatusType!
+  banReason: String
+  banExpiresAt: DateTime
+  isOnline: Boolean!
+  lastSeenAt: DateTime
+}
+
+"""A player's full inventory snapshot."""
+type PlayerInventory {
+  playerId: ID!
+  currencies: [CurrencyAmount!]!
+  items: [Item!]!
+  updatedAt: DateTime!
+}
+
+# ─── Currency Domain ───────────────────────────────────────────────────────────
+
+"""A currency definition managed in the Beamable content system."""
+type Currency {
+  id: ID!
+  symbol: String!
+  details: CurrencyDetails
+  content: CurrencyContent
+  type: CurrencyType!
+}
+
+"""Descriptive metadata for a currency."""
+type CurrencyDetails {
+  currencyId: ID!
+  displayName: String!
+  description: String
+  iconUrl: String
+  maxBalance: Long
+  initialBalance: Long
+}
+
+"""A quantity of a specific currency held by a player."""
+type CurrencyAmount {
+  currency: Currency!
+  amount: Long!
+}
+
+"""Virtual currency alias used in content manifests."""
+type VirtualCurrency {
+  id: ID!
+  symbol: String!
+  startingAmount: Long
+  properties: JSON
+}
+
+"""Content-system representation of a currency definition."""
+type CurrencyContent {
+  contentId: String!
+  version: String
+  tags: [String]
+  properties: JSON
+}
+
+# ─── Item / Content Domain ─────────────────────────────────────────────────────
+
+"""A content item definition in the Beamable content management system."""
+type ContentItem {
+  id: ID!
+  contentType: ContentType
+  details: ContentDetails
+  status: ContentStatus!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""Metadata describing a content item."""
+type ContentDetails {
+  contentId: String!
+  displayName: String
+  description: String
+  iconUrl: String
+  tags: [String]
+  properties: JSON
+}
+
+"""The category/type classification of a content item."""
+type ContentType {
+  name: String!
+  namespace: String
+  schema: JSON
+}
+
+"""A concrete item instance in a player's inventory."""
+type Item {
+  id: ID!
+  contentId: String!
+  details: ItemDetails
+  content: ItemContent
+  quantity: Int!
+  acquiredAt: DateTime
+  properties: JSON
+}
+
+"""Per-instance metadata for an inventory item."""
+type ItemDetails {
+  itemId: ID!
+  displayName: String
+  description: String
+  iconUrl: String
+  rarity: String
+  stackable: Boolean!
+  maxStack: Int
+}
+
+"""Content-system definition that backs an inventory item type."""
+type ItemContent {
+  contentId: String!
+  version: String
+  tags: [String]
+  properties: JSON
+}
+
+# ─── Leaderboard Domain ────────────────────────────────────────────────────────
+
+"""A leaderboard definition."""
+type LeaderBoard {
+  id: ID!
+  details: LeaderBoardDetails
+  rankings: [Ranking!]!
+  playerRank: Ranking
+}
+
+"""Configuration and metadata for a leaderboard."""
+type LeaderBoardDetails {
+  leaderboardId: ID!
+  displayName: String!
+  description: String
+  maxEntries: Int
+  resetSchedule: String
+  partitioned: Boolean!
+  friendsOnly: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""A single ranked entry on a leaderboard."""
+type Ranking {
+  rank: Int!
+  player: Player!
+  score: Score!
+  entry: Entry!
+}
+
+"""The numeric score associated with a leaderboard entry."""
+type Score {
+  value: Long!
+  columns: JSON
+  updatedAt: DateTime!
+}
+
+"""Raw leaderboard entry data."""
+type Entry {
+  gt: Long!
+  score: Long!
+  columns: JSON
+}
+
+# ─── Tournament Domain ─────────────────────────────────────────────────────────
+
+"""A tournament instance."""
+type Tournament {
+  id: ID!
+  details: TournamentDetails
+  stages: [TournamentStage!]!
+  entries: [TournamentEntry!]!
+  champions: [TournamentChampion!]!
+  rewards: [TournamentReward!]!
+}
+
+"""Configuration metadata for a tournament."""
+type TournamentDetails {
+  tournamentId: ID!
+  displayName: String!
+  description: String
+  contentId: String
+  startAt: DateTime!
+  endAt: DateTime!
+  maxPlayers: Int
+  groupBased: Boolean!
+  cycleCount: Int!
+  createdAt: DateTime!
+}
+
+"""A distinct stage/round within a tournament."""
+type TournamentStage {
+  stageId: ID!
+  stageName: String
+  stageIndex: Int!
+  status: TournamentStageStatus!
+  startAt: DateTime!
+  endAt: DateTime!
+  minPlayers: Int
+  maxPlayers: Int
+}
+
+"""A player's participation record in a tournament."""
+type TournamentEntry {
+  player: Player!
+  stageIndex: Int!
+  rank: Int
+  score: Long!
+  tier: Int!
+  updatedAt: DateTime!
+}
+
+"""The top-ranked player(s) of a completed tournament."""
+type TournamentChampion {
+  player: Player!
+  tournamentId: ID!
+  rank: Int!
+  score: Long!
+  rewardedAt: DateTime
+}
+
+"""A reward granted to a tournament participant."""
+type TournamentReward {
+  rewardId: ID!
+  tournamentId: ID!
+  tierThreshold: Int!
+  currencies: [CurrencyAmount]
+  items: [Item]
+  customData: JSON
+}
+
+# ─── Commerce / Store Domain ───────────────────────────────────────────────────
+
+"""Top-level commerce context for a game realm."""
+type Commerce {
+  realmId: ID!
+  stores: [Store!]!
+  promotions: [Promotion!]!
+  coupons: [Coupon!]!
+}
+
+"""An in-game store definition."""
+type Store {
+  id: ID!
+  details: StoreDetails
+  listings: [Listing!]!
+  schedules: [Schedule!]!
+}
+
+"""Metadata and configuration for a store."""
+type StoreDetails {
+  storeId: ID!
+  displayName: String!
+  description: String
+  iconUrl: String
+  active: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""A purchasable listing within a store."""
+type Listing {
+  id: ID!
+  details: ListingDetails
+  sku: Sku
+  offer: OfferDetails
+  active: Boolean!
+}
+
+"""Display and limit metadata for a store listing."""
+type ListingDetails {
+  listingId: ID!
+  displayName: String!
+  description: String
+  iconUrl: String
+  purchaseLimit: Int
+  cooldownSeconds: Int
+  buttonText: String
+}
+
+"""A SKU connecting a listing to a platform purchase product."""
+type Sku {
+  id: ID!
+  details: SkuDetails
+  platform: String!
+  productId: String!
+}
+
+"""Additional metadata for a SKU definition."""
+type SkuDetails {
+  skuId: ID!
+  displayName: String
+  price: Float
+  currency: String
+  properties: JSON
+}
+
+"""The offer payload delivered when a listing is purchased."""
+type OfferDetails {
+  currencies: [CurrencyAmount]
+  items: [Item]
+  chainedOffers: [ChainedOffer]
+  customData: JSON
+}
+
+"""An offer that becomes available after another offer is purchased."""
+type ChainedOffer {
+  listingId: ID!
+  delaySeconds: Int
+  offer: OfferDetails
+}
+
+# ─── Promotions & Coupons ──────────────────────────────────────────────────────
+
+"""A time-limited promotional campaign."""
+type Promotion {
+  id: ID!
+  details: PromotionDetails
+  status: PromotionStatus!
+  schedule: Schedule
+}
+
+"""Configuration metadata for a promotion."""
+type PromotionDetails {
+  promotionId: ID!
+  displayName: String!
+  description: String
+  iconUrl: String
+  startAt: DateTime!
+  endAt: DateTime!
+  targetAudience: JSON
+  discountPercent: Float
+  createdAt: DateTime!
+}
+
+"""A single-use or multi-use discount coupon."""
+type Coupon {
+  id: ID!
+  details: CouponDetails
+  redeemed: Boolean!
+  redeemedAt: DateTime
+}
+
+"""Metadata and constraints for a coupon."""
+type CouponDetails {
+  couponId: ID!
+  code: String!
+  discountType: String!
+  discountValue: Float!
+  maxRedemptions: Int
+  expiresAt: DateTime
+  createdAt: DateTime!
+}
+
+# ─── Scheduling ────────────────────────────────────────────────────────────────
+
+"""A recurring or one-shot time schedule used by stores, events, and promotions."""
+type Schedule {
+  id: ID!
+  details: ScheduleDetails
+}
+
+"""Cron-style configuration for a schedule."""
+type ScheduleDetails {
+  scheduleId: ID!
+  displayName: String
+  cronExpression: String
+  startAt: DateTime
+  endAt: DateTime
+  timezone: String
+  active: Boolean!
+}
+
+# ─── Announcements ─────────────────────────────────────────────────────────────
+
+"""A platform-wide or targeted announcement."""
+type Announcement {
+  id: ID!
+  details: AnnouncementDetails
+  read: Boolean!
+  createdAt: DateTime!
+}
+
+"""Content payload for an announcement."""
+type AnnouncementDetails {
+  announcementId: ID!
+  title: String!
+  body: String!
+  iconUrl: String
+  channel: String
+  targetAudience: JSON
+  expiresAt: DateTime
+}
+
+# ─── Events ────────────────────────────────────────────────────────────────────
+
+"""A live event running on the Beamable platform."""
+type Event {
+  id: ID!
+  details: EventDetails
+  content: EventContent
+  status: EventStatus!
+  playerScore: Long
+  playerRank: Int
+}
+
+"""Configuration metadata for a live event."""
+type EventDetails {
+  eventId: ID!
+  displayName: String!
+  description: String
+  startAt: DateTime!
+  endAt: DateTime!
+  maxScore: Long
+  leaderboardId: ID
+  createdAt: DateTime!
+}
+
+"""Content-system definition backing a live event."""
+type EventContent {
+  contentId: String!
+  version: String
+  rewards: [TournamentReward]
+  rules: JSON
+}
+
+# ─── Cloud Save ────────────────────────────────────────────────────────────────
+
+"""A cloud save namespace for a player."""
+type CloudSave {
+  playerId: ID!
+  namespace: String!
+  entries: [CloudSaveEntry!]!
+  updatedAt: DateTime!
+}
+
+"""A single key-value entry in a cloud save namespace."""
+type CloudSaveEntry {
+  key: String!
+  value: JSON
+  updatedAt: DateTime!
+}
+
+# ─── Sessions & Auth ───────────────────────────────────────────────────────────
+
+"""An active player session."""
+type Session {
+  id: ID!
+  details: SessionDetails
+  token: Token!
+  auth: Auth!
+  createdAt: DateTime!
+  expiresAt: DateTime!
+}
+
+"""Contextual metadata for a session."""
+type SessionDetails {
+  sessionId: ID!
+  playerId: ID!
+  deviceId: String
+  platform: String
+  gameVersion: String
+  country: String
+  ipAddress: String
+}
+
+"""A JWT access/refresh token pair."""
+type Token {
+  accessToken: String!
+  refreshToken: String
+  tokenType: String!
+  expiresIn: Int!
+  scope: String
+}
+
+"""Authentication context for the current session."""
+type Auth {
+  playerId: ID!
+  provider: AuthProvider!
+  oauthDetails: OAuthDetails
+  isGuest: Boolean!
+  linkedProviders: [AuthProvider]
+}
+
+"""OAuth credential details from a third-party provider."""
+type OAuthDetails {
+  provider: AuthProvider!
+  externalId: String!
+  email: String
+  displayName: String
+  scopes: [String]
+  tokenExpiry: DateTime
+}
+
+# ─── Stats ─────────────────────────────────────────────────────────────────────
+
+"""A collection of player statistics."""
+type Stats {
+  playerId: ID!
+  stats: [StatDetails!]!
+  updatedAt: DateTime!
+}
+
+"""A single named stat for a player."""
+type StatDetails {
+  key: String!
+  value: JSON
+  domain: String!
+  access: String!
+  updatedAt: DateTime!
+}
+
+# ─── Groups ────────────────────────────────────────────────────────────────────
+
+"""A player group (guild, clan, team)."""
+type Group {
+  id: ID!
+  details: GroupDetails
+  members: [GroupMember!]!
+  createdAt: DateTime!
+}
+
+"""Metadata and settings for a group."""
+type GroupDetails {
+  groupId: ID!
+  name: String!
+  tag: String
+  description: String
+  iconUrl: String
+  maxMembers: Int!
+  isOpen: Boolean!
+  requiresApproval: Boolean!
+  motd: String
+  customData: JSON
+}
+
+"""A player's membership record within a group."""
+type GroupMember {
+  player: Player!
+  role: GroupMemberRole!
+  joinedAt: DateTime!
+  contribution: Long
+}
+
+# ─── Mail ──────────────────────────────────────────────────────────────────────
+
+"""A mail message delivered to a player."""
+type Mail {
+  id: ID!
+  details: MailDetails
+  status: MailStatus!
+  attachments: OfferDetails
+  receivedAt: DateTime!
+  expiresAt: DateTime
+}
+
+"""Content payload of a player mail message."""
+type MailDetails {
+  mailId: ID!
+  subject: String!
+  body: String!
+  senderId: String
+  senderName: String
+  category: String
+  iconUrl: String
+}
+
+# ─── API Key ───────────────────────────────────────────────────────────────────
+
+"""An API key credential for server-side or service access."""
+type APIKey {
+  id: ID!
+  name: String!
+  keyPrefix: String!
+  scopes: [String!]!
+  createdAt: DateTime!
+  expiresAt: DateTime
+  lastUsedAt: DateTime
+  active: Boolean!
+}
+
+# ─── Root Operations ───────────────────────────────────────────────────────────
+
+type Query {
+  # Player
+  player(id: ID!): Player
+  players(ids: [ID!]): [Player]
+
+  # Inventory & Currency
+  playerInventory(playerId: ID!): PlayerInventory
+  currency(id: ID!): Currency
+  currencies: [Currency!]!
+
+  # Content
+  contentItem(id: ID!): ContentItem
+  contentItems(type: String, tags: [String]): [ContentItem!]!
+
+  # Leaderboards
+  leaderboard(id: ID!, playerId: ID): LeaderBoard
+  leaderboards: [LeaderBoard!]!
+
+  # Tournaments
+  tournament(id: ID!): Tournament
+  tournaments(active: Boolean): [Tournament!]!
+
+  # Commerce
+  store(id: ID!): Store
+  stores: [Store!]!
+  commerce: Commerce
+
+  # Promotions & Coupons
+  promotion(id: ID!): Promotion
+  promotions(status: PromotionStatus): [Promotion!]!
+  coupon(code: String!): Coupon
+
+  # Events
+  event(id: ID!): Event
+  events(status: EventStatus, playerId: ID): [Event!]!
+
+  # Announcements
+  announcements(playerId: ID!): [Announcement!]!
+
+  # Cloud Save
+  cloudSave(playerId: ID!, namespace: String!): CloudSave
+
+  # Session / Auth
+  session(id: ID!): Session
+
+  # Stats
+  stats(playerId: ID!, domain: String, keys: [String]): Stats
+
+  # Groups
+  group(id: ID!): Group
+  groups(playerId: ID): [Group!]!
+
+  # Mail
+  mail(playerId: ID!, id: ID!): Mail
+  mailbox(playerId: ID!, status: MailStatus): [Mail!]!
+
+  # API Keys
+  apiKey(id: ID!): APIKey
+  apiKeys: [APIKey!]!
+}
+
+type Mutation {
+  # Player
+  updatePlayerDetails(playerId: ID!, input: JSON!): PlayerDetails
+  banPlayer(playerId: ID!, reason: String, expiresAt: DateTime): PlayerStatus
+
+  # Currency
+  grantCurrency(playerId: ID!, currencyId: ID!, amount: Long!): CurrencyAmount
+  spendCurrency(playerId: ID!, currencyId: ID!, amount: Long!): CurrencyAmount
+
+  # Inventory
+  grantItem(playerId: ID!, contentId: String!, quantity: Int): Item
+  removeItem(playerId: ID!, itemId: ID!, quantity: Int): Boolean
+
+  # Leaderboard
+  submitScore(leaderboardId: ID!, playerId: ID!, score: Long!, columns: JSON): Ranking
+
+  # Tournament
+  enterTournament(tournamentId: ID!, playerId: ID!): TournamentEntry
+  submitTournamentScore(tournamentId: ID!, playerId: ID!, score: Long!): TournamentEntry
+
+  # Store / Commerce
+  purchaseListing(storeId: ID!, listingId: ID!, playerId: ID!, skuId: ID): OfferDetails
+  redeemCoupon(playerId: ID!, code: String!): Coupon
+
+  # Events
+  submitEventScore(eventId: ID!, playerId: ID!, score: Long!): Event
+
+  # Announcements
+  markAnnouncementRead(playerId: ID!, announcementId: ID!): Announcement
+
+  # Cloud Save
+  setCloudSaveEntry(playerId: ID!, namespace: String!, key: String!, value: JSON!): CloudSaveEntry
+  deleteCloudSaveEntry(playerId: ID!, namespace: String!, key: String!): Boolean
+
+  # Session / Auth
+  createGuestSession(deviceId: String!): Session
+  refreshToken(refreshToken: String!): Token
+  linkAuthProvider(playerId: ID!, provider: AuthProvider!, token: String!): Auth
+
+  # Stats
+  setStat(playerId: ID!, key: String!, value: JSON!, domain: String): StatDetails
+
+  # Groups
+  createGroup(input: JSON!): Group
+  updateGroup(groupId: ID!, input: JSON!): GroupDetails
+  joinGroup(groupId: ID!, playerId: ID!): GroupMember
+  leaveGroup(groupId: ID!, playerId: ID!): Boolean
+  setGroupMemberRole(groupId: ID!, playerId: ID!, role: GroupMemberRole!): GroupMember
+
+  # Mail
+  sendMail(playerId: ID!, subject: String!, body: String!, attachments: JSON): Mail
+  markMailRead(playerId: ID!, mailId: ID!): Mail
+  deleteMail(playerId: ID!, mailId: ID!): Boolean
+
+  # API Keys
+  createAPIKey(name: String!, scopes: [String!]!): APIKey
+  revokeAPIKey(id: ID!): Boolean
+}
