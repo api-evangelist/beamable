@@ -3,7 +3,7 @@
   "description": "Official Beamable blog covering game backend development, SDK releases, LiveOps, and platform updates.",
   "url": "https://beamable.com/category/blog",
   "rss": "https://beamable.com/feed/",
-  "fetched": "2026-06-12",
+  "fetched": "2026-06-14T20:42:17Z",
   "posts": [
     {
       "title": "Mobile Monetization: the Old Playbook is Caving",
@@ -65,5 +65,27 @@
       "description": "Beamable enables developers to integrate blockchain features including digital ownership and authentication while maintaining the simplicity of a modern game backend.",
       "published": "2025-11-07"
     }
-  ]
+  ],
+  "repo": "beamable",
+  "feeds": [
+    {
+      "source": "https://www.linkedin.com/company/beamable",
+      "error": "HTTPError"
+    },
+    {
+      "source": "https://twitter.com/Beamable",
+      "feed_url": "https://twitter.com/Beamable",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
+      "source": "https://beamable.com/feed/",
+      "feed_url": "https://beamable.com/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    }
+  ],
+  "post_count": 0
 }
