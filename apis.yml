@@ -12,7 +12,7 @@ description: 'Beamable is a cloud backend platform purpose-built for games and i
 
   '
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/beamable/refs/heads/main/apis.yml
 created: '2026-06-12'
 modified: '2026-06-12'
@@ -40,7 +40,7 @@ apis:
     integrations.
 
     '
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://docs.beamable.com/docs/beamable-overview
   baseURL: https://api.beamable.com
   tags:
@@ -63,7 +63,7 @@ apis:
     management of economy content.
 
     '
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://docs.beamable.com/docs/beamable-overview
   baseURL: https://api.beamable.com
   tags:
@@ -83,7 +83,7 @@ apis:
     code changes.
 
     '
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://docs.beamable.com/docs/beamable-overview
   baseURL: https://api.beamable.com
   tags:
@@ -103,7 +103,7 @@ apis:
     LiveOps portal or programmatically via REST endpoints.
 
     '
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://docs.beamable.com/docs/beamable-overview
   baseURL: https://api.beamable.com
   tags:
@@ -124,7 +124,7 @@ apis:
     developers to manage containers or cloud infrastructure directly.
 
     '
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://docs.beamable.com/docs/beamable-overview
   baseURL: https://api.beamable.com
   tags:
