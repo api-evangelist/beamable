@@ -137,6 +137,10 @@ apis:
   - type: OpenAPI
     url: openapi/beamable-microservices-openapi.yml
 common:
+- type: DomainSecurity
+  url: security/beamable-domain-security.yml
+- type: Authentication
+  url: authentication/beamable-authentication.yml
 - type: Website
   url: https://beamable.com/
 - type: Documentation

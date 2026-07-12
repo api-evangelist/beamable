@@ -1,0 +1,45 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/beamable-leaderboards-openapi.yml, openapi/beamable-live-events-openapi.yml,
+  openapi/beamable-microservices-openapi.yml, openapi/beamable-player-accounts-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: server
+  type: apiKey
+  in: header
+  parameter: X-DE-SIGNATURE
+  description: Signed Request authentication using project secret key.
+  sources:
+  - openapi/beamable-leaderboards-openapi.yml
+  - openapi/beamable-live-events-openapi.yml
+  - openapi/beamable-microservices-openapi.yml
+  - openapi/beamable-player-accounts-openapi.yml
+- name: user
+  type: http
+  scheme: bearer
+  bearerFormat: Bearer <Access Token>
+  description: Bearer authentication with a player access token in the Authorization header.
+  sources:
+  - openapi/beamable-leaderboards-openapi.yml
+  - openapi/beamable-live-events-openapi.yml
+  - openapi/beamable-microservices-openapi.yml
+  - openapi/beamable-player-accounts-openapi.yml
+- name: userRequired
+  type: apiKey
+  in: header
+  parameter: X-DE-GAMERTAG
+  description: Gamer Tag of the player.
+  sources:
+  - openapi/beamable-live-events-openapi.yml
+- name: scope
+  type: apiKey
+  in: header
+  parameter: X-DE-SCOPE
+  description: Customer and project scope. This should contain the '<customer-id>.<project-id>'.
+  sources:
+  - openapi/beamable-live-events-openapi.yml
