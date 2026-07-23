@@ -1,0 +1,3722 @@
+openapi: 3.0.2
+info:
+  title: realms Basic API
+  version: '1.0'
+  contact:
+    name: Beamable Support
+    url: https://api.beamable.com
+    email: support@beamable.com
+servers:
+- url: https://api.beamable.com
+security: []
+tags:
+- name: Basic
+paths:
+  /basic/realms/customer/activate:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            text/html:
+              schema:
+                $ref: '#/components/schemas/HtmlResponse'
+        '400':
+          description: Bad Request
+      parameters:
+      - name: token
+        in: query
+        schema:
+          type: string
+        required: true
+      - name: cid
+        in: query
+        schema:
+          type: integer
+          format: int64
+        required: true
+      security:
+      - {}
+      tags:
+      - Basic
+  /basic/realms/project/beamable:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProjectRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+  /basic/realms/customer/alias/available:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AliasAvailableResponse'
+        '400':
+          description: Bad Request
+      parameters:
+      - name: alias
+        in: query
+        schema:
+          type: string
+        required: true
+      security:
+      - {}
+      tags:
+      - Basic
+  /basic/realms/project:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectView'
+        '400':
+          description: Bad Request
+      security:
+      - {}
+      tags:
+      - Basic
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProjectRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+    put:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnarchiveProjectRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+    delete:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArchiveProjectRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+  /basic/realms/customer/verify:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewCustomerResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewCustomerRequest'
+      security:
+      - {}
+      tags:
+      - Basic
+  /basic/realms/games:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetGameResponse'
+        '400':
+          description: Bad Request
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+  /basic/realms/config:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RealmConfigResponse'
+        '400':
+          description: Bad Request
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RealmConfigChangeRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+    put:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RealmConfigSaveRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+  /basic/realms/project/rename:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    put:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RenameProjectRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+  /basic/realms/plans:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServicePlansResponse'
+        '400':
+          description: Bad Request
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePlanRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+  /basic/realms/client/defaults:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RealmConfiguration'
+        '400':
+          description: Bad Request
+      security:
+      - {}
+      tags:
+      - Basic
+  /basic/realms/customer:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerViewResponse'
+        '400':
+          description: Bad Request
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewCustomerResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewCustomerRequest'
+      security:
+      - {}
+      tags:
+      - Basic
+  /basic/realms/admin/inflight/failures:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InFlightFailureResponse'
+        '400':
+          description: Bad Request
+      parameters:
+      - name: serviceObjectId
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: serviceName
+        in: query
+        schema:
+          type: string
+        required: true
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+    delete:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchDeleteInFlightRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+  /basic/realms/launch-message:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LaunchMessageListResponse'
+        '400':
+          description: Bad Request
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateLaunchMessageRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+    delete:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveLaunchMessageRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+  /basic/realms/is-customer:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyResponse'
+        '400':
+          description: Bad Request
+      security:
+      - {}
+      tags:
+      - Basic
+  /basic/realms/admin/customer:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerResponse'
+        '400':
+          description: Bad Request
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+  /basic/realms/game:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetGameResponse'
+        '400':
+          description: Bad Request
+      parameters:
+      - name: rootPID
+        in: query
+        schema:
+          type: string
+          x-beamable-semantic-type: Pid
+        required: true
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewGameRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+    put:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateGameHierarchyRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+  /basic/realms/project/promote:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromoteRealmResponseOld'
+        '400':
+          description: Bad Request
+      parameters:
+      - name: sourcePid
+        in: query
+        schema:
+          type: string
+          x-beamable-semantic-type: Pid
+        required: true
+      - name: promotions
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            format: blah
+        required: false
+      - name: contentManifestIds
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            format: blah
+        required: false
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromoteRealmResponseOld'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PromoteRealmRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+  /basic/realms/customers:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomersResponse'
+        '400':
+          description: Bad Request
+      security:
+      - {}
+      tags:
+      - Basic
+  /basic/realms/promotion:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromoteRealmResponse'
+        '400':
+          description: Bad Request
+      parameters:
+      - name: sourcePid
+        in: query
+        schema:
+          type: string
+          x-beamable-semantic-type: Pid
+        required: true
+      - name: promotions
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            format: blah
+        required: false
+      - name: contentManifestIds
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            format: blah
+        required: false
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromoteRealmResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PromoteRealmRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/microservice/registrations:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MicroserviceRegistrationsResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MicroserviceRegistrationsQuery'
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/microservice/federation/traffic:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    put:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MicroserviceRegistrationRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+    delete:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MicroserviceRegistrationRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/image/urls:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PreSignedUrlsResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetServiceURLsRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/metricsUrl:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSignedUrlResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetMetricsUrlRequest'
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/microservice/secret:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MicroserviceSecretResponse'
+        '400':
+          description: Bad Request
+      security:
+      - user:
+        - admin
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/queryLogs/result:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSignedUrlResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Query'
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/storage/performance:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PerformanceResponse'
+        '400':
+          description: Bad Request
+      parameters:
+      - name: endDate
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: storageObjectName
+        in: query
+        schema:
+          type: string
+        required: true
+      - name: granularity
+        in: query
+        schema:
+          type: string
+        required: true
+      - name: startDate
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: period
+        in: query
+        schema:
+          type: string
+        required: false
+      security:
+      - user:
+        - admin
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/manifests:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetManifestsResponse'
+        '400':
+          description: Bad Request
+      parameters:
+      - name: offset
+        in: query
+        schema:
+          type: integer
+          format: int32
+        required: false
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          format: int32
+        required: false
+      - name: archived
+        in: query
+        schema:
+          type: boolean
+        required: false
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/templates:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetTemplatesResponse'
+        '400':
+          description: Bad Request
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/queryLogs:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Query'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetLogsInsightUrlRequest'
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+    delete:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Query'
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/logsUrl:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSignedUrlResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetLogsUrlRequest'
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/image/commit:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    put:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LambdaResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommitImageRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/uploadAPI:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetLambdaURI'
+        '400':
+          description: Bad Request
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/status:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetStatusResponse'
+        '400':
+          description: Bad Request
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/manifest/current:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCurrentManifestResponse'
+        '400':
+          description: Bad Request
+      parameters:
+      - name: archived
+        in: query
+        schema:
+          type: boolean
+        required: false
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/manifest/pull:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManifestChecksums'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PullBeamoManifestRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/registry:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetElasticContainerRegistryURI'
+        '400':
+          description: Bad Request
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/manifest/deploy:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyResponse'
+        '400':
+          description: Bad Request
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/microservice/federation:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportedFederationsResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MicroserviceRegistrationsQuery'
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/storage/connection:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectionString'
+        '400':
+          description: Bad Request
+      security:
+      - user:
+        - admin
+      - server: []
+      tags:
+      - Basic
+  /basic/beamo/manifest:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetManifestResponse'
+        '400':
+          description: Bad Request
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: string
+        required: true
+      - name: archived
+        in: query
+        schema:
+          type: boolean
+        required: false
+      security:
+      - user:
+        - tester
+      - server: []
+      tags:
+      - Basic
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostManifestResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostManifestRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+  /basic/auth/token/list:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTokenResponse'
+        '400':
+          description: Bad Request
+      parameters:
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+        required: true
+      - name: page
+        in: query
+        schema:
+          type: integer
+          format: int32
+        required: true
+      - name: cid
+        in: query
+        schema:
+          type: integer
+          format: int64
+          x-beamable-semantic-type: Cid
+        required: false
+      - name: pid
+        in: query
+        schema:
+          type: string
+          x-beamable-semantic-type: Pid
+        required: false
+      - name: gamerTagOrAccountId
+        in: query
+        schema:
+          type: integer
+          format: int64
+        required: true
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+  /basic/auth/token:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+        '400':
+          description: Bad Request
+      parameters:
+      - name: token
+        in: query
+        schema:
+          type: string
+        required: true
+      security:
+      - {}
+      tags:
+      - Basic
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse_2'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRequestWrapper'
+      security:
+      - {}
+      tags:
+      - Basic
+  /basic/auth/token/revoke:
+    parameters:
+    - name: X-BEAM-SCOPE
+      in: header
+      schema:
+        type: string
+      description: Customer and project scope. This should be in the form of '<customer-id>.<project-id>'.
+      required: true
+    - name: X-BEAM-GAMERTAG
+      in: header
+      schema:
+        type: string
+      description: Override the Gamer Tag of the player. This is generally inferred by the auth token.
+      required: false
+    put:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RevokeTokenRequest'
+      security:
+      - user:
+        - developer
+      - server: []
+      tags:
+      - Basic
+components:
+  schemas:
+    DataPoint:
+      type: object
+      additionalProperties: false
+      properties:
+        timestamp:
+          type: string
+        value:
+          type: string
+      required:
+      - timestamp
+      - value
+    InFlightFailure:
+      type: object
+      additionalProperties: false
+      properties:
+        serviceObjectId:
+          type: string
+        timestamp:
+          type: integer
+          format: int64
+        serviceName:
+          type: string
+        inFlightMessage:
+          $ref: '#/components/schemas/InFlightMessage'
+        lastError:
+          type: string
+        id:
+          type: string
+      required:
+      - id
+      - serviceObjectId
+      - serviceName
+      - inFlightMessage
+      - lastError
+      - timestamp
+    CreatePlanRequest:
+      properties:
+        name:
+          type: string
+        messageBusAnalytics:
+          type: array
+          items:
+            type: string
+        mongoSrvAddress:
+          type: string
+        memcachedHosts:
+          type: string
+        mongoSSL:
+          type: boolean
+        platformJBDC:
+          type: string
+        sharded:
+          type: boolean
+        mongoHosts:
+          type: string
+        messageBusCommon:
+          type: array
+          items:
+            type: string
+        redisShards:
+          type: array
+          items:
+            $ref: '#/components/schemas/RedisShardRequest'
+      additionalProperties: false
+      title: Create Plan Request
+      type: object
+      required:
+      - name
+      - mongoHosts
+      - sharded
+      - mongoSSL
+      - platformJBDC
+      - memcachedHosts
+      - redisShards
+    UpdateGameHierarchyRequest:
+      properties:
+        rootPID:
+          type: string
+          x-beamable-semantic-type: Pid
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectView'
+      additionalProperties: false
+      title: Update Game Hierarchy Request
+      type: object
+      required:
+      - rootPID
+      - projects
+    ManifestChecksums:
+      properties:
+        manifests:
+          type: array
+          items:
+            $ref: '#/components/schemas/ManifestChecksum'
+      additionalProperties: false
+      title: Manifest Checksums
+      type: object
+      required:
+      - manifests
+    CustomerViewResponse:
+      properties:
+        customer:
+          $ref: '#/components/schemas/CustomerView'
+      additionalProperties: false
+      title: Customer View Response
+      type: object
+      required:
+      - customer
+    GetLambdaURI:
+      properties:
+        uri:
+          type: string
+      additionalProperties: false
+      title: Get Lambda URI
+      type: object
+      required:
+      - uri
+    PASlowQuery:
+      type: object
+      additionalProperties: false
+      properties:
+        line:
+          type: string
+        namespace:
+          type: string
+      required:
+      - line
+      - namespace
+    LaunchMessageListResponse:
+      properties:
+        files:
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+      title: Launch Message List Response
+      type: object
+      required:
+      - files
+    MicroserviceRegistrationRequest:
+      properties:
+        serviceName:
+          type: string
+        routingKey:
+          type: string
+        federation:
+          type: array
+          items:
+            $ref: '#/components/schemas/SupportedFederation'
+        trafficFilterEnabled:
+          type: boolean
+      additionalProperties: false
+      title: Microservice Registration Request
+      type: object
+      required:
+      - serviceName
+    PromoteRealmResponseOld:
+      properties:
+        sourcePid:
+          type: string
+        promotions:
+          type: array
+          items:
+            $ref: '#/components/schemas/RealmPromotion'
+      additionalProperties: false
+      title: Promote Realm Response Old
+      type: object
+      required:
+      - sourcePid
+      - promotions
+    ServiceComponent:
+      type: object
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+      required:
+      - name
+    DataDomain:
+      type: object
+      additionalProperties: false
+      properties:
+        messageBusAnalytics:
+          type: array
+          items:
+            type: string
+        mongoSrvAddress:
+          type: string
+        memcachedHosts:
+          type: array
+          items:
+            type: string
+        mongoSharded:
+          type: boolean
+        mongoSSL:
+          type: boolean
+        mongoHosts:
+          type: array
+          items:
+            type: string
+        mongoSSLEnabled:
+          type: boolean
+        messageBusCommon:
+          type: array
+          items:
+            type: string
+        redisShards:
+          type: array
+          items:
+            $ref: '#/components/schemas/RedisShard'
+      required:
+      - mongoHosts
+      - mongoSharded
+      - memcachedHosts
+      - mongoSSLEnabled
+    GetStatusResponse:
+      properties:
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceStatus'
+        isCurrent:
+          type: boolean
+        storageStatuses:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceStorageStatus'
+      additionalProperties: false
+      title: Get Status Response
+      type: object
+      required:
+      - services
+      - isCurrent
+    PANamespace:
+      type: object
+      additionalProperties: false
+      properties:
+        namespace:
+          type: string
+        type:
+          type: string
+      required:
+      - namespace
+      - type
+    ServiceImageLayers:
+      type: object
+      additionalProperties: false
+      properties:
+        service:
+          $ref: '#/components/schemas/Reference'
+        layers:
+          type: array
+          items:
+            type: string
+      required:
+      - service
+      - layers
+    PerformanceResponse:
+      properties:
+        namespaces:
+          type: array
+          items:
+            $ref: '#/components/schemas/PANamespace'
+        indexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/PASuggestedIndex'
+        queries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PASlowQuery'
+        databaseMeasurements:
+          $ref: '#/components/schemas/DatabaseMeasurements'
+      additionalProperties: false
+      title: Performance Response
+      type: object
+      required:
+      - namespaces
+      - indexes
+      - queries
+      - databaseMeasurements
+    NewCustomerResponse:
+      properties:
+        name:
+          type: string
+        projectName:
+          type: string
+        activationPending:
+          type: boolean
+        alias:
+          type: string
+        cid:
+          type: integer
+          format: int64
+          x-beamable-semantic-type: Cid
+        pid:
+          type: string
+          x-beamable-semantic-type: Pid
+        token:
+          $ref: '#/components/schemas/TokenResponse'
+      additionalProperties: false
+      title: New Customer Response
+      type: object
+      required:
+      - token
+      - cid
+      - pid
+      - name
+      - projectName
+      - activationPending
+    ServiceStatus:
+      type: object
+      additionalProperties: false
+      properties:
+        isCurrent:
+          type: boolean
+        running:
+          type: boolean
+        serviceName:
+          type: string
+        imageId:
+          type: string
+        serviceDependencyReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceDependencyReference'
+      required:
+      - serviceName
+      - running
+      - imageId
+      - isCurrent
+    GetGameResponse:
+      properties:
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectView'
+      additionalProperties: false
+      title: Get Game Response
+      type: object
+      required:
+      - projects
+    AliasAvailableResponse:
+      properties:
+        alias:
+          type: string
+        available:
+          type: boolean
+        cid:
+          type: integer
+          format: int64
+          x-beamable-semantic-type: Cid
+      additionalProperties: false
+      title: Alias Available Response
+      type: object
+      required:
+      - alias
+      - available
+      - cid
+    GetManifestsResponse:
+      properties:
+        manifests:
+          type: array
+          items:
+            $ref: '#/components/schemas/ManifestView'
+      additionalProperties: false
+      title: Get Manifests Response
+      type: object
+      required:
+      - manifests
+    RemoveLaunchMessageRequest:
+      properties:
+        file:
+          type: string
+      additionalProperties: false
+      title: Remove Launch Message Request
+      type: object
+      required:
+      - file
+    RedisShardRequest:
+      type: object
+      additionalProperties: false
+      properties:
+        shardId:
+          type: integer
+          format: int32
+        masterHost:
+          type: string
+        slaveHosts:
+          type: string
+      required:
+      - shardId
+      - masterHost
+      - slaveHosts
+    NewGameRequest:
+      properties:
+        gameName:
+          type: string
+      additionalProperties: false
+      title: New Game Request
+      type: object
+      required:
+      - gameName
+    LambdaResponse:
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        body:
+          type: string
+      additionalProperties: false
+      title: Lambda Response
+      type: object
+      required:
+      - statusCode
+    FederationType:
+      type: string
+      enum:
+      - IFederatedPlayerInit
+      - IFederatedInventory
+      - IFederatedLogin
+      - IFederatedGameServer
+      - IFederatedCommerce
+    TokenResponse:
+      type: object
+      additionalProperties: false
+      properties:
+        access_token:
+          type: string
+        expires_in:
+          type: integer
+          format: int64
+        refresh_token:
+          type: string
+        scopes:
+          type: array
+          items:
+            type: string
+        token_type:
+          type: string
+        challenge_token:
+          type: string
+      required:
+      - expires_in
+      - token_type
+    HtmlResponse:
+      properties:
+        html:
+          type: string
+      additionalProperties: false
+      title: Html Response
+      type: object
+      required:
+      - html
+    OptionalJsonNodeWrapper:
+      type: object
+      additionalProperties: false
+      x-beamable-json-object: true
+      properties:
+        node:
+          type: string
+    ServiceStorageReference:
+      type: object
+      additionalProperties: false
+      properties:
+        archived:
+          type: boolean
+        enabled:
+          type: boolean
+        storageType:
+          type: string
+        id:
+          type: string
+        checksum:
+          type: string
+        templateId:
+          type: string
+      required:
+      - id
+      - storageType
+      - enabled
+      - archived
+      - checksum
+    RealmConfigSaveRequest:
+      properties:
+        config:
+          type: object
+          additionalProperties:
+            type: string
+      additionalProperties: false
+      title: Realm Config Save Request
+      type: object
+      required:
+      - config
+    GetServiceURLsRequest:
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceImageLayers'
+      additionalProperties: false
+      title: Get Service UR Ls Request
+      type: object
+      required:
+      - requests
+    GetElasticContainerRegistryURI:
+      properties:
+        uri:
+          type: string
+      additionalProperties: false
+      title: Get Elastic Container Registry URI
+      type: object
+      required:
+      - uri
+    Token:
+      properties:
+        revoked:
+          type: boolean
+        gamerTag:
+          type: integer
+          format: int64
+          x-beamable-semantic-type: Gamertag
+        scopes:
+          type: array
+          items:
+            type: string
+        accountId:
+          type: integer
+          format: int64
+          x-beamable-semantic-type: AccountId
+        cid:
+          type: integer
+          format: int64
+          x-beamable-semantic-type: Cid
+        pid:
+          type: string
+          x-beamable-semantic-type: Pid
+        expiresMs:
+          type: integer
+          format: int64
+        token:
+          type: string
+        type:
+          type: string
+        platform:
+          type: string
+        device:
+          type: string
+        created:
+          type: integer
+          format: int64
+      additionalProperties: false
+      title: Token
+      type: object
+      required:
+      - token
+      - type
+      - created
+      - cid
+    MicroserviceSecretResponse:
+      properties:
+        secret:
+          type: string
+      additionalProperties: false
+      title: Microservice Secret Response
+      type: object
+      required:
+      - secret
+    WebSocketConfiguration:
+      type: object
+      additionalProperties: false
+      properties:
+        provider:
+          type: string
+        uri:
+          type: string
+      required:
+      - provider
+    Link:
+      type: object
+      additionalProperties: false
+      properties:
+        href:
+          type: string
+        rel:
+          type: string
+      required:
+      - href
+      - rel
+    Account:
+      type: object
+      additionalProperties: false
+      properties:
+        user:
+          type: string
+        password:
+          type: string
+        projects:
+          type: array
+          items:
+            type: string
+        created:
+          type: integer
+          format: int64
+      required:
+      - user
+      - password
+      - projects
+    Customer:
+      type: object
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+        activationStatus:
+          type: string
+        paymentStatus:
+          type: string
+        image:
+          type: string
+        config:
+          type: object
+          additionalProperties:
+            type: string
+        contact:
+          type: string
+        alias:
+          type: string
+        cid:
+          type: integer
+          format: int64
+          x-beamable-semantic-type: Cid
+        updated:
+          type: integer
+          format: int64
+        crm_link:
+          type: string
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+        accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Account'
+        created:
+          type: integer
+          format: int64
+      required:
+      - cid
+      - name
+      - projects
+      - accounts
+    EmptyResponse:
+      properties:
+        result:
+          type: string
+      additionalProperties: false
+      title: Empty Response
+      type: object
+      required:
+      - result
+    MicroserviceRegistrations:
+      type: object
+      additionalProperties: false
+      properties:
+        routingKey:
+          type: string
+        serviceName:
+          type: string
+        trafficFilterEnabled:
+          type: boolean
+        cid:
+          type: string
+        pid:
+          type: string
+        instanceCount:
+          type: integer
+          format: int32
+        startedById:
+          type: integer
+          format: int64
+        federation:
+          type: array
+          items:
+            $ref: '#/components/schemas/SupportedFederation'
+        beamoName:
+          type: string
+      required:
+      - instanceCount
+      - serviceName
+      - cid
+      - pid
+    GetCurrentManifestResponse:
+      properties:
+        manifest:
+          $ref: '#/components/schemas/ManifestView'
+      additionalProperties: false
+      title: Get Current Manifest Response
+      type: object
+      required:
+      - manifest
+    Reference:
+      type: object
+      additionalProperties: false
+      properties:
+        arm:
+          type: boolean
+        archived:
+          type: boolean
+      required:
+      - arm
+      - archived
+    GetLogsUrlRequest:
+      properties:
+        startTime:
+          type: integer
+          format: int64
+        serviceName:
+          type: string
+        nextToken:
+          type: string
+        filter:
+          type: string
+        endTime:
+          type: integer
+          format: int64
+        limit:
+          type: integer
+          format: int32
+      additionalProperties: false
+      title: Get Logs Url Request
+      type: object
+      required:
+      - serviceName
+    InFlightFailureResponse:
+      properties:
+        failures:
+          type: array
+          items:
+            $ref: '#/components/schemas/InFlightFailure'
+      additionalProperties: false
+      title: In Flight Failure Response
+      type: object
+      required:
+      - failures
+    ListTokenResponse:
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListTokenResponseItem'
+      additionalProperties: false
+      title: List Token Response
+      type: object
+      required:
+      - items
+    BeamoLimits:
+      type: object
+      additionalProperties: false
+      properties:
+        maxContainerSize:
+          type: string
+        maxRunningContainersPerService:
+          type: integer
+          format: int32
+      required:
+      - maxContainerSize
+      - maxRunningContainersPerService
+    GetLogsInsightUrlRequest:
+      properties:
+        startTime:
+          type: integer
+          format: int64
+        serviceName:
+          type: string
+        filter:
+          type: string
+        endTime:
+          type: integer
+          format: int64
+        order:
+          type: string
+        filters:
+          type: array
+          items:
+            type: string
+        limit:
+          type: integer
+          format: int32
+      additionalProperties: false
+      title: Get Logs Insight Url Request
+      type: object
+      required:
+      - serviceName
+    MicroserviceRegistrationsResponse:
+      properties:
+        registrations:
+          type: array
+          items:
+            $ref: '#/components/schemas/MicroserviceRegistrations'
+      additionalProperties: false
+      title: Microservice Registrations Response
+      type: object
+      required:
+      - registrations
+    RealmConfigChangeRequest:
+      properties:
+        upserts:
+          type: object
+          additionalProperties:
+            type: string
+        deletes:
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+      title: Realm Config Change Request
+      type: object
+    GetTemplatesResponse:
+      properties:
+        templates:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceTemplate'
+      additionalProperties: false
+      title: Get Templates Response
+      type: object
+      required:
+      - templates
+    ManifestView:
+      type: object
+      additionalProperties: false
+      properties:
+        createdByAccountId:
+          type: integer
+          format: int64
+        id:
+          type: string
+        checksum:
+          type: string
+        storageReference:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceStorageReference'
+        manifest:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceReference'
+        created:
+          type: integer
+          format: int64
+        comments:
+          type: string
+      required:
+      - id
+      - manifest
+      - created
+      - checksum
+    ServiceReference:
+      type: object
+      additionalProperties: false
+      properties:
+        containerHealthCheckPort:
+          type: integer
+          format: int64
+        archived:
+          type: boolean
+        serviceName:
+          type: string
+        enabled:
+          type: boolean
+        components:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceComponent'
+        arm:
+          type: boolean
+        checksum:
+          type: string
+        templateId:
+          type: string
+        imageId:
+          type: string
+        imageCpuArch:
+          type: string
+        dependencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceDependencyReference'
+        comments:
+          type: string
+      required:
+      - serviceName
+      - enabled
+      - imageId
+      - templateId
+      - archived
+      - checksum
+      - arm
+    RealmPromotion:
+      type: object
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+        source:
+          $ref: '#/components/schemas/Promotable'
+        destination:
+          $ref: '#/components/schemas/Promotable'
+      required:
+      - name
+      - source
+      - destination
+    ServiceTemplate:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+      required:
+      - id
+    PostManifestRequest:
+      properties:
+        manifest:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceReference'
+        comments:
+          type: string
+        autoDeploy:
+          type: boolean
+        storageReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceStorageReference'
+      additionalProperties: false
+      title: Post Manifest Request
+      type: object
+      required:
+      - manifest
+    ContentLimits:
+      type: object
+      additionalProperties: false
+      properties:
+        maxDistinctContentIds:
+          type: integer
+          format: int32
+    Promotable:
+      type: object
+      additionalProperties: false
+      properties:
+        checksum:
+          type: string
+        createdAt:
+          type: integer
+          format: int64
+      required:
+      - checksum
+      - createdAt
+    PullBeamoManifestRequest:
+      properties:
+        sourceRealmPid:
+          type: string
+      additionalProperties: false
+      title: Pull Beamo Manifest Request
+      type: object
+      required:
+      - sourceRealmPid
+    TokenRequestWrapper:
+      properties:
+        device_id:
+          type: string
+        username:
+          type: string
+        scope:
+          type: array
+          items:
+            type: string
+        refresh_token:
+          type: string
+        context:
+          $ref: '#/components/schemas/ContextInfo'
+        third_party:
+          type: string
+        redirect_uri:
+          type: string
+        client_id:
+          type: string
+        provider_namespace:
+          type: string
+        challenge_solution:
+          $ref: '#/components/schemas/ChallengeSolution'
+        external_token:
+          type: string
+        code:
+          type: string
+        token:
+          type: string
+        initProperties:
+          type: object
+          additionalProperties:
+            type: string
+        customerScoped:
+          type: boolean
+        provider_service:
+          type: string
+        grant_type:
+          type: string
+        password:
+          type: string
+      additionalProperties: false
+      title: Token Request Wrapper
+      type: object
+      required:
+      - grant_type
+    CustomerResponse:
+      properties:
+        customer:
+          $ref: '#/components/schemas/Customer'
+      additionalProperties: false
+      title: Customer Response
+      type: object
+      required:
+      - customer
+    SupportedFederation:
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          $ref: '#/components/schemas/FederationType'
+        nameSpace:
+          type: string
+        settings:
+          $ref: '#/components/schemas/OptionalJsonNodeWrapper'
+      required:
+      - type
+    CustomerView:
+      type: object
+      additionalProperties: false
+      properties:
+        cid:
+          type: integer
+          format: int64
+          x-beamable-semantic-type: Cid
+        name:
+          type: string
+        alias:
+          type: string
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectView'
+      required:
+      - cid
+      - name
+      - projects
+    UploadURL:
+      type: object
+      additionalProperties: false
+      properties:
+        key:
+          type: string
+        url:
+          type: string
+      required:
+      - key
+      - url
+    CreateProjectRequest:
+      properties:
+        name:
+          type: string
+        plan:
+          type: string
+        sharded:
+          type: boolean
+        parent:
+          type: string
+      additionalProperties: false
+      title: Create Project Request
+      type: object
+      required:
+      - name
+    SupportedFederationsResponse:
+      properties:
+        registrations:
+          type: array
+          items:
+            $ref: '#/components/schemas/SupportedFederationRegistration'
+      additionalProperties: false
+      title: Supported Federations Response
+      type: object
+      required:
+      - registrations
+    BatchDeleteInFlightRequest:
+      properties:
+        inFlightFailureIds:
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+      title: Batch Delete In Flight Request
+      type: object
+      required:
+      - inFlightFailureIds
+    ChallengeSolution:
+      type: object
+      additionalProperties: false
+      properties:
+        challenge_token:
+          type: string
+        solution:
+          type: string
+      required:
+      - challenge_token
+      - solution
+    ListTokenResponseItem:
+      type: object
+      additionalProperties: false
+      properties:
+        token:
+          type: string
+        platform:
+          type: string
+        device:
+          type: string
+        created:
+          type: string
+      required:
+      - token
+      - platform
+      - device
+      - created
+    Project:
+      type: object
+      additionalProperties: false
+      properties:
+        displayName:
+          type: string
+        secret:
+          type: string
+        parent:
+          type: string
+        children:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+          x-beamable-semantic-type: Pid
+        customCharts:
+          type: object
+          additionalProperties:
+            type: string
+        root:
+          type: boolean
+        archived:
+          type: boolean
+        config:
+          type: object
+          additionalProperties:
+            type: string
+        status:
+          type: string
+        sharded:
+          type: boolean
+        sigval:
+          type: boolean
+        plan:
+          type: string
+        created:
+          type: integer
+          format: int64
+      required:
+      - name
+      - secret
+      - plan
+      - customCharts
+      - archived
+      - root
+    RealmConfiguration:
+      properties:
+        websocketConfig:
+          $ref: '#/components/schemas/WebSocketConfiguration'
+        microserviceURI:
+          type: string
+        portalURI:
+          type: string
+        microserviceEcrURI:
+          type: string
+        storageBrowserURI:
+          type: string
+        environment:
+          type: string
+      additionalProperties: false
+      title: Realm Configuration
+      type: object
+      required:
+      - environment
+      - websocketConfig
+      - microserviceURI
+      - microserviceEcrURI
+      - portalURI
+      - storageBrowserURI
+    CustomersResponse:
+      properties:
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/Customer'
+      additionalProperties: false
+      title: Customers Response
+      type: object
+      required:
+      - result
+    URLResponse:
+      type: object
+      additionalProperties: false
+      properties:
+        serviceName:
+          type: string
+        s3URLs:
+          type: array
+          items:
+            $ref: '#/components/schemas/UploadURL'
+      required:
+      - serviceName
+      - s3URLs
+    GatewayLimits:
+      type: object
+      additionalProperties: false
+      properties:
+        maxConcurrentRequests:
+          type: integer
+          format: int32
+      required:
+      - maxConcurrentRequests
+    GetManifestResponse:
+      properties:
+        manifest:
+          $ref: '#/components/schemas/ManifestView'
+      additionalProperties: false
+      title: Get Manifest Response
+      type: object
+      required:
+      - manifest
+    GetSignedUrlResponse:
+      properties:
+        headers:
+          type: array
+          items:
+            $ref: '#/components/schemas/GetLogsUrlHeader'
+        url:
+          type: string
+        body:
+          type: string
+        method:
+          type: string
+      additionalProperties: false
+      title: Get Signed Url Response
+      type: object
+      required:
+      - headers
+      - url
+      - body
+      - method
+    CommonResponse:
+      properties:
+        result:
+          type: string
+        data:
+          type: object
+          additionalProperties:
+            type: string
+      additionalProperties: false
+      title: Common Response
+      type: object
+      required:
+      - result
+      - data
+    PromoteRealmResponse:
+      properties:
+        sourcePid:
+          type: string
+          x-beamable-semantic-type: Pid
+        scopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/PromotionScope'
+      additionalProperties: false
+      title: Promote Realm Response
+      type: object
+      required:
+      - sourcePid
+      - scopes
+    ServiceDependencyReference:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        storageType:
+          type: string
+      required:
+      - id
+      - storageType
+    ConnectionString:
+      properties:
+        connectionString:
+          type: string
+      additionalProperties: false
+      title: Connection String
+      type: object
+      required:
+      - connectionString
+    PromotionScope:
+      type: object
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+        promotions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Promotion'
+      required:
+      - name
+      - promotions
+    Query:
+      properties:
+        queryId:
+          type: string
+      additionalProperties: false
+      title: Query
+      type: object
+      required:
+      - queryId
+    MicroserviceRegistrationsQuery:
+      properties:
+        serviceName:
+          type: string
+        routingKey:
+          type: string
+        federation:
+          $ref: '#/components/schemas/SupportedFederation'
+        localOnly:
+          type: boolean
+      additionalProperties: false
+      title: Microservice Registrations Query
+      type: object
+    PASuggestedIndex:
+      type: object
+      additionalProperties: false
+      properties:
+        weight:
+          type: string
+        impact:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        namespace:
+          type: string
+        index:
+          type: array
+          items:
+            type: string
+      required:
+      - id
+      - impact
+      - index
+      - namespace
+      - weight
+    RedisShard:
+      type: object
+      additionalProperties: false
+      properties:
+        shardId:
+          type: integer
+          format: int32
+        masterHost:
+          type: string
+        slaveHosts:
+          type: array
+          items:
+            type: string
+      required:
+      - shardId
+      - masterHost
+      - slaveHosts
+    Promotion:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        source:
+          $ref: '#/components/schemas/Promotable'
+        destination:
+          $ref: '#/components/schemas/Promotable'
+      required:
+      - id
+      - source
+      - destination
+    DatabaseMeasurement:
+      type: object
+      additionalProperties: false
+      properties:
+        dataPoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPoint'
+        name:
+          type: string
+        units:
+          type: string
+      required:
+      - dataPoints
+      - name
+      - units
+    TokenResponse_2:
+      properties:
+        access_token:
+          type: string
+        expires_in:
+          type: integer
+          format: int64
+        refresh_token:
+          type: string
+        scopes:
+          type: array
+          items:
+            type: string
+        token_type:
+          type: string
+        challenge_token:
+          type: string
+      additionalProperties: false
+      title: Token Response
+      type: object
+      required:
+      - expires_in
+      - token_type
+    PromoteRealmRequest:
+      properties:
+        sourcePid:
+          type: string
+          x-beamable-semantic-type: Pid
+        promotions:
+          type: array
+          items:
+            type: string
+        contentManifestIds:
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+      title: Promote Realm Request
+      type: object
+      required:
+      - sourcePid
+    ServiceStorageStatus:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        storageType:
+          type: string
+        isRunning:
+          type: boolean
+        isCurrent:
+          type: boolean
+      required:
+      - id
+      - storageType
+      - isRunning
+      - isCurrent
+    RevokeTokenRequest:
+      properties:
+        token:
+          type: string
+      additionalProperties: false
+      title: Revoke Token Request
+      type: object
+      required:
+      - token
+    DatabaseMeasurements:
+      type: object
+      additionalProperties: false
+      properties:
+        measurements:
+          type: array
+          items:
+            $ref: '#/components/schemas/DatabaseMeasurement'
+        groupId:
+          type: string
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+        hostId:
+          type: string
+        granularity:
+          type: string
+        end:
+          type: string
+        databaseName:
+          type: string
+        start:
+          type: string
+        processId:
+          type: string
+      required:
+      - databaseName
+      - links
+    RealmConfigResponse:
+      properties:
+        config:
+          type: object
+          additionalProperties:
+            type: string
+      additionalProperties: false
+      title: Realm Config Response
+      type: object
+      required:
+      - config
+    RenameProjectRequest:
+      properties:
+        projectId:
+          type: string
+          x-beamable-semantic-type: Pid
+        newName:
+          type: string
+      additionalProperties: false
+      title: Rename Project Request
+      type: object
+      required:
+      - projectId
+      - newName
+    GetLogsUrlHeader:
+      type: object
+      additionalProperties: false
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      required:
+      - key
+      - value
+    PreSignedUrlsResponse:
+      properties:
+        response:
+          type: array
+          items:
+            $ref: '#/components/schemas/URLResponse'
+      additionalProperties: false
+      title: Pre Signed Urls Response
+      type: object
+      required:
+      - response
+    ServicePlan:
+      type: object
+      additionalProperties: false
+      properties:
+        minCustomerStatusSaved:
+          type: string
+        name:
+          type: string
+        dataDomain:
+          $ref: '#/components/schemas/DataDomain'
+        limits:
+          $ref: '#/components/schemas/ServiceLimits'
+        created:
+          type: integer
+          format: int64
+      required:
+      - name
+      - dataDomain
+    ServicePlansResponse:
+      properties:
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServicePlan'
+      additionalProperties: false
+      title: Service Plans Response
+      type: object
+      required:
+      - result
+    GetMetricsUrlRequest:
+      properties:
+        startTime:
+          type: integer
+          format: int64
+        serviceName:
+          type: string
+        metricName:
+          type: string
+        endTime:
+          type: integer
+          format: int64
+        period:
+          type: integer
+          format: int32
+      additionalProperties: false
+      title: Get Metrics Url Request
+      type: object
+      required:
+      - serviceName
+      - metricName
+    ArchiveProjectRequest:
+      properties:
+        pid:
+          type: string
+          x-beamable-semantic-type: Pid
+      additionalProperties: false
+      title: Archive Project Request
+      type: object
+      required:
+      - pid
+    ServiceLimits:
+      type: object
+      additionalProperties: false
+      properties:
+        beamo:
+          $ref: '#/components/schemas/BeamoLimits'
+        content:
+          $ref: '#/components/schemas/ContentLimits'
+        gateway:
+          $ref: '#/components/schemas/GatewayLimits'
+    ProjectView:
+      type: object
+      additionalProperties: false
+      properties:
+        secret:
+          type: string
+        parent:
+          type: string
+          x-beamable-semantic-type: Pid
+        children:
+          type: array
+          items:
+            x-beamable-semantic-type: Pid
+            type: string
+        projectName:
+          type: string
+        archived:
+          type: boolean
+        cid:
+          type: integer
+          format: int64
+          x-beamable-semantic-type: Cid
+        pid:
+          type: string
+          x-beamable-semantic-type: Pid
+        sharded:
+          type: boolean
+      required:
+      - projectName
+      - pid
+    UnarchiveProjectRequest:
+      properties:
+        projectId:
+          type: string
+          x-beamable-semantic-type: Pid
+      additionalProperties: false
+      title: Unarchive Project Request
+      type: object
+      required:
+      - projectId
+    NewCustomerRequest:
+      properties:
+        projectName:
+          type: string
+        email:
+          type: string
+        customerName:
+          type: string
+        hierarchy:
+          type: boolean
+        alias:
+          type: string
+        password:
+          type: string
+      additionalProperties: false
+      title: New Customer Request
+      type: object
+      required:
+      - projectName
+      - email
+      - password
+    ContextInfo:
+      type: object
+      additionalProperties: false
+      properties:
+        platform:
+          type: string
+        device:
+          type: string
+      required:
+      - platform
+      - device
+    PostManifestResponse:
+      properties:
+        manifest:
+          $ref: '#/components/schemas/ManifestChecksum'
+      additionalProperties: false
+      title: Post Manifest Response
+      type: object
+    CommitImageRequest:
+      properties:
+        service:
+          $ref: '#/components/schemas/Reference'
+      additionalProperties: false
+      title: Commit Image Request
+      type: object
+      required:
+      - service
+    ManifestChecksum:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        checksum:
+          type: string
+        createdAt:
+          type: integer
+          format: int64
+      required:
+      - id
+      - checksum
+      - createdAt
+    SupportedFederationRegistration:
+      type: object
+      additionalProperties: false
+      properties:
+        serviceName:
+          type: string
+        routingKey:
+          type: string
+        federation:
+          type: array
+          items:
+            $ref: '#/components/schemas/SupportedFederation'
+        trafficFilterEnabled:
+          type: boolean
+      required:
+      - serviceName
+      - trafficFilterEnabled
+    InFlightMessage:
+      type: object
+      additionalProperties: false
+      properties:
+        method:
+          type: string
+        body:
+          type: string
+        path:
+          type: string
+        gamerTag:
+          type: integer
+          format: int64
+        limitFailureRetries:
+          type: boolean
+        shard:
+          type: string
+        service:
+          type: string
+        id:
+          type: string
+      required:
+      - service
+      - id
+      - method
+      - path
+      - body
+    CreateLaunchMessageRequest:
+      properties:
+        name:
+          type: string
+        body:
+          type: string
+      additionalProperties: false
+      title: Create Launch Message Request
+      type: object
+      required:
+      - name
+      - body
+  securitySchemes:
+    server:
+      type: apiKey
+      name: X-DE-SIGNATURE
+      in: header
+      description: Signed Request authentication using project secret key.
+    user:
+      type: http
+      description: Bearer authentication with a player access token in the Authorization header.
+      scheme: bearer
+      bearerFormat: Bearer <Access Token>
+externalDocs:
+  description: Beamable Documentation
+  url: https://docs.beamable.com
