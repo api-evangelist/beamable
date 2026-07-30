@@ -12,7 +12,20 @@ description: 'Beamable is a cloud backend platform purpose-built for games and i
 
   '
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: true
+  try_now: true
+  public: false
+  label: Freemium (free trial) · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/beamable.png
 url: https://raw.githubusercontent.com/api-evangelist/beamable/refs/heads/main/apis.yml
 created: '2026-06-12'
 modified: '2026-06-12'
@@ -31,38 +44,13 @@ tags:
 - Game Economy
 - Analytics
 apis:
-- aid: beamable:player-accounts
-  name: Beamable Player Accounts API
-  description: 'REST API for player identity, authentication, and account management.
-    Supports frictionless guest login, username/password registration, and third-party
-    OAuth providers including Facebook, Google, Apple, and Steam. Enables multiple
-    local player contexts and token-based session management for both client and server-side
-    integrations.
-
-    '
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.beamable.com/docs/beamable-overview
-  baseURL: https://api.beamable.com
-  tags:
-  - Player Accounts
-  - Authentication
-  - Identity
-  properties:
-  - type: Documentation
-    url: https://docs.beamable.com/docs/beamable-overview
-  - type: OpenAPI
-    url: openapi/beamable-player-accounts-openapi.yml
-  - url: graphql/beamable-graphql.md
-    type: GraphQL
 - aid: beamable:game-economy
   name: Beamable Game Economy API
-  description: 'REST API for virtual currency, inventory, and in-game store management.
-    Provides endpoints for granting, spending, and querying player currencies, managing
-    item inventories, configuring store catalogs, and handling real- money purchase
-    workflows with custom reporting. Integrates with the LiveOps portal for non-engineer
-    management of economy content.
-
-    '
+  description: >
+    REST API for virtual currency, inventory, and in-game store management. Provides endpoints for granting,
+    spending, and querying player currencies, managing item inventories, configuring store catalogs, and
+    handling real- money purchase workflows with custom reporting. Integrates with the LiveOps portal
+    for non-engineer management of economy content.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://docs.beamable.com/docs/beamable-overview
   baseURL: https://api.beamable.com
@@ -74,68 +62,34 @@ apis:
   properties:
   - type: Documentation
     url: https://docs.beamable.com/docs/beamable-overview
-- aid: beamable:leaderboards
-  name: Beamable Leaderboards API
-  description: 'REST API for creating and querying competitive leaderboards across
-    player populations. Supports global, friend-based, and partitioned leaderboards
-    with configurable scoring, time windows, and reset schedules. Integrates with
-    the LiveOps portal for managing leaderboard definitions and viewing rankings without
-    code changes.
-
-    '
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: beamable:beamable-basic-api
+  name: Beamable Basic API
+  description: The Basic API from Beamable — 43 operation(s) for basic.
   humanURL: https://docs.beamable.com/docs/beamable-overview
   baseURL: https://api.beamable.com
   tags:
-  - Leaderboards
-  - Social
-  - Competitive
+  - Basic
   properties:
+  - type: OpenAPI
+    url: openapi/beamable-basic-api-openapi.yml
   - type: Documentation
     url: https://docs.beamable.com/docs/beamable-overview
-  - type: OpenAPI
-    url: openapi/beamable-leaderboards-openapi.yml
-- aid: beamable:live-events
-  name: Beamable Live Events API
-  description: 'REST API for scheduling and managing time-limited live events, in-game
-    announcements, player mail, and push notifications. Enables game studios to run
-    seasonal content, limited-time offers, and player engagement campaigns from the
-    LiveOps portal or programmatically via REST endpoints.
-
-    '
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  - type: GraphQL
+    url: graphql/beamable-graphql.md
+- aid: beamable:beamable-object-api
+  name: Beamable Object API
+  description: The Object API from Beamable — 4 operation(s) for object.
   humanURL: https://docs.beamable.com/docs/beamable-overview
   baseURL: https://api.beamable.com
   tags:
-  - Live Events
-  - Notifications
-  - LiveOps
+  - Object
   properties:
+  - type: OpenAPI
+    url: openapi/beamable-object-api-openapi.yml
   - type: Documentation
     url: https://docs.beamable.com/docs/beamable-overview
-  - type: OpenAPI
-    url: openapi/beamable-live-events-openapi.yml
-- aid: beamable:microservices
-  name: Beamable Microservices API
-  description: 'Framework and REST API for deploying custom C# server-side logic as
-    managed microservices on the Beamable platform. Supports scheduled jobs, event-driven
-    handlers, inter-service communication, and autogenerated client stubs for Unity
-    and Unreal. Integrates with Beamable data storage and player context without requiring
-    developers to manage containers or cloud infrastructure directly.
-
-    '
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.beamable.com/docs/beamable-overview
-  baseURL: https://api.beamable.com
-  tags:
-  - Microservices
-  - Cloud Functions
-  - Custom Backend
-  properties:
-  - type: Documentation
-    url: https://docs.beamable.com/docs/beamable-overview
-  - type: OpenAPI
-    url: openapi/beamable-microservices-openapi.yml
+  - type: GraphQL
+    url: graphql/beamable-graphql.md
 common:
 - type: AgenticAccess
   url: agentic-access/beamable-agentic-access.yml
