@@ -1,0 +1,16 @@
+{
+  "provider": "beamable",
+  "sources": [
+    "beamable-basic-api-openapi.yml",
+    "beamable-object-api-openapi.yml"
+  ],
+  "outputs": [
+    "beamable-basic-api-openapi.yml",
+    "beamable-object-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
