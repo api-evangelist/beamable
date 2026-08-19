@@ -1,0 +1,1739 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "realms Basic API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Basic",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /basic/realms/customer/activate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/realms/customer/activate",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cid",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/realms/project/beamable",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/realms/project/beamable",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/realms/customer/alias/available",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/realms/customer/alias/available",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "alias",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/realms/project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/realms/project",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/realms/project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/realms/project",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "PUT /basic/realms/project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.beamable.com/basic/realms/project",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "DELETE /basic/realms/project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.beamable.com/basic/realms/project",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/realms/customer/verify",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/realms/customer/verify",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/realms/games",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/realms/games",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/realms/config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/realms/config",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/realms/config",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/realms/config",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "PUT /basic/realms/config",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.beamable.com/basic/realms/config",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "PUT /basic/realms/project/rename",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.beamable.com/basic/realms/project/rename",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/realms/plans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/realms/plans",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/realms/plans",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/realms/plans",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/realms/client/defaults",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/realms/client/defaults",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/realms/customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/realms/customer",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/realms/customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/realms/customer",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/realms/admin/inflight/failures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/realms/admin/inflight/failures",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "serviceObjectId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "serviceName",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "DELETE /basic/realms/admin/inflight/failures",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.beamable.com/basic/realms/admin/inflight/failures",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/realms/launch-message",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/realms/launch-message",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/realms/launch-message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/realms/launch-message",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "DELETE /basic/realms/launch-message",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.beamable.com/basic/realms/launch-message",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/realms/is-customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/realms/is-customer",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/realms/admin/customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/realms/admin/customer",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/realms/game",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/realms/game",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "rootPID",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/realms/game",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/realms/game",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "PUT /basic/realms/game",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.beamable.com/basic/realms/game",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/realms/project/promote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/realms/project/promote",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sourcePid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "promotions",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "contentManifestIds",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/realms/project/promote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/realms/project/promote",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/realms/customers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/realms/customers",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/realms/promotion",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/realms/promotion",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sourcePid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "promotions",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "contentManifestIds",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/realms/promotion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/realms/promotion",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/beamo/microservice/registrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/beamo/microservice/registrations",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "PUT /basic/beamo/microservice/federation/traffic",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.beamable.com/basic/beamo/microservice/federation/traffic",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "DELETE /basic/beamo/microservice/federation/traffic",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.beamable.com/basic/beamo/microservice/federation/traffic",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/beamo/image/urls",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/beamo/image/urls",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/beamo/metricsUrl",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/beamo/metricsUrl",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/beamo/microservice/secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/beamo/microservice/secret",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/beamo/queryLogs/result",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/beamo/queryLogs/result",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/beamo/storage/performance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/beamo/storage/performance",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "storageObjectName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "granularity",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/beamo/manifests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/beamo/manifests",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "archived",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/beamo/templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/beamo/templates",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/beamo/queryLogs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/beamo/queryLogs",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "DELETE /basic/beamo/queryLogs",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.beamable.com/basic/beamo/queryLogs",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/beamo/logsUrl",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/beamo/logsUrl",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "PUT /basic/beamo/image/commit",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.beamable.com/basic/beamo/image/commit",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/beamo/uploadAPI",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/beamo/uploadAPI",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/beamo/status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/beamo/status",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/beamo/manifest/current",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/beamo/manifest/current",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "archived",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/beamo/manifest/pull",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/beamo/manifest/pull",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/beamo/registry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/beamo/registry",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/beamo/manifest/deploy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/beamo/manifest/deploy",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/beamo/microservice/federation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/beamo/microservice/federation",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/beamo/storage/connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/beamo/storage/connection",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/beamo/manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/beamo/manifest",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "archived",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/beamo/manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/beamo/manifest",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/auth/token/list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/auth/token/list",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "gamerTagOrAccountId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /basic/auth/token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/basic/auth/token",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "POST /basic/auth/token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/basic/auth/token",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "PUT /basic/auth/token/revoke",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.beamable.com/basic/auth/token/revoke",
+            "headers": [
+              {
+                "name": "X-BEAM-SCOPE",
+                "value": ""
+              },
+              {
+                "name": "X-BEAM-GAMERTAG",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

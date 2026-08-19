@@ -1,0 +1,627 @@
+{
+  "item": [
+    {
+      "id": "56d9a3af-31a8-49a6-bbaa-e19577afc6ad",
+      "name": "Object",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5976de4f-4318-44e5-958d-404f57f93062",
+          "name": "/object/event-players/:objectId/claim-entitlements",
+          "request": {
+            "name": "/object/event-players/:objectId/claim-entitlements",
+            "description": {},
+            "url": {
+              "path": [
+                "object",
+                "event-players",
+                ":objectId",
+                "claim-entitlements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "objectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"eventId\": \"<string>\",\n  \"generators\": [\n    {\n      \"quantity\": \"<integer>\",\n      \"claimWindow\": {\n        \"open\": \"<integer>\",\n        \"close\": \"<integer>\"\n      },\n      \"params\": \"<object>\",\n      \"symbol\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"action\": \"<string>\"\n    },\n    {\n      \"quantity\": \"<integer>\",\n      \"claimWindow\": {\n        \"open\": \"<integer>\",\n        \"close\": \"<integer>\"\n      },\n      \"params\": \"<object>\",\n      \"symbol\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"action\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "63ea8b65-4bdd-467c-b17f-f267dc861cda",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    "event-players",
+                    ":objectId",
+                    "claim-entitlements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "objectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"eventId\": \"<string>\",\n  \"generators\": [\n    {\n      \"quantity\": \"<integer>\",\n      \"claimWindow\": {\n        \"open\": \"<integer>\",\n        \"close\": \"<integer>\"\n      },\n      \"params\": \"<object>\",\n      \"symbol\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"action\": \"<string>\"\n    },\n    {\n      \"quantity\": \"<integer>\",\n      \"claimWindow\": {\n        \"open\": \"<integer>\",\n        \"close\": \"<integer>\"\n      },\n      \"params\": \"<object>\",\n      \"symbol\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"action\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7b64fe5-96fa-4075-99f8-f9ab31839a16",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    "event-players",
+                    ":objectId",
+                    "claim-entitlements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "objectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"eventId\": \"<string>\",\n  \"generators\": [\n    {\n      \"quantity\": \"<integer>\",\n      \"claimWindow\": {\n        \"open\": \"<integer>\",\n        \"close\": \"<integer>\"\n      },\n      \"params\": \"<object>\",\n      \"symbol\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"action\": \"<string>\"\n    },\n    {\n      \"quantity\": \"<integer>\",\n      \"claimWindow\": {\n        \"open\": \"<integer>\",\n        \"close\": \"<integer>\"\n      },\n      \"params\": \"<object>\",\n      \"symbol\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"action\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98fe90ca-d457-4a48-813f-f405cdbf8744",
+          "name": "/object/event-players/:objectId/",
+          "request": {
+            "name": "/object/event-players/:objectId/",
+            "description": {},
+            "url": {
+              "path": [
+                "object",
+                "event-players",
+                ":objectId",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "objectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "13298833-4485-4f9f-b33e-9f7c3114d11e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    "event-players",
+                    ":objectId",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "objectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"running\": [\n    {\n      \"score\": 9168.397114715593,\n      \"rank\": 9288,\n      \"running\": false,\n      \"secondsRemaining\": 2262,\n      \"name\": \"string\",\n      \"allPhases\": [\n        {\n          \"durationSeconds\": 2150,\n          \"name\": \"string\",\n          \"rules\": [\n            {\n              \"rule\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"rule\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"durationSeconds\": 4357,\n          \"name\": \"string\",\n          \"rules\": [\n            {\n              \"rule\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"rule\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"currentPhase\": {\n        \"durationSeconds\": 21,\n        \"name\": \"string\",\n        \"rules\": [\n          {\n            \"rule\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"rule\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"id\": \"string\",\n      \"leaderboardId\": \"string\",\n      \"rankRewards\": [\n        {\n          \"min\": 6760.4380867704285,\n          \"earned\": true,\n          \"claimed\": true,\n          \"pendingInventoryRewards\": {\n            \"empty\": true,\n            \"currencies\": {},\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"currencies\": [\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"items\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max\": 9396.859070459606,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"min\": 1156.794122739402,\n          \"earned\": false,\n          \"claimed\": false,\n          \"pendingInventoryRewards\": {\n            \"empty\": false,\n            \"currencies\": {},\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"currencies\": [\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"items\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max\": 8827.753185704847,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"groupRewards\": {\n        \"groupScore\": 4634.287638384126,\n        \"groupRank\": 4485,\n        \"groupId\": \"string\",\n        \"rankRewards\": [\n          {\n            \"min\": 3223.590487591512,\n            \"earned\": false,\n            \"claimed\": true,\n            \"pendingInventoryRewards\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"pendingCurrencyRewards\": {},\n            \"pendingItemRewards\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"max\": 4883.416397053242,\n            \"pendingEntitlementRewards\": {},\n            \"obtain\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"min\": 6867.50701232628,\n            \"earned\": true,\n            \"claimed\": false,\n            \"pendingInventoryRewards\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"pendingCurrencyRewards\": {},\n            \"pendingItemRewards\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"max\": 8260.084340587618,\n            \"pendingEntitlementRewards\": {},\n            \"obtain\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"scoreRewards\": [\n          {\n            \"min\": 9186.526277998082,\n            \"earned\": false,\n            \"claimed\": false,\n            \"pendingInventoryRewards\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"pendingCurrencyRewards\": {},\n            \"pendingItemRewards\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"max\": 7570.263087829353,\n            \"pendingEntitlementRewards\": {},\n            \"obtain\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"min\": 2612.414775911984,\n            \"earned\": true,\n            \"claimed\": true,\n            \"pendingInventoryRewards\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"pendingCurrencyRewards\": {},\n            \"pendingItemRewards\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"max\": 7014.7985965728785,\n            \"pendingEntitlementRewards\": {},\n            \"obtain\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"scoreRewards\": [\n        {\n          \"min\": 1124.4772010295512,\n          \"earned\": true,\n          \"claimed\": false,\n          \"pendingInventoryRewards\": {\n            \"empty\": true,\n            \"currencies\": {},\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"currencies\": [\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"items\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max\": 989.7851408682945,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"min\": 9243.400066656663,\n          \"earned\": false,\n          \"claimed\": false,\n          \"pendingInventoryRewards\": {\n            \"empty\": false,\n            \"currencies\": {},\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"currencies\": [\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"items\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max\": 8855.493603377132,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"score\": 8538.484988337996,\n      \"rank\": 3734,\n      \"running\": true,\n      \"secondsRemaining\": 3557,\n      \"name\": \"string\",\n      \"allPhases\": [\n        {\n          \"durationSeconds\": 2337,\n          \"name\": \"string\",\n          \"rules\": [\n            {\n              \"rule\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"rule\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"durationSeconds\": 5242,\n          \"name\": \"string\",\n          \"rules\": [\n            {\n              \"rule\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"rule\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"currentPhase\": {\n        \"durationSeconds\": 1278,\n        \"name\": \"string\",\n        \"rules\": [\n          {\n            \"rule\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"rule\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"id\": \"string\",\n      \"leaderboardId\": \"string\",\n      \"rankRewards\": [\n        {\n          \"min\": 7557.21066600745,\n          \"earned\": false,\n          \"claimed\": false,\n          \"pendingInventoryRewards\": {\n            \"empty\": false,\n            \"currencies\": {},\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"currencies\": [\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"items\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max\": 8705.27505421443,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"min\": 122.13058734738547,\n          \"earned\": true,\n          \"claimed\": false,\n          \"pendingInventoryRewards\": {\n            \"empty\": true,\n            \"currencies\": {},\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"currencies\": [\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"items\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max\": 3651.9648792548464,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"groupRewards\": {\n        \"groupScore\": 549.2342186330934,\n        \"groupRank\": 1823,\n        \"groupId\": \"string\",\n        \"rankRewards\": [\n          {\n            \"min\": 1538.7695743707409,\n            \"earned\": true,\n            \"claimed\": false,\n            \"pendingInventoryRewards\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"pendingCurrencyRewards\": {},\n            \"pendingItemRewards\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"max\": 5865.088291330831,\n            \"pendingEntitlementRewards\": {},\n            \"obtain\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"min\": 4796.519029569978,\n            \"earned\": false,\n            \"claimed\": false,\n            \"pendingInventoryRewards\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"pendingCurrencyRewards\": {},\n            \"pendingItemRewards\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"max\": 5096.335273757777,\n            \"pendingEntitlementRewards\": {},\n            \"obtain\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"scoreRewards\": [\n          {\n            \"min\": 1766.830159168047,\n            \"earned\": true,\n            \"claimed\": true,\n            \"pendingInventoryRewards\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"pendingCurrencyRewards\": {},\n            \"pendingItemRewards\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"max\": 9185.096267033354,\n            \"pendingEntitlementRewards\": {},\n            \"obtain\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"min\": 1151.0502161994007,\n            \"earned\": false,\n            \"claimed\": true,\n            \"pendingInventoryRewards\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"pendingCurrencyRewards\": {},\n            \"pendingItemRewards\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"max\": 7010.560213486907,\n            \"pendingEntitlementRewards\": {},\n            \"obtain\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"scoreRewards\": [\n        {\n          \"min\": 4685.2622760014665,\n          \"earned\": true,\n          \"claimed\": false,\n          \"pendingInventoryRewards\": {\n            \"empty\": true,\n            \"currencies\": {},\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"currencies\": [\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"items\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max\": 4375.378353155503,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"min\": 4390.786199434854,\n          \"earned\": true,\n          \"claimed\": false,\n          \"pendingInventoryRewards\": {\n            \"empty\": true,\n            \"currencies\": {},\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"currencies\": [\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"items\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max\": 8880.655174873596,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"done\": [\n    {\n      \"score\": 3517.592688832685,\n      \"rank\": 3587,\n      \"running\": true,\n      \"secondsRemaining\": 3595,\n      \"name\": \"string\",\n      \"allPhases\": [\n        {\n          \"durationSeconds\": 2073,\n          \"name\": \"string\",\n          \"rules\": [\n            {\n              \"rule\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"rule\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"durationSeconds\": 1871,\n          \"name\": \"string\",\n          \"rules\": [\n            {\n              \"rule\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"rule\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"currentPhase\": {\n        \"durationSeconds\": 898,\n        \"name\": \"string\",\n        \"rules\": [\n          {\n            \"rule\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"rule\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"id\": \"string\",\n      \"leaderboardId\": \"string\",\n      \"rankRewards\": [\n        {\n          \"min\": 3340.1602675036047,\n          \"earned\": true,\n          \"claimed\": false,\n          \"pendingInventoryRewards\": {\n            \"empty\": true,\n            \"currencies\": {},\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"currencies\": [\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"items\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max\": 5050.358267168078,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"min\": 4949.561796718292,\n          \"earned\": true,\n          \"claimed\": false,\n          \"pendingInventoryRewards\": {\n            \"empty\": true,\n            \"currencies\": {},\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"currencies\": [\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"items\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max\": 8302.910682537184,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"groupRewards\": {\n        \"groupScore\": 4856.358459235181,\n        \"groupRank\": 2749,\n        \"groupId\": \"string\",\n        \"rankRewards\": [\n          {\n            \"min\": 2983.078445210273,\n            \"earned\": true,\n            \"claimed\": false,\n            \"pendingInventoryRewards\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"pendingCurrencyRewards\": {},\n            \"pendingItemRewards\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"max\": 7889.514622038886,\n            \"pendingEntitlementRewards\": {},\n            \"obtain\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"min\": 3165.5245186655247,\n            \"earned\": true,\n            \"claimed\": true,\n            \"pendingInventoryRewards\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"pendingCurrencyRewards\": {},\n            \"pendingItemRewards\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"max\": 7298.8992657794415,\n            \"pendingEntitlementRewards\": {},\n            \"obtain\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"scoreRewards\": [\n          {\n            \"min\": 973.635238984678,\n            \"earned\": false,\n            \"claimed\": true,\n            \"pendingInventoryRewards\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"pendingCurrencyRewards\": {},\n            \"pendingItemRewards\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"max\": 3135.621381575229,\n            \"pendingEntitlementRewards\": {},\n            \"obtain\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"min\": 1973.5429578698827,\n            \"earned\": false,\n            \"claimed\": true,\n            \"pendingInventoryRewards\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"pendingCurrencyRewards\": {},\n            \"pendingItemRewards\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"max\": 3941.3409541773703,\n            \"pendingEntitlementRewards\": {},\n            \"obtain\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"scoreRewards\": [\n        {\n          \"min\": 9658.716675563632,\n          \"earned\": true,\n          \"claimed\": true,\n          \"pendingInventoryRewards\": {\n            \"empty\": false,\n            \"currencies\": {},\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"currencies\": [\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"items\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max\": 6803.771363269946,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"min\": 707.5632005018883,\n          \"earned\": false,\n          \"claimed\": false,\n          \"pendingInventoryRewards\": {\n            \"empty\": true,\n            \"currencies\": {},\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"currencies\": [\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"items\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max\": 3458.215256419712,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"score\": 952.6738531156087,\n      \"rank\": 9807,\n      \"running\": false,\n      \"secondsRemaining\": 1290,\n      \"name\": \"string\",\n      \"allPhases\": [\n        {\n          \"durationSeconds\": 9509,\n          \"name\": \"string\",\n          \"rules\": [\n            {\n              \"rule\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"rule\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"durationSeconds\": 2074,\n          \"name\": \"string\",\n          \"rules\": [\n            {\n              \"rule\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"rule\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"currentPhase\": {\n        \"durationSeconds\": 2075,\n        \"name\": \"string\",\n        \"rules\": [\n          {\n            \"rule\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"rule\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"id\": \"string\",\n      \"leaderboardId\": \"string\",\n      \"rankRewards\": [\n        {\n          \"min\": 2322.844594008321,\n          \"earned\": false,\n          \"claimed\": false,\n          \"pendingInventoryRewards\": {\n            \"empty\": false,\n            \"currencies\": {},\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"currencies\": [\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"items\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max\": 6325.066145406926,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"min\": 8355.01737876408,\n          \"earned\": false,\n          \"claimed\": true,\n          \"pendingInventoryRewards\": {\n            \"empty\": false,\n            \"currencies\": {},\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"currencies\": [\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"items\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max\": 9314.939517195244,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"groupRewards\": {\n        \"groupScore\": 7207.9463831877665,\n        \"groupRank\": 4346,\n        \"groupId\": \"string\",\n        \"rankRewards\": [\n          {\n            \"min\": 8953.23395263687,\n            \"earned\": true,\n            \"claimed\": true,\n            \"pendingInventoryRewards\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"pendingCurrencyRewards\": {},\n            \"pendingItemRewards\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"max\": 5646.0085239410055,\n            \"pendingEntitlementRewards\": {},\n            \"obtain\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"min\": 6900.563820211078,\n            \"earned\": true,\n            \"claimed\": false,\n            \"pendingInventoryRewards\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"pendingCurrencyRewards\": {},\n            \"pendingItemRewards\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"max\": 3796.1567705470156,\n            \"pendingEntitlementRewards\": {},\n            \"obtain\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"scoreRewards\": [\n          {\n            \"min\": 8834.1713863066,\n            \"earned\": false,\n            \"claimed\": true,\n            \"pendingInventoryRewards\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"pendingCurrencyRewards\": {},\n            \"pendingItemRewards\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"max\": 694.5611050655309,\n            \"pendingEntitlementRewards\": {},\n            \"obtain\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"min\": 5964.499555838879,\n            \"earned\": true,\n            \"claimed\": true,\n            \"pendingInventoryRewards\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"pendingCurrencyRewards\": {},\n            \"pendingItemRewards\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"max\": 4105.778164484516,\n            \"pendingEntitlementRewards\": {},\n            \"obtain\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"scoreRewards\": [\n        {\n          \"min\": 685.7256845748982,\n          \"earned\": false,\n          \"claimed\": false,\n          \"pendingInventoryRewards\": {\n            \"empty\": false,\n            \"currencies\": {},\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"currencies\": [\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"items\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max\": 5529.917302921557,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"min\": 2233.0837697782445,\n          \"earned\": true,\n          \"claimed\": false,\n          \"pendingInventoryRewards\": {\n            \"empty\": false,\n            \"currencies\": {},\n            \"items\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"currencies\": [\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"amount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"contentId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"items\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"properties\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max\": 4812.001372435439,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "424dcaab-37ef-4e8c-bf0b-a14662111fd8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    "event-players",
+                    ":objectId",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "objectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed02ed42-f4be-4c46-a0e5-b0a5ed4c6dbd",
+          "name": "/object/event-players/:objectId/claim",
+          "request": {
+            "name": "/object/event-players/:objectId/claim",
+            "description": {},
+            "url": {
+              "path": [
+                "object",
+                "event-players",
+                ":objectId",
+                "claim"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "objectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"eventId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0871094d-d0fd-46cd-bd6e-f2d2922e5d6e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    "event-players",
+                    ":objectId",
+                    "claim"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "objectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"eventId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"view\": {\n    \"score\": 9221.890510107914,\n    \"rank\": 7595,\n    \"running\": false,\n    \"secondsRemaining\": 6009,\n    \"name\": \"string\",\n    \"allPhases\": [\n      {\n        \"durationSeconds\": 4054,\n        \"name\": \"string\",\n        \"rules\": [\n          {\n            \"rule\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"rule\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      {\n        \"durationSeconds\": 4277,\n        \"name\": \"string\",\n        \"rules\": [\n          {\n            \"rule\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"rule\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"currentPhase\": {\n      \"durationSeconds\": 5725,\n      \"name\": \"string\",\n      \"rules\": [\n        {\n          \"rule\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"rule\": \"string\",\n          \"value\": \"string\"\n        }\n      ]\n    },\n    \"id\": \"string\",\n    \"leaderboardId\": \"string\",\n    \"rankRewards\": [\n      {\n        \"min\": 515.7658973104307,\n        \"earned\": true,\n        \"claimed\": true,\n        \"pendingInventoryRewards\": {\n          \"empty\": false,\n          \"currencies\": {},\n          \"items\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"currencies\": [\n          {\n            \"amount\": 7304,\n            \"id\": \"string\"\n          },\n          {\n            \"amount\": 9822,\n            \"id\": \"string\"\n          }\n        ],\n        \"pendingCurrencyRewards\": {},\n        \"pendingItemRewards\": [\n          {\n            \"contentId\": \"string\",\n            \"properties\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"contentId\": \"string\",\n            \"properties\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"items\": [\n          {\n            \"id\": \"string\",\n            \"properties\": {}\n          },\n          {\n            \"id\": \"string\",\n            \"properties\": {}\n          }\n        ],\n        \"max\": 9423.268023781244,\n        \"pendingEntitlementRewards\": {},\n        \"obtain\": [\n          {\n            \"count\": 9272,\n            \"symbol\": \"string\"\n          },\n          {\n            \"count\": 4973,\n            \"symbol\": \"string\"\n          }\n        ]\n      },\n      {\n        \"min\": 1411.707271444732,\n        \"earned\": true,\n        \"claimed\": false,\n        \"pendingInventoryRewards\": {\n          \"empty\": false,\n          \"currencies\": {},\n          \"items\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"currencies\": [\n          {\n            \"amount\": 116,\n            \"id\": \"string\"\n          },\n          {\n            \"amount\": 3329,\n            \"id\": \"string\"\n          }\n        ],\n        \"pendingCurrencyRewards\": {},\n        \"pendingItemRewards\": [\n          {\n            \"contentId\": \"string\",\n            \"properties\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"contentId\": \"string\",\n            \"properties\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"items\": [\n          {\n            \"id\": \"string\",\n            \"properties\": {}\n          },\n          {\n            \"id\": \"string\",\n            \"properties\": {}\n          }\n        ],\n        \"max\": 4035.7709491590354,\n        \"pendingEntitlementRewards\": {},\n        \"obtain\": [\n          {\n            \"count\": 3870,\n            \"symbol\": \"string\"\n          },\n          {\n            \"count\": 9935,\n            \"symbol\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"groupRewards\": {\n      \"groupScore\": 1754.9015461912709,\n      \"groupRank\": 2993,\n      \"groupId\": \"string\",\n      \"rankRewards\": [\n        {\n          \"min\": 2389.3693415438897,\n          \"earned\": true,\n          \"claimed\": true,\n          \"pendingInventoryRewards\": {\n            \"empty\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"items\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"currencies\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"items\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"max\": 4134.005900824179,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"min\": 3072.572264918203,\n          \"earned\": true,\n          \"claimed\": false,\n          \"pendingInventoryRewards\": {\n            \"empty\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"items\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"currencies\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"items\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"max\": 5616.795466439011,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"scoreRewards\": [\n        {\n          \"min\": 6377.7512345015475,\n          \"earned\": true,\n          \"claimed\": true,\n          \"pendingInventoryRewards\": {\n            \"empty\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"items\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"currencies\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"items\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"max\": 9963.292857514847,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"min\": 2880.0804903195176,\n          \"earned\": false,\n          \"claimed\": false,\n          \"pendingInventoryRewards\": {\n            \"empty\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currencies\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"items\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"currencies\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"pendingCurrencyRewards\": {},\n          \"pendingItemRewards\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"items\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"max\": 9194.109416055775,\n          \"pendingEntitlementRewards\": {},\n          \"obtain\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"scoreRewards\": [\n      {\n        \"min\": 9523.950634565572,\n        \"earned\": false,\n        \"claimed\": true,\n        \"pendingInventoryRewards\": {\n          \"empty\": false,\n          \"currencies\": {},\n          \"items\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"currencies\": [\n          {\n            \"amount\": 6550,\n            \"id\": \"string\"\n          },\n          {\n            \"amount\": 7792,\n            \"id\": \"string\"\n          }\n        ],\n        \"pendingCurrencyRewards\": {},\n        \"pendingItemRewards\": [\n          {\n            \"contentId\": \"string\",\n            \"properties\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"contentId\": \"string\",\n            \"properties\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"items\": [\n          {\n            \"id\": \"string\",\n            \"properties\": {}\n          },\n          {\n            \"id\": \"string\",\n            \"properties\": {}\n          }\n        ],\n        \"max\": 3568.90906079503,\n        \"pendingEntitlementRewards\": {},\n        \"obtain\": [\n          {\n            \"count\": 1197,\n            \"symbol\": \"string\"\n          },\n          {\n            \"count\": 9365,\n            \"symbol\": \"string\"\n          }\n        ]\n      },\n      {\n        \"min\": 6374.770727532413,\n        \"earned\": false,\n        \"claimed\": true,\n        \"pendingInventoryRewards\": {\n          \"empty\": true,\n          \"currencies\": {},\n          \"items\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"currencies\": [\n          {\n            \"amount\": 9127,\n            \"id\": \"string\"\n          },\n          {\n            \"amount\": 2783,\n            \"id\": \"string\"\n          }\n        ],\n        \"pendingCurrencyRewards\": {},\n        \"pendingItemRewards\": [\n          {\n            \"contentId\": \"string\",\n            \"properties\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"contentId\": \"string\",\n            \"properties\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"items\": [\n          {\n            \"id\": \"string\",\n            \"properties\": {}\n          },\n          {\n            \"id\": \"string\",\n            \"properties\": {}\n          }\n        ],\n        \"max\": 8946.070819896637,\n        \"pendingEntitlementRewards\": {},\n        \"obtain\": [\n          {\n            \"count\": 1514,\n            \"symbol\": \"string\"\n          },\n          {\n            \"count\": 3474,\n            \"symbol\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"gameRspJson\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7501c183-f845-4645-a95b-5091494ba1f3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    "event-players",
+                    ":objectId",
+                    "claim"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "objectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"eventId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf9db1b3-1237-4746-a5f1-38078a423291",
+          "name": "/object/event-players/:objectId/score",
+          "request": {
+            "name": "/object/event-players/:objectId/score",
+            "description": {},
+            "url": {
+              "path": [
+                "object",
+                "event-players",
+                ":objectId",
+                "score"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "objectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"score\": \"<number>\",\n  \"eventId\": \"<string>\",\n  \"increment\": \"<boolean>\",\n  \"stats\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "41a92eeb-917e-4f06-a31d-3ab8b2622c34",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    "event-players",
+                    ":objectId",
+                    "score"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "objectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"score\": \"<number>\",\n  \"eventId\": \"<string>\",\n  \"increment\": \"<boolean>\",\n  \"stats\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "238d9005-1c10-4c37-8a72-5b0a3c22891d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    "event-players",
+                    ":objectId",
+                    "score"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "objectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"score\": \"<number>\",\n  \"eventId\": \"<string>\",\n  \"increment\": \"<boolean>\",\n  \"stats\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.beamable.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "01f1fd88-dbc4-4ff2-84dc-02fccf7bf7cb",
+    "name": "realms Basic Object API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Name: Beamable Support\n Email: support@beamable.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "realms Basic Object API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Object",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "POST /object/event-players/{objectId}/claim-entitlements",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/object/event-players/:objectId/claim-entitlements",
+            "params": [
+              {
+                "name": "objectId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /object/event-players/{objectId}/",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.beamable.com/object/event-players/:objectId/",
+            "params": [
+              {
+                "name": "objectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "POST /object/event-players/{objectId}/claim",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.beamable.com/object/event-players/:objectId/claim",
+            "params": [
+              {
+                "name": "objectId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "PUT /object/event-players/{objectId}/score",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.beamable.com/object/event-players/:objectId/score",
+            "params": [
+              {
+                "name": "objectId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
