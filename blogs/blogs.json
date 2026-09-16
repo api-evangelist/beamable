@@ -3,10 +3,7 @@
   "feeds": [
     {
       "source": "https://www.linkedin.com/company/beamable",
-      "feed_url": "https://www.linkedin.com/company/beamable",
-      "title": "",
-      "saved": 0,
-      "method": "none"
+      "error": "HTTPError"
     },
     {
       "source": "https://twitter.com/Beamable",
@@ -23,7 +20,7 @@
       "method": "feed"
     }
   ],
-  "fetched": "2026-09-06T19:17:18Z",
+  "fetched": "2026-09-13T13:00:00Z",
   "post_count": 10,
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
