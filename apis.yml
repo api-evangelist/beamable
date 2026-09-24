@@ -89,8 +89,6 @@ apis:
     url: openapi/beamable-basic-api-openapi.yml
   - type: Documentation
     url: https://docs.beamable.com/docs/beamable-overview
-  - type: GraphQL
-    url: graphql/beamable-graphql.md
 - aid: beamable:beamable-object-api
   name: Beamable Object API
   description: The Object API from Beamable — 4 operation(s) for object.
@@ -103,8 +101,6 @@ apis:
     url: openapi/beamable-object-api-openapi.yml
   - type: Documentation
     url: https://docs.beamable.com/docs/beamable-overview
-  - type: GraphQL
-    url: graphql/beamable-graphql.md
 common:
 - type: AgenticAccess
   url: agentic-access/beamable-agentic-access.yml
@@ -142,8 +138,6 @@ common:
   url: rate-limits/beamable-rate-limits.yml
 - type: FinOps
   url: finops/beamable-finops.yml
-- url: graphql/beamable-graphql.md
-  type: GraphQL
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
