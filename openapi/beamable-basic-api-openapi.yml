@@ -2244,6 +2244,761 @@ paths:
     - url: https://api.beamable.com
 components:
   schemas:
+    CustomerResponse:
+      properties:
+        customer:
+          $ref: '#/components/schemas/Customer'
+      additionalProperties: false
+      title: Customer Response
+      type: object
+      required:
+      - customer
+    NewCustomerResponse:
+      properties:
+        name:
+          type: string
+        projectName:
+          type: string
+        activationPending:
+          type: boolean
+        alias:
+          type: string
+        cid:
+          type: integer
+          format: int64
+          x-beamable-semantic-type: Cid
+        pid:
+          type: string
+          x-beamable-semantic-type: Pid
+        token:
+          $ref: '#/components/schemas/TokenResponse'
+      additionalProperties: false
+      title: New Customer Response
+      type: object
+      required:
+      - token
+      - cid
+      - pid
+      - name
+      - projectName
+      - activationPending
+    AliasAvailableResponse:
+      properties:
+        alias:
+          type: string
+        available:
+          type: boolean
+        cid:
+          type: integer
+          format: int64
+          x-beamable-semantic-type: Cid
+      additionalProperties: false
+      title: Alias Available Response
+      type: object
+      required:
+      - alias
+      - available
+      - cid
+    DataDomain:
+      type: object
+      additionalProperties: false
+      properties:
+        messageBusAnalytics:
+          type: array
+          items:
+            type: string
+        mongoSrvAddress:
+          type: string
+        memcachedHosts:
+          type: array
+          items:
+            type: string
+        mongoSharded:
+          type: boolean
+        mongoSSL:
+          type: boolean
+        mongoHosts:
+          type: array
+          items:
+            type: string
+        mongoSSLEnabled:
+          type: boolean
+        messageBusCommon:
+          type: array
+          items:
+            type: string
+        redisShards:
+          type: array
+          items:
+            $ref: '#/components/schemas/RedisShard'
+      required:
+      - mongoHosts
+      - mongoSharded
+      - memcachedHosts
+      - mongoSSLEnabled
+    RenameProjectRequest:
+      properties:
+        projectId:
+          type: string
+          x-beamable-semantic-type: Pid
+        newName:
+          type: string
+      additionalProperties: false
+      title: Rename Project Request
+      type: object
+      required:
+      - projectId
+      - newName
+    RealmConfiguration:
+      properties:
+        websocketConfig:
+          $ref: '#/components/schemas/WebSocketConfiguration'
+        microserviceURI:
+          type: string
+        portalURI:
+          type: string
+        microserviceEcrURI:
+          type: string
+        storageBrowserURI:
+          type: string
+        environment:
+          type: string
+      additionalProperties: false
+      title: Realm Configuration
+      type: object
+      required:
+      - environment
+      - websocketConfig
+      - microserviceURI
+      - microserviceEcrURI
+      - portalURI
+      - storageBrowserURI
+    PromoteRealmResponse:
+      properties:
+        sourcePid:
+          type: string
+          x-beamable-semantic-type: Pid
+        scopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/PromotionScope'
+      additionalProperties: false
+      title: Promote Realm Response
+      type: object
+      required:
+      - sourcePid
+      - scopes
+    ContentLimits:
+      type: object
+      additionalProperties: false
+      properties:
+        maxDistinctContentIds:
+          type: integer
+          format: int32
+    Promotable:
+      type: object
+      additionalProperties: false
+      properties:
+        checksum:
+          type: string
+        createdAt:
+          type: integer
+          format: int64
+      required:
+      - checksum
+      - createdAt
+    Customer:
+      type: object
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+        activationStatus:
+          type: string
+        paymentStatus:
+          type: string
+        image:
+          type: string
+        config:
+          type: object
+          additionalProperties:
+            type: string
+        contact:
+          type: string
+        alias:
+          type: string
+        cid:
+          type: integer
+          format: int64
+          x-beamable-semantic-type: Cid
+        updated:
+          type: integer
+          format: int64
+        crm_link:
+          type: string
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+        accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Account'
+        created:
+          type: integer
+          format: int64
+      required:
+      - cid
+      - name
+      - projects
+      - accounts
+    RealmConfigChangeRequest:
+      properties:
+        upserts:
+          type: object
+          additionalProperties:
+            type: string
+        deletes:
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+      title: Realm Config Change Request
+      type: object
+    PromotionScope:
+      type: object
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+        promotions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Promotion'
+      required:
+      - name
+      - promotions
+    GatewayLimits:
+      type: object
+      additionalProperties: false
+      properties:
+        maxConcurrentRequests:
+          type: integer
+          format: int32
+      required:
+      - maxConcurrentRequests
+    ProjectView:
+      type: object
+      additionalProperties: false
+      properties:
+        secret:
+          type: string
+        parent:
+          type: string
+          x-beamable-semantic-type: Pid
+        children:
+          type: array
+          items:
+            x-beamable-semantic-type: Pid
+            type: string
+        projectName:
+          type: string
+        archived:
+          type: boolean
+        cid:
+          type: integer
+          format: int64
+          x-beamable-semantic-type: Cid
+        pid:
+          type: string
+          x-beamable-semantic-type: Pid
+        sharded:
+          type: boolean
+      required:
+      - projectName
+      - pid
+    BatchDeleteInFlightRequest:
+      properties:
+        inFlightFailureIds:
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+      title: Batch Delete In Flight Request
+      type: object
+      required:
+      - inFlightFailureIds
+    Promotion:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        source:
+          $ref: '#/components/schemas/Promotable'
+        destination:
+          $ref: '#/components/schemas/Promotable'
+      required:
+      - id
+      - source
+      - destination
+    RealmPromotion:
+      type: object
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+        source:
+          $ref: '#/components/schemas/Promotable'
+        destination:
+          $ref: '#/components/schemas/Promotable'
+      required:
+      - name
+      - source
+      - destination
+    ServiceLimits:
+      type: object
+      additionalProperties: false
+      properties:
+        beamo:
+          $ref: '#/components/schemas/BeamoLimits'
+        content:
+          $ref: '#/components/schemas/ContentLimits'
+        gateway:
+          $ref: '#/components/schemas/GatewayLimits'
+    CommonResponse:
+      properties:
+        result:
+          type: string
+        data:
+          type: object
+          additionalProperties:
+            type: string
+      additionalProperties: false
+      title: Common Response
+      type: object
+      required:
+      - result
+      - data
+    NewGameRequest:
+      properties:
+        gameName:
+          type: string
+      additionalProperties: false
+      title: New Game Request
+      type: object
+      required:
+      - gameName
+    CustomerView:
+      type: object
+      additionalProperties: false
+      properties:
+        cid:
+          type: integer
+          format: int64
+          x-beamable-semantic-type: Cid
+        name:
+          type: string
+        alias:
+          type: string
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectView'
+      required:
+      - cid
+      - name
+      - projects
+    PromoteRealmRequest:
+      properties:
+        sourcePid:
+          type: string
+          x-beamable-semantic-type: Pid
+        promotions:
+          type: array
+          items:
+            type: string
+        contentManifestIds:
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+      title: Promote Realm Request
+      type: object
+      required:
+      - sourcePid
+    UpdateGameHierarchyRequest:
+      properties:
+        rootPID:
+          type: string
+          x-beamable-semantic-type: Pid
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectView'
+      additionalProperties: false
+      title: Update Game Hierarchy Request
+      type: object
+      required:
+      - rootPID
+      - projects
+    CreateProjectRequest:
+      properties:
+        name:
+          type: string
+        plan:
+          type: string
+        sharded:
+          type: boolean
+        parent:
+          type: string
+      additionalProperties: false
+      title: Create Project Request
+      type: object
+      required:
+      - name
+    RealmConfigSaveRequest:
+      properties:
+        config:
+          type: object
+          additionalProperties:
+            type: string
+      additionalProperties: false
+      title: Realm Config Save Request
+      type: object
+      required:
+      - config
+    CustomerViewResponse:
+      properties:
+        customer:
+          $ref: '#/components/schemas/CustomerView'
+      additionalProperties: false
+      title: Customer View Response
+      type: object
+      required:
+      - customer
+    CustomersResponse:
+      properties:
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/Customer'
+      additionalProperties: false
+      title: Customers Response
+      type: object
+      required:
+      - result
+    RedisShardRequest:
+      type: object
+      additionalProperties: false
+      properties:
+        shardId:
+          type: integer
+          format: int32
+        masterHost:
+          type: string
+        slaveHosts:
+          type: string
+      required:
+      - shardId
+      - masterHost
+      - slaveHosts
+    InFlightFailureResponse:
+      properties:
+        failures:
+          type: array
+          items:
+            $ref: '#/components/schemas/InFlightFailure'
+      additionalProperties: false
+      title: In Flight Failure Response
+      type: object
+      required:
+      - failures
+    PromoteRealmResponseOld:
+      properties:
+        sourcePid:
+          type: string
+        promotions:
+          type: array
+          items:
+            $ref: '#/components/schemas/RealmPromotion'
+      additionalProperties: false
+      title: Promote Realm Response Old
+      type: object
+      required:
+      - sourcePid
+      - promotions
+    BeamoLimits:
+      type: object
+      additionalProperties: false
+      properties:
+        maxContainerSize:
+          type: string
+        maxRunningContainersPerService:
+          type: integer
+          format: int32
+      required:
+      - maxContainerSize
+      - maxRunningContainersPerService
+    GetGameResponse:
+      properties:
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectView'
+      additionalProperties: false
+      title: Get Game Response
+      type: object
+      required:
+      - projects
+    ServicePlansResponse:
+      properties:
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServicePlan'
+      additionalProperties: false
+      title: Service Plans Response
+      type: object
+      required:
+      - result
+    HtmlResponse:
+      properties:
+        html:
+          type: string
+      additionalProperties: false
+      title: Html Response
+      type: object
+      required:
+      - html
+    CreatePlanRequest:
+      properties:
+        name:
+          type: string
+        messageBusAnalytics:
+          type: array
+          items:
+            type: string
+        mongoSrvAddress:
+          type: string
+        memcachedHosts:
+          type: string
+        mongoSSL:
+          type: boolean
+        platformJBDC:
+          type: string
+        sharded:
+          type: boolean
+        mongoHosts:
+          type: string
+        messageBusCommon:
+          type: array
+          items:
+            type: string
+        redisShards:
+          type: array
+          items:
+            $ref: '#/components/schemas/RedisShardRequest'
+      additionalProperties: false
+      title: Create Plan Request
+      type: object
+      required:
+      - name
+      - mongoHosts
+      - sharded
+      - mongoSSL
+      - platformJBDC
+      - memcachedHosts
+      - redisShards
+    UnarchiveProjectRequest:
+      properties:
+        projectId:
+          type: string
+          x-beamable-semantic-type: Pid
+      additionalProperties: false
+      title: Unarchive Project Request
+      type: object
+      required:
+      - projectId
+    InFlightMessage:
+      type: object
+      additionalProperties: false
+      properties:
+        method:
+          type: string
+        body:
+          type: string
+        path:
+          type: string
+        gamerTag:
+          type: integer
+          format: int64
+        limitFailureRetries:
+          type: boolean
+        shard:
+          type: string
+        service:
+          type: string
+        id:
+          type: string
+      required:
+      - service
+      - id
+      - method
+      - path
+      - body
+    LaunchMessageListResponse:
+      properties:
+        files:
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+      title: Launch Message List Response
+      type: object
+      required:
+      - files
+    CreateLaunchMessageRequest:
+      properties:
+        name:
+          type: string
+        body:
+          type: string
+      additionalProperties: false
+      title: Create Launch Message Request
+      type: object
+      required:
+      - name
+      - body
+    TokenResponse:
+      type: object
+      additionalProperties: false
+      properties:
+        access_token:
+          type: string
+        expires_in:
+          type: integer
+          format: int64
+        refresh_token:
+          type: string
+        scopes:
+          type: array
+          items:
+            type: string
+        token_type:
+          type: string
+        challenge_token:
+          type: string
+      required:
+      - expires_in
+      - token_type
+    ServicePlan:
+      type: object
+      additionalProperties: false
+      properties:
+        minCustomerStatusSaved:
+          type: string
+        name:
+          type: string
+        dataDomain:
+          $ref: '#/components/schemas/DataDomain'
+        limits:
+          $ref: '#/components/schemas/ServiceLimits'
+        created:
+          type: integer
+          format: int64
+      required:
+      - name
+      - dataDomain
+    RedisShard:
+      type: object
+      additionalProperties: false
+      properties:
+        shardId:
+          type: integer
+          format: int32
+        masterHost:
+          type: string
+        slaveHosts:
+          type: array
+          items:
+            type: string
+      required:
+      - shardId
+      - masterHost
+      - slaveHosts
+    InFlightFailure:
+      type: object
+      additionalProperties: false
+      properties:
+        serviceObjectId:
+          type: string
+        timestamp:
+          type: integer
+          format: int64
+        serviceName:
+          type: string
+        inFlightMessage:
+          $ref: '#/components/schemas/InFlightMessage'
+        lastError:
+          type: string
+        id:
+          type: string
+      required:
+      - id
+      - serviceObjectId
+      - serviceName
+      - inFlightMessage
+      - lastError
+      - timestamp
+    RemoveLaunchMessageRequest:
+      properties:
+        file:
+          type: string
+      additionalProperties: false
+      title: Remove Launch Message Request
+      type: object
+      required:
+      - file
+    ArchiveProjectRequest:
+      properties:
+        pid:
+          type: string
+          x-beamable-semantic-type: Pid
+      additionalProperties: false
+      title: Archive Project Request
+      type: object
+      required:
+      - pid
+    Account:
+      type: object
+      additionalProperties: false
+      properties:
+        user:
+          type: string
+        password:
+          type: string
+        projects:
+          type: array
+          items:
+            type: string
+        created:
+          type: integer
+          format: int64
+      required:
+      - user
+      - password
+      - projects
+    WebSocketConfiguration:
+      type: object
+      additionalProperties: false
+      properties:
+        provider:
+          type: string
+        uri:
+          type: string
+      required:
+      - provider
     Project:
       type: object
       additionalProperties: false
@@ -2291,82 +3046,26 @@ components:
       - customCharts
       - archived
       - root
-    UnarchiveProjectRequest:
+    RealmConfigResponse:
       properties:
-        projectId:
-          type: string
-          x-beamable-semantic-type: Pid
-      additionalProperties: false
-      title: Unarchive Project Request
-      type: object
-      required:
-      - projectId
-    Promotable:
-      type: object
-      additionalProperties: false
-      properties:
-        checksum:
-          type: string
-        createdAt:
-          type: integer
-          format: int64
-      required:
-      - checksum
-      - createdAt
-    ProjectView:
-      type: object
-      additionalProperties: false
-      properties:
-        secret:
-          type: string
-        parent:
-          type: string
-          x-beamable-semantic-type: Pid
-        children:
-          type: array
-          items:
-            x-beamable-semantic-type: Pid
+        config:
+          type: object
+          additionalProperties:
             type: string
-        projectName:
-          type: string
-        archived:
-          type: boolean
-        cid:
-          type: integer
-          format: int64
-          x-beamable-semantic-type: Cid
-        pid:
-          type: string
-          x-beamable-semantic-type: Pid
-        sharded:
-          type: boolean
-      required:
-      - projectName
-      - pid
-    RealmConfiguration:
-      properties:
-        websocketConfig:
-          $ref: '#/components/schemas/WebSocketConfiguration'
-        microserviceURI:
-          type: string
-        portalURI:
-          type: string
-        microserviceEcrURI:
-          type: string
-        storageBrowserURI:
-          type: string
-        environment:
-          type: string
       additionalProperties: false
-      title: Realm Configuration
+      title: Realm Config Response
       type: object
       required:
-      - environment
-      - websocketConfig
-      - microserviceURI
-      - microserviceEcrURI
-      - portalURI
-      - storageBrowserURI
+      - config
+    EmptyResponse:
+      properties:
+        result:
+          type: string
+      additionalProperties: false
+      title: Empty Response
+      type: object
+      required:
+      - result
     NewCustomerRequest:
       properties:
         projectName:
@@ -2388,1127 +3087,6 @@ components:
       - projectName
       - email
       - password
-    ServicePlansResponse:
-      properties:
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServicePlan'
-      additionalProperties: false
-      title: Service Plans Response
-      type: object
-      required:
-      - result
-    ServicePlan:
-      type: object
-      additionalProperties: false
-      properties:
-        minCustomerStatusSaved:
-          type: string
-        name:
-          type: string
-        dataDomain:
-          $ref: '#/components/schemas/DataDomain'
-        limits:
-          $ref: '#/components/schemas/ServiceLimits'
-        created:
-          type: integer
-          format: int64
-      required:
-      - name
-      - dataDomain
-    HtmlResponse:
-      properties:
-        html:
-          type: string
-      additionalProperties: false
-      title: Html Response
-      type: object
-      required:
-      - html
-    InFlightMessage:
-      type: object
-      additionalProperties: false
-      properties:
-        method:
-          type: string
-        body:
-          type: string
-        path:
-          type: string
-        gamerTag:
-          type: integer
-          format: int64
-        limitFailureRetries:
-          type: boolean
-        shard:
-          type: string
-        service:
-          type: string
-        id:
-          type: string
-      required:
-      - service
-      - id
-      - method
-      - path
-      - body
-    RedisShardRequest:
-      type: object
-      additionalProperties: false
-      properties:
-        shardId:
-          type: integer
-          format: int32
-        masterHost:
-          type: string
-        slaveHosts:
-          type: string
-      required:
-      - shardId
-      - masterHost
-      - slaveHosts
-    CreateLaunchMessageRequest:
-      properties:
-        name:
-          type: string
-        body:
-          type: string
-      additionalProperties: false
-      title: Create Launch Message Request
-      type: object
-      required:
-      - name
-      - body
-    CustomerView:
-      type: object
-      additionalProperties: false
-      properties:
-        cid:
-          type: integer
-          format: int64
-          x-beamable-semantic-type: Cid
-        name:
-          type: string
-        alias:
-          type: string
-        projects:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectView'
-      required:
-      - cid
-      - name
-      - projects
-    CommonResponse:
-      properties:
-        result:
-          type: string
-        data:
-          type: object
-          additionalProperties:
-            type: string
-      additionalProperties: false
-      title: Common Response
-      type: object
-      required:
-      - result
-      - data
-    PromoteRealmRequest:
-      properties:
-        sourcePid:
-          type: string
-          x-beamable-semantic-type: Pid
-        promotions:
-          type: array
-          items:
-            type: string
-        contentManifestIds:
-          type: array
-          items:
-            type: string
-      additionalProperties: false
-      title: Promote Realm Request
-      type: object
-      required:
-      - sourcePid
-    GatewayLimits:
-      type: object
-      additionalProperties: false
-      properties:
-        maxConcurrentRequests:
-          type: integer
-          format: int32
-      required:
-      - maxConcurrentRequests
-    ContentLimits:
-      type: object
-      additionalProperties: false
-      properties:
-        maxDistinctContentIds:
-          type: integer
-          format: int32
-    WebSocketConfiguration:
-      type: object
-      additionalProperties: false
-      properties:
-        provider:
-          type: string
-        uri:
-          type: string
-      required:
-      - provider
-    Customer:
-      type: object
-      additionalProperties: false
-      properties:
-        name:
-          type: string
-        activationStatus:
-          type: string
-        paymentStatus:
-          type: string
-        image:
-          type: string
-        config:
-          type: object
-          additionalProperties:
-            type: string
-        contact:
-          type: string
-        alias:
-          type: string
-        cid:
-          type: integer
-          format: int64
-          x-beamable-semantic-type: Cid
-        updated:
-          type: integer
-          format: int64
-        crm_link:
-          type: string
-        projects:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
-        accounts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Account'
-        created:
-          type: integer
-          format: int64
-      required:
-      - cid
-      - name
-      - projects
-      - accounts
-    Promotion:
-      type: object
-      additionalProperties: false
-      properties:
-        id:
-          type: string
-        source:
-          $ref: '#/components/schemas/Promotable'
-        destination:
-          $ref: '#/components/schemas/Promotable'
-      required:
-      - id
-      - source
-      - destination
-    CustomerResponse:
-      properties:
-        customer:
-          $ref: '#/components/schemas/Customer'
-      additionalProperties: false
-      title: Customer Response
-      type: object
-      required:
-      - customer
-    AliasAvailableResponse:
-      properties:
-        alias:
-          type: string
-        available:
-          type: boolean
-        cid:
-          type: integer
-          format: int64
-          x-beamable-semantic-type: Cid
-      additionalProperties: false
-      title: Alias Available Response
-      type: object
-      required:
-      - alias
-      - available
-      - cid
-    UpdateGameHierarchyRequest:
-      properties:
-        rootPID:
-          type: string
-          x-beamable-semantic-type: Pid
-        projects:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectView'
-      additionalProperties: false
-      title: Update Game Hierarchy Request
-      type: object
-      required:
-      - rootPID
-      - projects
-    EmptyResponse:
-      properties:
-        result:
-          type: string
-      additionalProperties: false
-      title: Empty Response
-      type: object
-      required:
-      - result
-    NewGameRequest:
-      properties:
-        gameName:
-          type: string
-      additionalProperties: false
-      title: New Game Request
-      type: object
-      required:
-      - gameName
-    ServiceLimits:
-      type: object
-      additionalProperties: false
-      properties:
-        beamo:
-          $ref: '#/components/schemas/BeamoLimits'
-        content:
-          $ref: '#/components/schemas/ContentLimits'
-        gateway:
-          $ref: '#/components/schemas/GatewayLimits'
-    ArchiveProjectRequest:
-      properties:
-        pid:
-          type: string
-          x-beamable-semantic-type: Pid
-      additionalProperties: false
-      title: Archive Project Request
-      type: object
-      required:
-      - pid
-    RealmPromotion:
-      type: object
-      additionalProperties: false
-      properties:
-        name:
-          type: string
-        source:
-          $ref: '#/components/schemas/Promotable'
-        destination:
-          $ref: '#/components/schemas/Promotable'
-      required:
-      - name
-      - source
-      - destination
-    PromoteRealmResponse:
-      properties:
-        sourcePid:
-          type: string
-          x-beamable-semantic-type: Pid
-        scopes:
-          type: array
-          items:
-            $ref: '#/components/schemas/PromotionScope'
-      additionalProperties: false
-      title: Promote Realm Response
-      type: object
-      required:
-      - sourcePid
-      - scopes
-    InFlightFailureResponse:
-      properties:
-        failures:
-          type: array
-          items:
-            $ref: '#/components/schemas/InFlightFailure'
-      additionalProperties: false
-      title: In Flight Failure Response
-      type: object
-      required:
-      - failures
-    InFlightFailure:
-      type: object
-      additionalProperties: false
-      properties:
-        serviceObjectId:
-          type: string
-        timestamp:
-          type: integer
-          format: int64
-        serviceName:
-          type: string
-        inFlightMessage:
-          $ref: '#/components/schemas/InFlightMessage'
-        lastError:
-          type: string
-        id:
-          type: string
-      required:
-      - id
-      - serviceObjectId
-      - serviceName
-      - inFlightMessage
-      - lastError
-      - timestamp
-    BatchDeleteInFlightRequest:
-      properties:
-        inFlightFailureIds:
-          type: array
-          items:
-            type: string
-      additionalProperties: false
-      title: Batch Delete In Flight Request
-      type: object
-      required:
-      - inFlightFailureIds
-    RealmConfigChangeRequest:
-      properties:
-        upserts:
-          type: object
-          additionalProperties:
-            type: string
-        deletes:
-          type: array
-          items:
-            type: string
-      additionalProperties: false
-      title: Realm Config Change Request
-      type: object
-    RealmConfigSaveRequest:
-      properties:
-        config:
-          type: object
-          additionalProperties:
-            type: string
-      additionalProperties: false
-      title: Realm Config Save Request
-      type: object
-      required:
-      - config
-    DataDomain:
-      type: object
-      additionalProperties: false
-      properties:
-        messageBusAnalytics:
-          type: array
-          items:
-            type: string
-        mongoSrvAddress:
-          type: string
-        memcachedHosts:
-          type: array
-          items:
-            type: string
-        mongoSharded:
-          type: boolean
-        mongoSSL:
-          type: boolean
-        mongoHosts:
-          type: array
-          items:
-            type: string
-        mongoSSLEnabled:
-          type: boolean
-        messageBusCommon:
-          type: array
-          items:
-            type: string
-        redisShards:
-          type: array
-          items:
-            $ref: '#/components/schemas/RedisShard'
-      required:
-      - mongoHosts
-      - mongoSharded
-      - memcachedHosts
-      - mongoSSLEnabled
-    GetGameResponse:
-      properties:
-        projects:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectView'
-      additionalProperties: false
-      title: Get Game Response
-      type: object
-      required:
-      - projects
-    PromotionScope:
-      type: object
-      additionalProperties: false
-      properties:
-        name:
-          type: string
-        promotions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Promotion'
-      required:
-      - name
-      - promotions
-    CustomerViewResponse:
-      properties:
-        customer:
-          $ref: '#/components/schemas/CustomerView'
-      additionalProperties: false
-      title: Customer View Response
-      type: object
-      required:
-      - customer
-    TokenResponse:
-      type: object
-      additionalProperties: false
-      properties:
-        access_token:
-          type: string
-        expires_in:
-          type: integer
-          format: int64
-        refresh_token:
-          type: string
-        scopes:
-          type: array
-          items:
-            type: string
-        token_type:
-          type: string
-        challenge_token:
-          type: string
-      required:
-      - expires_in
-      - token_type
-    LaunchMessageListResponse:
-      properties:
-        files:
-          type: array
-          items:
-            type: string
-      additionalProperties: false
-      title: Launch Message List Response
-      type: object
-      required:
-      - files
-    RedisShard:
-      type: object
-      additionalProperties: false
-      properties:
-        shardId:
-          type: integer
-          format: int32
-        masterHost:
-          type: string
-        slaveHosts:
-          type: array
-          items:
-            type: string
-      required:
-      - shardId
-      - masterHost
-      - slaveHosts
-    CreatePlanRequest:
-      properties:
-        name:
-          type: string
-        messageBusAnalytics:
-          type: array
-          items:
-            type: string
-        mongoSrvAddress:
-          type: string
-        memcachedHosts:
-          type: string
-        mongoSSL:
-          type: boolean
-        platformJBDC:
-          type: string
-        sharded:
-          type: boolean
-        mongoHosts:
-          type: string
-        messageBusCommon:
-          type: array
-          items:
-            type: string
-        redisShards:
-          type: array
-          items:
-            $ref: '#/components/schemas/RedisShardRequest'
-      additionalProperties: false
-      title: Create Plan Request
-      type: object
-      required:
-      - name
-      - mongoHosts
-      - sharded
-      - mongoSSL
-      - platformJBDC
-      - memcachedHosts
-      - redisShards
-    Account:
-      type: object
-      additionalProperties: false
-      properties:
-        user:
-          type: string
-        password:
-          type: string
-        projects:
-          type: array
-          items:
-            type: string
-        created:
-          type: integer
-          format: int64
-      required:
-      - user
-      - password
-      - projects
-    PromoteRealmResponseOld:
-      properties:
-        sourcePid:
-          type: string
-        promotions:
-          type: array
-          items:
-            $ref: '#/components/schemas/RealmPromotion'
-      additionalProperties: false
-      title: Promote Realm Response Old
-      type: object
-      required:
-      - sourcePid
-      - promotions
-    NewCustomerResponse:
-      properties:
-        name:
-          type: string
-        projectName:
-          type: string
-        activationPending:
-          type: boolean
-        alias:
-          type: string
-        cid:
-          type: integer
-          format: int64
-          x-beamable-semantic-type: Cid
-        pid:
-          type: string
-          x-beamable-semantic-type: Pid
-        token:
-          $ref: '#/components/schemas/TokenResponse'
-      additionalProperties: false
-      title: New Customer Response
-      type: object
-      required:
-      - token
-      - cid
-      - pid
-      - name
-      - projectName
-      - activationPending
-    CustomersResponse:
-      properties:
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/Customer'
-      additionalProperties: false
-      title: Customers Response
-      type: object
-      required:
-      - result
-    RealmConfigResponse:
-      properties:
-        config:
-          type: object
-          additionalProperties:
-            type: string
-      additionalProperties: false
-      title: Realm Config Response
-      type: object
-      required:
-      - config
-    RemoveLaunchMessageRequest:
-      properties:
-        file:
-          type: string
-      additionalProperties: false
-      title: Remove Launch Message Request
-      type: object
-      required:
-      - file
-    BeamoLimits:
-      type: object
-      additionalProperties: false
-      properties:
-        maxContainerSize:
-          type: string
-        maxRunningContainersPerService:
-          type: integer
-          format: int32
-      required:
-      - maxContainerSize
-      - maxRunningContainersPerService
-    RenameProjectRequest:
-      properties:
-        projectId:
-          type: string
-          x-beamable-semantic-type: Pid
-        newName:
-          type: string
-      additionalProperties: false
-      title: Rename Project Request
-      type: object
-      required:
-      - projectId
-      - newName
-    CreateProjectRequest:
-      properties:
-        name:
-          type: string
-        plan:
-          type: string
-        sharded:
-          type: boolean
-        parent:
-          type: string
-      additionalProperties: false
-      title: Create Project Request
-      type: object
-      required:
-      - name
-    GetStatusResponse:
-      properties:
-        services:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceStatus'
-        isCurrent:
-          type: boolean
-        storageStatuses:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceStorageStatus'
-      additionalProperties: false
-      title: Get Status Response
-      type: object
-      required:
-      - services
-      - isCurrent
-    LambdaResponse:
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        body:
-          type: string
-      additionalProperties: false
-      title: Lambda Response
-      type: object
-      required:
-      - statusCode
-    ServiceTemplate:
-      type: object
-      additionalProperties: false
-      properties:
-        id:
-          type: string
-      required:
-      - id
-    GetCurrentManifestResponse:
-      properties:
-        manifest:
-          $ref: '#/components/schemas/ManifestView'
-      additionalProperties: false
-      title: Get Current Manifest Response
-      type: object
-      required:
-      - manifest
-    PullBeamoManifestRequest:
-      properties:
-        sourceRealmPid:
-          type: string
-      additionalProperties: false
-      title: Pull Beamo Manifest Request
-      type: object
-      required:
-      - sourceRealmPid
-    Query:
-      properties:
-        queryId:
-          type: string
-      additionalProperties: false
-      title: Query
-      type: object
-      required:
-      - queryId
-    ServiceStorageReference:
-      type: object
-      additionalProperties: false
-      properties:
-        archived:
-          type: boolean
-        enabled:
-          type: boolean
-        storageType:
-          type: string
-        id:
-          type: string
-        checksum:
-          type: string
-        templateId:
-          type: string
-      required:
-      - id
-      - storageType
-      - enabled
-      - archived
-      - checksum
-    ManifestChecksum:
-      type: object
-      additionalProperties: false
-      properties:
-        id:
-          type: string
-        checksum:
-          type: string
-        createdAt:
-          type: integer
-          format: int64
-      required:
-      - id
-      - checksum
-      - createdAt
-    PostManifestRequest:
-      properties:
-        manifest:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceReference'
-        comments:
-          type: string
-        autoDeploy:
-          type: boolean
-        storageReferences:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceStorageReference'
-      additionalProperties: false
-      title: Post Manifest Request
-      type: object
-      required:
-      - manifest
-    ConnectionString:
-      properties:
-        connectionString:
-          type: string
-      additionalProperties: false
-      title: Connection String
-      type: object
-      required:
-      - connectionString
-    ServiceStorageStatus:
-      type: object
-      additionalProperties: false
-      properties:
-        id:
-          type: string
-        storageType:
-          type: string
-        isRunning:
-          type: boolean
-        isCurrent:
-          type: boolean
-      required:
-      - id
-      - storageType
-      - isRunning
-      - isCurrent
-    SupportedFederationsResponse:
-      properties:
-        registrations:
-          type: array
-          items:
-            $ref: '#/components/schemas/SupportedFederationRegistration'
-      additionalProperties: false
-      title: Supported Federations Response
-      type: object
-      required:
-      - registrations
-    GetElasticContainerRegistryURI:
-      properties:
-        uri:
-          type: string
-      additionalProperties: false
-      title: Get Elastic Container Registry URI
-      type: object
-      required:
-      - uri
-    MicroserviceRegistrationsResponse:
-      properties:
-        registrations:
-          type: array
-          items:
-            $ref: '#/components/schemas/MicroserviceRegistrations'
-      additionalProperties: false
-      title: Microservice Registrations Response
-      type: object
-      required:
-      - registrations
-    MicroserviceRegistrations:
-      type: object
-      additionalProperties: false
-      properties:
-        routingKey:
-          type: string
-        serviceName:
-          type: string
-        trafficFilterEnabled:
-          type: boolean
-        cid:
-          type: string
-        pid:
-          type: string
-        instanceCount:
-          type: integer
-          format: int32
-        startedById:
-          type: integer
-          format: int64
-        federation:
-          type: array
-          items:
-            $ref: '#/components/schemas/SupportedFederation'
-        beamoName:
-          type: string
-      required:
-      - instanceCount
-      - serviceName
-      - cid
-      - pid
-    ManifestView:
-      type: object
-      additionalProperties: false
-      properties:
-        createdByAccountId:
-          type: integer
-          format: int64
-        id:
-          type: string
-        checksum:
-          type: string
-        storageReference:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceStorageReference'
-        manifest:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceReference'
-        created:
-          type: integer
-          format: int64
-        comments:
-          type: string
-      required:
-      - id
-      - manifest
-      - created
-      - checksum
-    ServiceStatus:
-      type: object
-      additionalProperties: false
-      properties:
-        isCurrent:
-          type: boolean
-        running:
-          type: boolean
-        serviceName:
-          type: string
-        imageId:
-          type: string
-        serviceDependencyReferences:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceDependencyReference'
-      required:
-      - serviceName
-      - running
-      - imageId
-      - isCurrent
-    ServiceImageLayers:
-      type: object
-      additionalProperties: false
-      properties:
-        service:
-          $ref: '#/components/schemas/Reference'
-        layers:
-          type: array
-          items:
-            type: string
-      required:
-      - service
-      - layers
-    ServiceDependencyReference:
-      type: object
-      additionalProperties: false
-      properties:
-        id:
-          type: string
-        storageType:
-          type: string
-      required:
-      - id
-      - storageType
-    PostManifestResponse:
-      properties:
-        manifest:
-          $ref: '#/components/schemas/ManifestChecksum'
-      additionalProperties: false
-      title: Post Manifest Response
-      type: object
-    GetTemplatesResponse:
-      properties:
-        templates:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceTemplate'
-      additionalProperties: false
-      title: Get Templates Response
-      type: object
-      required:
-      - templates
-    ServiceComponent:
-      type: object
-      additionalProperties: false
-      properties:
-        name:
-          type: string
-      required:
-      - name
-    Reference:
-      type: object
-      additionalProperties: false
-      properties:
-        arm:
-          type: boolean
-        archived:
-          type: boolean
-      required:
-      - arm
-      - archived
-    ManifestChecksums:
-      properties:
-        manifests:
-          type: array
-          items:
-            $ref: '#/components/schemas/ManifestChecksum'
-      additionalProperties: false
-      title: Manifest Checksums
-      type: object
-      required:
-      - manifests
-    FederationType:
-      type: string
-      enum:
-      - IFederatedPlayerInit
-      - IFederatedInventory
-      - IFederatedLogin
-      - IFederatedGameServer
-      - IFederatedCommerce
-    MicroserviceRegistrationRequest:
-      properties:
-        serviceName:
-          type: string
-        routingKey:
-          type: string
-        federation:
-          type: array
-          items:
-            $ref: '#/components/schemas/SupportedFederation'
-        trafficFilterEnabled:
-          type: boolean
-      additionalProperties: false
-      title: Microservice Registration Request
-      type: object
-      required:
-      - serviceName
-    SupportedFederationRegistration:
-      type: object
-      additionalProperties: false
-      properties:
-        serviceName:
-          type: string
-        routingKey:
-          type: string
-        federation:
-          type: array
-          items:
-            $ref: '#/components/schemas/SupportedFederation'
-        trafficFilterEnabled:
-          type: boolean
-      required:
-      - serviceName
-      - trafficFilterEnabled
-    OptionalJsonNodeWrapper:
-      type: object
-      additionalProperties: false
-      x-beamable-json-object: true
-      properties:
-        node:
-          type: string
-    DatabaseMeasurements:
-      type: object
-      additionalProperties: false
-      properties:
-        measurements:
-          type: array
-          items:
-            $ref: '#/components/schemas/DatabaseMeasurement'
-        groupId:
-          type: string
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/Link'
-        hostId:
-          type: string
-        granularity:
-          type: string
-        end:
-          type: string
-        databaseName:
-          type: string
-        start:
-          type: string
-        processId:
-          type: string
-      required:
-      - databaseName
-      - links
-    MicroserviceRegistrationsQuery:
-      properties:
-        serviceName:
-          type: string
-        routingKey:
-          type: string
-        federation:
-          $ref: '#/components/schemas/SupportedFederation'
-        localOnly:
-          type: boolean
-      additionalProperties: false
-      title: Microservice Registrations Query
-      type: object
     ServiceReference:
       type: object
       additionalProperties: false
@@ -3550,6 +3128,305 @@ components:
       - archived
       - checksum
       - arm
+    PerformanceResponse:
+      properties:
+        namespaces:
+          type: array
+          items:
+            $ref: '#/components/schemas/PANamespace'
+        indexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/PASuggestedIndex'
+        queries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PASlowQuery'
+        databaseMeasurements:
+          $ref: '#/components/schemas/DatabaseMeasurements'
+      additionalProperties: false
+      title: Performance Response
+      type: object
+      required:
+      - namespaces
+      - indexes
+      - queries
+      - databaseMeasurements
+    ServiceStorageReference:
+      type: object
+      additionalProperties: false
+      properties:
+        archived:
+          type: boolean
+        enabled:
+          type: boolean
+        storageType:
+          type: string
+        id:
+          type: string
+        checksum:
+          type: string
+        templateId:
+          type: string
+      required:
+      - id
+      - storageType
+      - enabled
+      - archived
+      - checksum
+    GetSignedUrlResponse:
+      properties:
+        headers:
+          type: array
+          items:
+            $ref: '#/components/schemas/GetLogsUrlHeader'
+        url:
+          type: string
+        body:
+          type: string
+        method:
+          type: string
+      additionalProperties: false
+      title: Get Signed Url Response
+      type: object
+      required:
+      - headers
+      - url
+      - body
+      - method
+    GetElasticContainerRegistryURI:
+      properties:
+        uri:
+          type: string
+      additionalProperties: false
+      title: Get Elastic Container Registry URI
+      type: object
+      required:
+      - uri
+    DatabaseMeasurements:
+      type: object
+      additionalProperties: false
+      properties:
+        measurements:
+          type: array
+          items:
+            $ref: '#/components/schemas/DatabaseMeasurement'
+        groupId:
+          type: string
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+        hostId:
+          type: string
+        granularity:
+          type: string
+        end:
+          type: string
+        databaseName:
+          type: string
+        start:
+          type: string
+        processId:
+          type: string
+      required:
+      - databaseName
+      - links
+    SupportedFederation:
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          $ref: '#/components/schemas/FederationType'
+        nameSpace:
+          type: string
+        settings:
+          $ref: '#/components/schemas/OptionalJsonNodeWrapper'
+      required:
+      - type
+    ServiceTemplate:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+      required:
+      - id
+    LambdaResponse:
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        body:
+          type: string
+      additionalProperties: false
+      title: Lambda Response
+      type: object
+      required:
+      - statusCode
+    MicroserviceRegistrationsResponse:
+      properties:
+        registrations:
+          type: array
+          items:
+            $ref: '#/components/schemas/MicroserviceRegistrations'
+      additionalProperties: false
+      title: Microservice Registrations Response
+      type: object
+      required:
+      - registrations
+    ManifestChecksum:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        checksum:
+          type: string
+        createdAt:
+          type: integer
+          format: int64
+      required:
+      - id
+      - checksum
+      - createdAt
+    GetStatusResponse:
+      properties:
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceStatus'
+        isCurrent:
+          type: boolean
+        storageStatuses:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceStorageStatus'
+      additionalProperties: false
+      title: Get Status Response
+      type: object
+      required:
+      - services
+      - isCurrent
+    GetLogsUrlHeader:
+      type: object
+      additionalProperties: false
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      required:
+      - key
+      - value
+    GetServiceURLsRequest:
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceImageLayers'
+      additionalProperties: false
+      title: Get Service UR Ls Request
+      type: object
+      required:
+      - requests
+    MicroserviceRegistrationsQuery:
+      properties:
+        serviceName:
+          type: string
+        routingKey:
+          type: string
+        federation:
+          $ref: '#/components/schemas/SupportedFederation'
+        localOnly:
+          type: boolean
+      additionalProperties: false
+      title: Microservice Registrations Query
+      type: object
+    ServiceImageLayers:
+      type: object
+      additionalProperties: false
+      properties:
+        service:
+          $ref: '#/components/schemas/Reference'
+        layers:
+          type: array
+          items:
+            type: string
+      required:
+      - service
+      - layers
+    PANamespace:
+      type: object
+      additionalProperties: false
+      properties:
+        namespace:
+          type: string
+        type:
+          type: string
+      required:
+      - namespace
+      - type
+    PostManifestResponse:
+      properties:
+        manifest:
+          $ref: '#/components/schemas/ManifestChecksum'
+      additionalProperties: false
+      title: Post Manifest Response
+      type: object
+    GetTemplatesResponse:
+      properties:
+        templates:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceTemplate'
+      additionalProperties: false
+      title: Get Templates Response
+      type: object
+      required:
+      - templates
+    GetLogsUrlRequest:
+      properties:
+        startTime:
+          type: integer
+          format: int64
+        serviceName:
+          type: string
+        nextToken:
+          type: string
+        filter:
+          type: string
+        endTime:
+          type: integer
+          format: int64
+        limit:
+          type: integer
+          format: int32
+      additionalProperties: false
+      title: Get Logs Url Request
+      type: object
+      required:
+      - serviceName
+    PreSignedUrlsResponse:
+      properties:
+        response:
+          type: array
+          items:
+            $ref: '#/components/schemas/URLResponse'
+      additionalProperties: false
+      title: Pre Signed Urls Response
+      type: object
+      required:
+      - response
+    PullBeamoManifestRequest:
+      properties:
+        sourceRealmPid:
+          type: string
+      additionalProperties: false
+      title: Pull Beamo Manifest Request
+      type: object
+      required:
+      - sourceRealmPid
     PASuggestedIndex:
       type: object
       additionalProperties: false
@@ -3574,26 +3451,6 @@ components:
       - index
       - namespace
       - weight
-    GetManifestResponse:
-      properties:
-        manifest:
-          $ref: '#/components/schemas/ManifestView'
-      additionalProperties: false
-      title: Get Manifest Response
-      type: object
-      required:
-      - manifest
-    PreSignedUrlsResponse:
-      properties:
-        response:
-          type: array
-          items:
-            $ref: '#/components/schemas/URLResponse'
-      additionalProperties: false
-      title: Pre Signed Urls Response
-      type: object
-      required:
-      - response
     Link:
       type: object
       additionalProperties: false
@@ -3605,29 +3462,148 @@ components:
       required:
       - href
       - rel
-    SupportedFederation:
+    ServiceStatus:
       type: object
       additionalProperties: false
       properties:
-        type:
-          $ref: '#/components/schemas/FederationType'
-        nameSpace:
+        isCurrent:
+          type: boolean
+        running:
+          type: boolean
+        serviceName:
           type: string
-        settings:
-          $ref: '#/components/schemas/OptionalJsonNodeWrapper'
+        imageId:
+          type: string
+        serviceDependencyReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceDependencyReference'
       required:
-      - type
-    UploadURL:
+      - serviceName
+      - running
+      - imageId
+      - isCurrent
+    GetManifestResponse:
+      properties:
+        manifest:
+          $ref: '#/components/schemas/ManifestView'
+      additionalProperties: false
+      title: Get Manifest Response
+      type: object
+      required:
+      - manifest
+    CommitImageRequest:
+      properties:
+        service:
+          $ref: '#/components/schemas/Reference'
+      additionalProperties: false
+      title: Commit Image Request
+      type: object
+      required:
+      - service
+    ManifestView:
       type: object
       additionalProperties: false
       properties:
-        key:
+        createdByAccountId:
+          type: integer
+          format: int64
+        id:
           type: string
-        url:
+        checksum:
+          type: string
+        storageReference:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceStorageReference'
+        manifest:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceReference'
+        created:
+          type: integer
+          format: int64
+        comments:
           type: string
       required:
-      - key
-      - url
+      - id
+      - manifest
+      - created
+      - checksum
+    PostManifestRequest:
+      properties:
+        manifest:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceReference'
+        comments:
+          type: string
+        autoDeploy:
+          type: boolean
+        storageReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceStorageReference'
+      additionalProperties: false
+      title: Post Manifest Request
+      type: object
+      required:
+      - manifest
+    URLResponse:
+      type: object
+      additionalProperties: false
+      properties:
+        serviceName:
+          type: string
+        s3URLs:
+          type: array
+          items:
+            $ref: '#/components/schemas/UploadURL'
+      required:
+      - serviceName
+      - s3URLs
+    SupportedFederationsResponse:
+      properties:
+        registrations:
+          type: array
+          items:
+            $ref: '#/components/schemas/SupportedFederationRegistration'
+      additionalProperties: false
+      title: Supported Federations Response
+      type: object
+      required:
+      - registrations
+    PASlowQuery:
+      type: object
+      additionalProperties: false
+      properties:
+        line:
+          type: string
+        namespace:
+          type: string
+      required:
+      - line
+      - namespace
+    Reference:
+      type: object
+      additionalProperties: false
+      properties:
+        arm:
+          type: boolean
+        archived:
+          type: boolean
+      required:
+      - arm
+      - archived
+    GetLambdaURI:
+      properties:
+        uri:
+          type: string
+      additionalProperties: false
+      title: Get Lambda URI
+      type: object
+      required:
+      - uri
     GetManifestsResponse:
       properties:
         manifests:
@@ -3639,37 +3615,139 @@ components:
       type: object
       required:
       - manifests
-    CommitImageRequest:
-      properties:
-        service:
-          $ref: '#/components/schemas/Reference'
+    ServiceDependencyReference:
+      type: object
       additionalProperties: false
-      title: Commit Image Request
+      properties:
+        id:
+          type: string
+        storageType:
+          type: string
+      required:
+      - id
+      - storageType
+    MicroserviceRegistrationRequest:
+      properties:
+        serviceName:
+          type: string
+        routingKey:
+          type: string
+        federation:
+          type: array
+          items:
+            $ref: '#/components/schemas/SupportedFederation'
+        trafficFilterEnabled:
+          type: boolean
+      additionalProperties: false
+      title: Microservice Registration Request
       type: object
       required:
-      - service
-    GetLogsUrlRequest:
+      - serviceName
+    GetMetricsUrlRequest:
       properties:
         startTime:
           type: integer
           format: int64
         serviceName:
           type: string
-        nextToken:
-          type: string
-        filter:
+        metricName:
           type: string
         endTime:
           type: integer
           format: int64
-        limit:
+        period:
           type: integer
           format: int32
       additionalProperties: false
-      title: Get Logs Url Request
+      title: Get Metrics Url Request
       type: object
       required:
       - serviceName
+      - metricName
+    DataPoint:
+      type: object
+      additionalProperties: false
+      properties:
+        timestamp:
+          type: string
+        value:
+          type: string
+      required:
+      - timestamp
+      - value
+    ManifestChecksums:
+      properties:
+        manifests:
+          type: array
+          items:
+            $ref: '#/components/schemas/ManifestChecksum'
+      additionalProperties: false
+      title: Manifest Checksums
+      type: object
+      required:
+      - manifests
+    MicroserviceSecretResponse:
+      properties:
+        secret:
+          type: string
+      additionalProperties: false
+      title: Microservice Secret Response
+      type: object
+      required:
+      - secret
+    SupportedFederationRegistration:
+      type: object
+      additionalProperties: false
+      properties:
+        serviceName:
+          type: string
+        routingKey:
+          type: string
+        federation:
+          type: array
+          items:
+            $ref: '#/components/schemas/SupportedFederation'
+        trafficFilterEnabled:
+          type: boolean
+      required:
+      - serviceName
+      - trafficFilterEnabled
+    UploadURL:
+      type: object
+      additionalProperties: false
+      properties:
+        key:
+          type: string
+        url:
+          type: string
+      required:
+      - key
+      - url
+    FederationType:
+      type: string
+      enum:
+      - IFederatedPlayerInit
+      - IFederatedInventory
+      - IFederatedLogin
+      - IFederatedGameServer
+      - IFederatedCommerce
+    ServiceStorageStatus:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        storageType:
+          type: string
+        isRunning:
+          type: boolean
+        isCurrent:
+          type: boolean
+      required:
+      - id
+      - storageType
+      - isRunning
+      - isCurrent
     DatabaseMeasurement:
       type: object
       additionalProperties: false
@@ -3686,17 +3764,70 @@ components:
       - dataPoints
       - name
       - units
-    PASlowQuery:
+    ConnectionString:
+      properties:
+        connectionString:
+          type: string
+      additionalProperties: false
+      title: Connection String
+      type: object
+      required:
+      - connectionString
+    ServiceComponent:
       type: object
       additionalProperties: false
       properties:
-        line:
-          type: string
-        namespace:
+        name:
           type: string
       required:
-      - line
-      - namespace
+      - name
+    OptionalJsonNodeWrapper:
+      type: object
+      additionalProperties: false
+      x-beamable-json-object: true
+      properties:
+        node:
+          type: string
+    MicroserviceRegistrations:
+      type: object
+      additionalProperties: false
+      properties:
+        routingKey:
+          type: string
+        serviceName:
+          type: string
+        trafficFilterEnabled:
+          type: boolean
+        cid:
+          type: string
+        pid:
+          type: string
+        instanceCount:
+          type: integer
+          format: int32
+        startedById:
+          type: integer
+          format: int64
+        federation:
+          type: array
+          items:
+            $ref: '#/components/schemas/SupportedFederation'
+        beamoName:
+          type: string
+      required:
+      - instanceCount
+      - serviceName
+      - cid
+      - pid
+    Query:
+      properties:
+        queryId:
+          type: string
+      additionalProperties: false
+      title: Query
+      type: object
+      required:
+      - queryId
     GetLogsInsightUrlRequest:
       properties:
         startTime:
@@ -3723,146 +3854,26 @@ components:
       type: object
       required:
       - serviceName
-    PerformanceResponse:
+    GetCurrentManifestResponse:
       properties:
-        namespaces:
-          type: array
-          items:
-            $ref: '#/components/schemas/PANamespace'
-        indexes:
-          type: array
-          items:
-            $ref: '#/components/schemas/PASuggestedIndex'
-        queries:
-          type: array
-          items:
-            $ref: '#/components/schemas/PASlowQuery'
-        databaseMeasurements:
-          $ref: '#/components/schemas/DatabaseMeasurements'
+        manifest:
+          $ref: '#/components/schemas/ManifestView'
       additionalProperties: false
-      title: Performance Response
+      title: Get Current Manifest Response
       type: object
       required:
-      - namespaces
-      - indexes
-      - queries
-      - databaseMeasurements
-    DataPoint:
+      - manifest
+    ChallengeSolution:
       type: object
       additionalProperties: false
       properties:
-        timestamp:
+        challenge_token:
           type: string
-        value:
-          type: string
-      required:
-      - timestamp
-      - value
-    URLResponse:
-      type: object
-      additionalProperties: false
-      properties:
-        serviceName:
-          type: string
-        s3URLs:
-          type: array
-          items:
-            $ref: '#/components/schemas/UploadURL'
-      required:
-      - serviceName
-      - s3URLs
-    GetLambdaURI:
-      properties:
-        uri:
-          type: string
-      additionalProperties: false
-      title: Get Lambda URI
-      type: object
-      required:
-      - uri
-    PANamespace:
-      type: object
-      additionalProperties: false
-      properties:
-        namespace:
-          type: string
-        type:
+        solution:
           type: string
       required:
-      - namespace
-      - type
-    GetServiceURLsRequest:
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceImageLayers'
-      additionalProperties: false
-      title: Get Service UR Ls Request
-      type: object
-      required:
-      - requests
-    GetMetricsUrlRequest:
-      properties:
-        startTime:
-          type: integer
-          format: int64
-        serviceName:
-          type: string
-        metricName:
-          type: string
-        endTime:
-          type: integer
-          format: int64
-        period:
-          type: integer
-          format: int32
-      additionalProperties: false
-      title: Get Metrics Url Request
-      type: object
-      required:
-      - serviceName
-      - metricName
-    GetSignedUrlResponse:
-      properties:
-        headers:
-          type: array
-          items:
-            $ref: '#/components/schemas/GetLogsUrlHeader'
-        url:
-          type: string
-        body:
-          type: string
-        method:
-          type: string
-      additionalProperties: false
-      title: Get Signed Url Response
-      type: object
-      required:
-      - headers
-      - url
-      - body
-      - method
-    MicroserviceSecretResponse:
-      properties:
-        secret:
-          type: string
-      additionalProperties: false
-      title: Microservice Secret Response
-      type: object
-      required:
-      - secret
-    GetLogsUrlHeader:
-      type: object
-      additionalProperties: false
-      properties:
-        key:
-          type: string
-        value:
-          type: string
-      required:
-      - key
-      - value
+      - challenge_token
+      - solution
     TokenRequestWrapper:
       properties:
         device_id:
@@ -3910,6 +3921,54 @@ components:
       type: object
       required:
       - grant_type
+    ListTokenResponseItem:
+      type: object
+      additionalProperties: false
+      properties:
+        token:
+          type: string
+        platform:
+          type: string
+        device:
+          type: string
+        created:
+          type: string
+      required:
+      - token
+      - platform
+      - device
+      - created
+    ListTokenResponse:
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListTokenResponseItem'
+      additionalProperties: false
+      title: List Token Response
+      type: object
+      required:
+      - items
+    ContextInfo:
+      type: object
+      additionalProperties: false
+      properties:
+        platform:
+          type: string
+        device:
+          type: string
+      required:
+      - platform
+      - device
+    RevokeTokenRequest:
+      properties:
+        token:
+          type: string
+      additionalProperties: false
+      title: Revoke Token Request
+      type: object
+      required:
+      - token
     Token:
       properties:
         revoked:
@@ -3955,65 +4014,6 @@ components:
       - type
       - created
       - cid
-    ListTokenResponse:
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ListTokenResponseItem'
-      additionalProperties: false
-      title: List Token Response
-      type: object
-      required:
-      - items
-    ChallengeSolution:
-      type: object
-      additionalProperties: false
-      properties:
-        challenge_token:
-          type: string
-        solution:
-          type: string
-      required:
-      - challenge_token
-      - solution
-    ListTokenResponseItem:
-      type: object
-      additionalProperties: false
-      properties:
-        token:
-          type: string
-        platform:
-          type: string
-        device:
-          type: string
-        created:
-          type: string
-      required:
-      - token
-      - platform
-      - device
-      - created
-    ContextInfo:
-      type: object
-      additionalProperties: false
-      properties:
-        platform:
-          type: string
-        device:
-          type: string
-      required:
-      - platform
-      - device
-    RevokeTokenRequest:
-      properties:
-        token:
-          type: string
-      additionalProperties: false
-      title: Revoke Token Request
-      type: object
-      required:
-      - token
     TokenResponse_2:
       properties:
         access_token:
