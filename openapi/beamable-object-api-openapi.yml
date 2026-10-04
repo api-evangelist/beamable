@@ -129,16 +129,15 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    EventClaimEntitlementsRequest:
-      title: Event Claim Entitlements Request
+    EventRewardObtain:
+      required:
+      - count
       type: object
       properties:
-        eventId:
+        symbol:
           type: string
-        generators:
-          type: array
-          items:
-            $ref: '#/components/schemas/EntitlementGenerator'
+        count:
+          type: integer
       additionalProperties: false
     EventPlayerGroupState:
       required:
@@ -161,22 +160,38 @@ components:
           items:
             $ref: '#/components/schemas/EventRewardState'
       additionalProperties: false
-    ItemProperty:
+    EventInventoryRewardCurrency:
+      required:
+      - amount
       type: object
       properties:
-        name:
+        id:
           type: string
-        value:
-          type: string
+        amount:
+          type: integer
       additionalProperties: false
-    EventClaimResponse:
-      title: Event Claim Response
+    EventInventoryPendingRewards:
+      required:
+      - empty
       type: object
       properties:
-        view:
-          $ref: '#/components/schemas/EventPlayerStateView'
-        gameRspJson:
+        currencies:
+          type: object
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemCreateRequest'
+        empty:
+          type: boolean
+      additionalProperties: false
+    CommonResponse:
+      title: Common Response
+      type: object
+      properties:
+        result:
           type: string
+        data:
+          type: object
       additionalProperties: false
     EventPlayerStateView:
       required:
@@ -217,37 +232,12 @@ components:
           items:
             $ref: '#/components/schemas/EventRewardState'
       additionalProperties: false
-    CommonResponse:
-      title: Common Response
+    EventClaimRequest:
+      title: Event Claim Request
       type: object
       properties:
-        result:
+        eventId:
           type: string
-        data:
-          type: object
-      additionalProperties: false
-    EventPlayerView:
-      title: Event Player View
-      type: object
-      properties:
-        running:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventPlayerStateView'
-        done:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventPlayerStateView'
-      additionalProperties: false
-    EventInventoryRewardCurrency:
-      required:
-      - amount
-      type: object
-      properties:
-        id:
-          type: string
-        amount:
-          type: integer
       additionalProperties: false
     EventPlayerPhaseView:
       required:
@@ -263,6 +253,23 @@ components:
           items:
             $ref: '#/components/schemas/EventRule'
       additionalProperties: false
+    ItemProperty:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+      additionalProperties: false
+    EventClaimResponse:
+      title: Event Claim Response
+      type: object
+      properties:
+        view:
+          $ref: '#/components/schemas/EventPlayerStateView'
+        gameRspJson:
+          type: string
+      additionalProperties: false
     ItemCreateRequest:
       type: object
       properties:
@@ -272,6 +279,77 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ItemProperty'
+      additionalProperties: false
+    EventInventoryRewardItem:
+      type: object
+      properties:
+        id:
+          type: string
+        properties:
+          type: object
+      additionalProperties: false
+    EventRule:
+      type: object
+      properties:
+        rule:
+          type: string
+        value:
+          type: string
+      additionalProperties: false
+    EventScoreRequest:
+      title: Event Score Request
+      required:
+      - score
+      type: object
+      properties:
+        eventId:
+          type: string
+        score:
+          type: number
+        increment:
+          type: boolean
+        stats:
+          type: object
+      additionalProperties: false
+    EventPlayerView:
+      title: Event Player View
+      type: object
+      properties:
+        running:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventPlayerStateView'
+        done:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventPlayerStateView'
+      additionalProperties: false
+    EntitlementClaimWindow:
+      required:
+      - open
+      - close
+      type: object
+      properties:
+        open:
+          type: integer
+        close:
+          type: integer
+      additionalProperties: false
+    EntitlementGenerator:
+      type: object
+      properties:
+        quantity:
+          type: integer
+        claimWindow:
+          $ref: '#/components/schemas/EntitlementClaimWindow'
+        params:
+          type: object
+        symbol:
+          type: string
+        specialization:
+          type: string
+        action:
+          type: string
       additionalProperties: false
     EventRewardState:
       required:
@@ -311,94 +389,16 @@ components:
           items:
             $ref: '#/components/schemas/EventRewardObtain'
       additionalProperties: false
-    EventClaimRequest:
-      title: Event Claim Request
+    EventClaimEntitlementsRequest:
+      title: Event Claim Entitlements Request
       type: object
       properties:
         eventId:
           type: string
-      additionalProperties: false
-    EventInventoryPendingRewards:
-      required:
-      - empty
-      type: object
-      properties:
-        currencies:
-          type: object
-        items:
+        generators:
           type: array
           items:
-            $ref: '#/components/schemas/ItemCreateRequest'
-        empty:
-          type: boolean
-      additionalProperties: false
-    EventRewardObtain:
-      required:
-      - count
-      type: object
-      properties:
-        symbol:
-          type: string
-        count:
-          type: integer
-      additionalProperties: false
-    EntitlementClaimWindow:
-      required:
-      - open
-      - close
-      type: object
-      properties:
-        open:
-          type: integer
-        close:
-          type: integer
-      additionalProperties: false
-    EventScoreRequest:
-      title: Event Score Request
-      required:
-      - score
-      type: object
-      properties:
-        eventId:
-          type: string
-        score:
-          type: number
-        increment:
-          type: boolean
-        stats:
-          type: object
-      additionalProperties: false
-    EventInventoryRewardItem:
-      type: object
-      properties:
-        id:
-          type: string
-        properties:
-          type: object
-      additionalProperties: false
-    EntitlementGenerator:
-      type: object
-      properties:
-        quantity:
-          type: integer
-        claimWindow:
-          $ref: '#/components/schemas/EntitlementClaimWindow'
-        params:
-          type: object
-        symbol:
-          type: string
-        specialization:
-          type: string
-        action:
-          type: string
-      additionalProperties: false
-    EventRule:
-      type: object
-      properties:
-        rule:
-          type: string
-        value:
-          type: string
+            $ref: '#/components/schemas/EntitlementGenerator'
       additionalProperties: false
   securitySchemes:
     userRequired:
