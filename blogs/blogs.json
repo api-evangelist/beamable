@@ -2,15 +2,11 @@
   "repo": "beamable",
   "feeds": [
     {
-      "source": "https://www.linkedin.com/company/beamable",
-      "error": "HTTPError"
-    },
-    {
-      "source": "https://twitter.com/Beamable",
-      "feed_url": "https://twitter.com/Beamable",
+      "source": "https://beamable.com/category/blog",
+      "feed_url": "https://beamable.com/category/blog/feed",
       "title": "",
       "saved": 0,
-      "method": "none"
+      "method": "discovered"
     },
     {
       "source": "https://beamable.com/feed/",
@@ -18,9 +14,16 @@
       "title": "",
       "saved": 0,
       "method": "feed"
+    },
+    {
+      "source": "https://twitter.com/Beamable",
+      "feed_url": "https://twitter.com/Beamable",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "fetched": "2026-10-03T12:30:02Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 10,
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
