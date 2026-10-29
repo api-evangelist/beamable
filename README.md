@@ -1,4 +1,4 @@
-# Beamable (beamable)
+# Beamable
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,74 +66,159 @@
 
 Beamable is a cloud backend platform purpose-built for games and interactive applications, providing REST APIs and SDK integrations for Unity, Unreal, and web environments. The platform delivers production-ready services covering player identity and authentication, virtual currency and economy, inventory management, leaderboards, matchmaking, live events, and analytics. Developers can extend the platform with custom C# microservices and scheduled jobs, deploying server-side logic without managing infrastructure. Beamable is backed by AWS and has served over 30 million players, offering a LiveOps portal, CLI tooling, and content management for games-as-a-service operations.
 
-- **APIs.json:** https://raw.githubusercontent.com/api-evangelist/beamable/refs/heads/main/apis.yml
-- **Naftiko:** https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=beamable-api-evangelist&utm_content=repo
+**Areas:** Game Backend · LiveOps · Player Accounts · Virtual Currency · Inventory · Leaderboards · Matchmaking · Microservices · Unity · Unreal · Game Economy · Analytics
 
-## Tags
+## Beamable on APIs.io
 
-- Game Backend
-- LiveOps
-- Player Accounts
-- Virtual Currency
-- Inventory
-- Leaderboards
-- Matchmaking
-- Microservices
-- Unity
-- Unreal
-- Game Economy
-- Analytics
+Everything profiled for Beamable is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/beamable/](https://apis.io/providers/beamable/)** — or go straight to one of the APIs or properties below.
 
-## APIs
+### APIs (3)
 
-| API | Description |
-|-----|-------------|
-| Player Accounts API | Player identity, authentication, and account management with OAuth integrations |
-| Game Economy API | Virtual currency, inventory, and in-game store management |
-| Leaderboards API | Competitive leaderboards with global, friend-based, and partitioned rankings |
-| Live Events API | Scheduling and management for live events, announcements, and player mail |
-| Microservices API | Custom C# server-side logic deployed as managed microservices |
+- [Beamable Game Economy API](https://apis.io/apis/beamable/game-economy/) — REST API for virtual currency, inventory, and in-game store management. Provides endpoints for granting, spending, and querying player currencies, managing…
+- [Beamable Basic API](https://apis.io/apis/beamable/beamable-basic-api/) — The Basic API from Beamable — 43 operation(s) for basic.
+- [Beamable Object API](https://apis.io/apis/beamable/beamable-object-api/) — The Object API from Beamable — 4 operation(s) for object.
 
-## Plans, Rate Limits, and FinOps
+### Published properties
 
-| Resource | Location |
-|----------|----------|
-| Plans and Pricing | [plans/beamable-plans-pricing.yml](plans/beamable-plans-pricing.yml) |
-| Rate Limits | [rate-limits/beamable-rate-limits.yml](rate-limits/beamable-rate-limits.yml) |
-| FinOps Framework | [finops/beamable-finops.yml](finops/beamable-finops.yml) |
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Beamable uses a subscription-plus-consumption billing model. Pricing tiers are:
+#### GraphQL (1)
 
-| Plan | Price/Month | API Calls Included | MAU | Microservices |
-|------|-------------|-------------------|-----|---------------|
-| Free Trial | $0 (90 days) | — | — | — |
-| Developer | $125 | 12.5M | 1,000 | 3 |
-| Studio | $595 | 59.5M | 30,000 | 10 |
-| Pro | $1,895 | 189.5M | 100,000 | 25 |
-| Enterprise | $3,500+ | 350M+ | Unlimited | 75+ |
+GraphQL schemas.
 
-Overage: $100 per 10M additional API calls (standard); $10 per 1M at Enterprise scale. Each API call is subject to a 10KB bandwidth limit. Additional microservices: $20/month each. No separate storage or bandwidth charges.
+- [Moved to /providers/beamable/](https://apis.io/graphqls/beamable/beamable-graphql/)
 
-## Timestamps
+#### Agentic access (1)
 
-- **Created:** 2026-06-12
-- **Modified:** 2026-06-12
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## Common Resources
+- [Beamable Agentic Access](https://apis.io/agentic-access/beamable/beamable-agentic-access/)
 
-| Type | URL |
-|------|-----|
-| Website | https://beamable.com/ |
-| Documentation | https://docs.beamable.com/docs/beamable-overview |
-| GitHub Org | https://github.com/beamable |
-| LinkedIn | https://www.linkedin.com/company/beamable |
-| Blog | https://beamable.com/category/blog |
-| Pricing | https://beamable.com/pricing |
-| Status Page | https://beamable.github.io/status/ |
-| X / Twitter | https://twitter.com/Beamable |
+#### JSON Schema (3)
 
-## Maintainers
+The data models the API reads and writes.
 
-| Name | Email |
-|------|-------|
-| Kin Lane | kin@apievangelist.com |
+- [Beamable Live Events Schemas](https://apis.io/schemas/beamable/beamable-live-events/)
+- [Beamable Microservices Schemas](https://apis.io/schemas/beamable/beamable-microservices/)
+- [Beamable Player Accounts Schemas](https://apis.io/schemas/beamable/beamable-player-accounts/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Beamable Context](https://apis.io/jsonld/beamable/beamable-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Beamable API Vocabulary](https://apis.io/vocabularies/beamable/beamable-vocabulary/)
+
+#### Examples (3)
+
+Example requests and responses.
+
+- [Beamable Live Event Score Example](https://apis.io/examples/beamable/beamable-live-event-score-example/)
+- [Beamable Microservice Manifest Example](https://apis.io/examples/beamable/beamable-microservice-manifest-example/)
+- [Beamable Player Auth Example](https://apis.io/examples/beamable/beamable-player-auth-example/)
+
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [realms Basic API](https://apis.io/collections/beamable/open-beamable-basic-api/)
+- [realms Basic Object API](https://apis.io/collections/beamable/open-beamable-object-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Beamable — jsonschema rules](https://apis.io/rules/beamable/beamable-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Beamable Authentication](https://apis.io/security/beamable/beamable-authentication/)
+- [Beamable Domain Security](https://apis.io/security/beamable/beamable-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Beamable Plans Pricing](https://apis.io/plans/beamable/beamable-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Beamable Rate Limits](https://apis.io/rate-limits/beamable/beamable-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Beamable Finops](https://apis.io/finops/beamable/beamable-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://beamable.com/)
+- [Documentation](https://docs.beamable.com/docs/beamable-overview)
+- [Pricing](https://beamable.com/pricing)
+- [Blog](https://beamable.com/category/blog)
+- [Status](https://beamable.github.io/status/)
+
+## API Evangelist rating
+
+**Kin Score 34.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 55.1 |
+| Contract governance | 23.5 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 18.4 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/beamable/](https://apis.io/providers/beamable/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Beamable: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/beamable/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
